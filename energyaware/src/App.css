@@ -26,3 +26,23 @@
 img {
   height: 100px;
 }
+
+.quizzes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 70vh;
+}
+
+.topics {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+}
