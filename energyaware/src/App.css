@@ -27,22 +27,24 @@ img {
   height: 100px;
 }
 
-.quizzes {
+.Quizzes {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   height: 70vh;
 }
 
-.topics {
+.Topics {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
+  height: 30%;
+  width: 50%;
 }
 
-.option {
+.Option {
   display: flex;
   flex-direction: column;
 }

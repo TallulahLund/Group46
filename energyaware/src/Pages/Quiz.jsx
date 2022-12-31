@@ -6,24 +6,58 @@ import SolarQuiz from "./Quizzes/SolarQuiz";
 
 const Quiz = () => {
   return (
-    <div className="topics">
-      <div>
-        <Link to="/quiz/solar">
-          <img src="logo192.png"></img>
-          <h2>Solar</h2>
-        </Link>
+    <div className="Quizzes">
+      <div className="Topics">
+        <div className="Option">
+          <Link to="/quiz/solar">
+            <img src="logo192.png"></img>
+            <h2>Solar</h2>
+          </Link>
+        </div>
+        <div>
+          <Link to="/quiz/solar">
+            <img src="logo192.png"></img>
+            <h2>Solar</h2>
+          </Link>
+        </div>
+        <div>
+          <Link to="/quiz/solar">
+            <img src="logo192.png"></img>
+            <h2>Solar</h2>
+          </Link>
+        </div>
+        <div>
+          <Link to="/quiz/solar">
+            <img src="logo192.png"></img>
+            <h2>Solar</h2>
+          </Link>
+        </div>
       </div>
-      <div>
-        <Link to="/quiz/solar">
-          <img src="logo192.png"></img>
-          <h2>Solar</h2>
-        </Link>
-      </div>
-      <div>
-        <Link to="/quiz/solar">
-          <img src="logo192.png"></img>
-          <h2>Solar</h2>
-        </Link>
+      <div className="Topics">
+        <div className="Option">
+          <Link to="/quiz/solar">
+            <img src="logo192.png"></img>
+            <h2>Solar</h2>
+          </Link>
+        </div>
+        <div>
+          <Link to="/quiz/solar">
+            <img src="logo192.png"></img>
+            <h2>Solar</h2>
+          </Link>
+        </div>
+        <div>
+          <Link to="/quiz/solar">
+            <img src="logo192.png"></img>
+            <h2>Solar</h2>
+          </Link>
+        </div>
+        <div>
+          <Link to="/quiz/solar">
+            <img src="logo192.png"></img>
+            <h2>Solar</h2>
+          </Link>
+        </div>
       </div>
       <Routes>
         <Route path="/quiz/solar" element={<SolarQuiz />}></Route>
