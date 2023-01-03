@@ -15,7 +15,7 @@ const App = () => {
         <div className="Header">
           <div className="PageLinks">
             <Link to="/">Energy Aware</Link>
-            <Link to="/petitions">Petitions</Link>
+            <Link to="/petitions">Petition</Link>
             <Link to="/quiz">Interactive Quiz</Link>
             <Link to="/tips">Tips</Link>
           </div>
