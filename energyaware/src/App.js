@@ -7,6 +7,7 @@ import Profile from "./Pages/Profile";
 import Quiz from "./Pages/Quiz";
 import Petitions from "./Pages/Petition";
 import Tips from "./Pages/Tips";
+import Information from "./Pages/Information";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <Link to="/petitions">Petition</Link>
             <Link to="/quiz">Interactive Quiz</Link>
             <Link to="/tips">Tips</Link>
+            <Link to="/information">Information</Link>
           </div>
           <div className="ProfileLink">
             <Link to="/profile">
@@ -33,6 +35,7 @@ const App = () => {
         <Route path="/quiz" element={<Quiz />}></Route>
         <Route path="/tips" element={<Tips />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
+        <Route path="/information" element={<Information />}></Route>
       </Routes>
     </Router>
   );
