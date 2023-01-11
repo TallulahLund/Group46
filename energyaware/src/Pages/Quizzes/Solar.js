@@ -1,21 +1,21 @@
 const questionz = [
   {
-    question: "sustainable?",
+    question: "Sustainable?",
     choices: ["Solar", "Wind", "Coal", "Hydro"],
     correctAnswer: "Coal",
   },
   {
-    question: " sustainabless?",
+    question: "Sustainabless?",
     choices: ["Solar", "Wind", "Coal", "Hydro"],
     correctAnswer: "Coal",
   },
   {
-    question: "sustainablessssss?",
+    question: "Sustainablessssss?",
     choices: ["Solar", "Wind", "Coal", "Hydro"],
     correctAnswer: "Coal",
   },
   {
-    question: "sustainablesssssssssssssss?",
+    question: "Sustainablesssssssssssssss?",
     choices: ["Solar", "Wind", "Coal", "Hydro"],
     correctAnswer: "Coal",
   },

@@ -13,8 +13,6 @@ import questionx from "./Pages/Quizzes/Wind";
 import questionz from "./Pages/Quizzes/Solar";
 
 const App = () => {
-  const [solarScore, setSolarScore] = useState(0);
-
   return (
     <Router>
       <div className="App">

@@ -1,7 +1,5 @@
 import React from "react";
 import Question from "./Question";
-import questionx from "./Wind";
-import questionz from "./Solar";
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -26,7 +24,7 @@ const Quiz = (props) => {
       if (currentQuestion < questions.length - 1) {
         setCurrentQuestion((prevcurrentQuestion) => prevcurrentQuestion + 1);
       } else {
-        submitQuiz();
+        //submitQuiz();
       }
     } else {
       console.log("Select an Option");
@@ -48,26 +46,30 @@ const Quiz = (props) => {
   };
 
   useEffect(() => {
-    if (userAnswers.length == correctAnswers.length) {
+    if (userAnswers.length === correctAnswers.length) {
       console.log(userAnswers);
       submitQuiz();
     }
   }, [userAnswers]);
 
   if (showResults) {
-    return <div>{score}</div>;
+    return (
+      <div className="results-page">
+        <div>You Scored: {score}</div>
+      </div>
+    );
   } else {
     const { question, choices } = questions[currentQuestion];
     return (
-      <div>
-        <div>
-          <Question
-            question={question}
-            choices={choices}
-            handleAnswer={handleAnswer}
-          />
-        </div>
-        <button onClick={submitAnswer}>Next</button>
+      <div className="question-display">
+        <Question
+          question={question}
+          choices={choices}
+          handleAnswer={handleAnswer}
+        />
+        <button className="submit-button" onClick={submitAnswer}>
+          Next
+        </button>
       </div>
     );
   }
