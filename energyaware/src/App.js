@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 
 import Home from "./Pages/Home";
 import Profile from "./Pages/Profile";
-import Quiz from "./Pages/Quiz";
+import QuizOptions from "./Pages/Quizzes";
 import Petitions from "./Pages/Petition";
 import Tips from "./Pages/Tips";
 import Information from "./Pages/Information";
+import Quiz from "./Pages/Quizzes/Quiz";
+import questionx from "./Pages/Quizzes/Wind";
+import questionz from "./Pages/Quizzes/Solar";
 
 const App = () => {
   return (
@@ -32,10 +35,14 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/petitions" element={<Petitions />}></Route>
-        <Route path="/quiz" element={<Quiz />}></Route>
         <Route path="/tips" element={<Tips />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/information" element={<Information />}></Route>
+        <Route path="/quiz">
+          <Route index element={<QuizOptions />} />
+          <Route path="/quiz/solar" element={<Quiz questions={questionz} />} />
+          <Route path="/quiz/wind" element={<Quiz questions={questionx} />} />
+        </Route>
       </Routes>
     </Router>
   );
