@@ -1,4 +1,4 @@
-const questionz = [
+const solarQuestions = [
   {
     question: "Sustainable?",
     choices: ["Solar", "Wind", "Coal", "Hydro"],
@@ -21,4 +21,4 @@ const questionz = [
   },
 ];
 
-export default questionz;
+export default solarQuestions;
