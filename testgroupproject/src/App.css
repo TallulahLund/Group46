@@ -1,8 +1,6 @@
-
 /* whole */
 
-*
-{
+* {
   margin: 0;
   padding: 0;
 }
@@ -18,12 +16,12 @@ body {
 }
 
 div#root {
-  height: 100%; 
+  height: 100%;
 }
 
 .App {
   /* font-family: "Lato", sans-serif; */
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   /* max-width: 75rem; */
   /* margin: auto; */
   height: 100%;
@@ -32,7 +30,6 @@ div#root {
   margin: 0;
   width: 100%;
 }
-
 
 .App-header {
   /* background-image:url(SharingFood.jpg); */
@@ -50,7 +47,6 @@ div#root {
   margin: 0px;
   /* text-size-adjust: 14px; */
   /* text-align: left; */
-  
 }
 
 .App-nav {
@@ -82,13 +78,11 @@ div#root {
   background-color: lightgrey;
 }
 
-.nav-link:active
-{
+.nav-link:active {
   background-color: red;
 }
 /* must fix */
-.nav-link-active
-{
+.nav-link-active {
   float: left;
   display: inline;
   display: block;
@@ -104,7 +98,6 @@ div#root {
   /* ? */
 }
 
-
 .App-main {
   /* display: flex;
   flex-wrap: wrap; */
@@ -118,7 +111,7 @@ div#root {
 /* newsletter 
 - figure out how to put at bottom if too small
 -> probs be under section in app.js */
-.sidebar{
+.sidebar {
   width: 25%;
   min-width: 180px;
   /* background-color: #deded8; */
@@ -129,9 +122,7 @@ div#root {
   float: right;
   /* padding: 8px; */
 
-
   /* margin-left: 20px; here*/
-
 
   /* margin-right: 20px; */
 
@@ -140,8 +131,7 @@ div#root {
   height: 900px;
 }
 
-.sidebarcontent
-{
+.sidebarcontent {
   margin: 0px;
   /* padding: 8px; */
 
@@ -150,8 +140,7 @@ div#root {
 }
 
 /* mainContent */
-.mainContent
-{
+.mainContent {
   width: 72.5%;
   float: left;
 
@@ -165,11 +154,11 @@ div#root {
   text-align: left;
 } */
 
-.registration{
+.registration {
   margin: 10px 10px auto;
   min-width: 50%;
   padding: 10px;
-  height:100%;
+  height: 100%;
 }
 
 .labelText {
@@ -179,901 +168,26 @@ div#root {
 }
 
 @media screen and (max-width: 800px) {
-  .App{
-    height:auto;
+  .App {
+    height: auto;
   }
 
-  .App-main{
-    height:auto;
+  .App-main {
+    height: auto;
   }
   .sidebar {
-      min-width: 100%;
-      height: auto;
+    min-width: 100%;
+    height: auto;
   }
 
-  .registration{
-    min-width:90%;
-    font-size:smaller;
-    height:auto;
+  .registration {
+    min-width: 90%;
+    font-size: smaller;
+    height: auto;
   }
 
   /* fixed make 100% when sidebar at bottom */
-  .mainContent
-  {
+  .mainContent {
     width: 100%;
   }
-
 }
-
-
-/* Home - quote calculator */
-.myQuotes
-{
-  background-color: rgb(247, 247, 247);
-  /* margin-right: 5px; */
-  margin-top: 15px;
-  /* margin-bottom: 25px; */
-  /* margin-bottom: 50px; */
-  /* margin-bottom: 300px; */
-  margin-bottom: 150px;
-
-  /* padding: 25px 25px 0px 25px; */
-  padding: 15px;;
-
-  /* max-width: 1139px;
-  min-width: 497.25px; */
-
-  /* float: left; */
-  /* min-width: 590px; */
-
-  /* width: 70%; here */
-  
-}
-.quotesList
-{
-  border-top: 2px solid black;
-}
-.quote
-{
-  border-bottom: 2px solid black;
-  padding: 15px;
-}
-
-
-.homeList
-{
-  margin-left: 15px;
-  /* margin-top: 15px; */
-}
-
-/* renewable energy */
-.energy
-{
-  /* width: 2000px; */
-
-  /* width: 620px; */
-
-
-  /* width: 72.5%; here*/
-}
-.collapsible
-{
-  background-color: rgb(247, 247, 247);
-  font-family: 'Courier New', Courier, monospace;
-  cursor: pointer;
-  padding: 10px;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: larger;
-
-  /* width: 580px; */
-  /* width: 58%; */
-
-  /* min-width: 29%; */
-
-  width: 100%;
-}
-.collapsible::after
-{
-  content: '\002B';
-  font-weight: bold;
-  float: right;
-  margin-left: 5px;
-}
-.re_active:after
-{
-  content: "\2212";
-}
-.content
-{
-  padding: 0px 10px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  background-color: rgb(235, 233, 233);
-  margin: 10px 0;
-
-  /* width: 560px; */
-
-  /* width: 28%; */
-
-  /* width: 96.775%; */
-
-
-  /* width: 97.75%; here */
-
-
-  /* height: 500px; */
-
-  /* display: flex;
-  justify-content: space-between; */
-}
-.content > p
-{
-  padding: 10px 0px;
-}
-
-#windfarmpic
-{
-  width: 315px;
-  height: 150px;
-
-  /* margin: 10px 0px 15px 10px; */
-  margin-top: 10px;
-  margin-left: 5px;
-
-  /* float: right; */
-}
-.image
-{
-  float: right;
-  font-size: smaller;
-  font-style: italic;
-}
-
-/* .windButton
-{
-  background-color: rgb(247, 247, 247);
-  display: flex;
-  padding: 10px;
-  font-size: larger;
-  cursor: pointer;
-}
-.windCheck
-{
-  display: none;
-}
-.windContent
-{
-  max-height: 0;
-  opacity: 0;
-  visibility: hidden;
-  transition: max-height 0s;
-  background-color: rgb(247, 247, 247);
-  border: 1px solid black;
-  padding: 10px;
-  width: auto;
-  margin: 0;
-}
-.windCheck:checked + .windContent
-{
-  max-height: 100vh;
-  opacity: 1;
-  visibility: visible;
-  margin-bottom: 20px;
-}
-.bar 
-{
-  width: auto;
-  justify-content: space-around;
-}
-.bar > span
-{
-  float: right;
-} */
-
-
-/* petitions */
-.petitionsList
-{
-  /* width: 73%; here */
-
-
-  border-top: 2px solid black;
-}
-.petition
-{
-  padding: 15px;
-  /* width: 69%; */
-
-  /* border-top: 2px solid black; */
-  border-bottom: 2px solid black;
-
-  /* display: flex; */
-
-  cursor: pointer;
-}
-.pTitle
-{
-  display: flex;
-  justify-content: space-between;
-}
-.pTitle > p
-{
-  font-size: 14px;
-}
-.signatureCount
-{
-  display: flex;
-  justify-content: center;
-}
-.signatureBar
-{
-  display: flex;
-  justify-content: center;
-}
-.sBar
-{
-  background-color: green;
-  width: 57.6%;
-  height: 16px;
-}
-.sBarGrey
-{
-  background-color: darkgrey;
-  width: 42.4%;
-}
-.sBar2
-{
-  background-color: green;
-  width: 7.5%;
-  height: 16px;
-}
-.sBarGrey2
-{
-  background-color: darkgrey;
-  width: 92.5%;
-}
-
-
-
-/* tips */
-
-.tipLine
-{
-  display: flex;
-  justify-content: space-around;
-  margin: 20px 0px;
-}
-
-.tip
-{
-  background-color: rgb(247, 247, 247);
-  list-style-type: none;
-  padding: 25px;
-  width: 38%;
-  height: 85px;
-  display: flex;
-}
-.beforeH
-{
-  display: flex;
-}
-.afterH
-{
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-.tip:hover .beforeH
-{
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-.tip:hover .afterH
-{
-  opacity: 1;
-  width: auto;
-  height: auto;
-
-
-  /* height: 200px; */
-}
-.tip:hover
-{
-  height: auto;
-}
-/* fixes tip height on hover
-- just make box bigger instead */
-
-/*  */
-#lightbulb
-{
-  width: 50px;
-  height: 50px;
-  float: right;
-  margin: 10px 25px;
-}
-#shower
-{
-  width: 50px;
-  height: 50px;
-  float: right;
-  margin: 20px 25px;
-}
-#kettle
-{
-  width: 60px;
-  height: 60px;
-  float: right;
-  margin: 20px 15px;
-}
-
-
-/* user tips section */
-.submitTips
-{
-  /* margin-left: 28px; fix */
-  
-  margin-right: 5px;
-  margin-top: 15px;
-
-  /* display: flex; */
-
-  margin-bottom: 25px;
-}
-.submitTips > div
-{
-  background-color: rgb(247, 247, 247);
-  padding: 25px 25px 0px 25px;
-  display: flex;
-
-  justify-content: space-between;
-}
-/* .submitTips > input
-{
-  width: 100%;
-  height: 100px;
-} */
-/* .submitTips > textarea
-{
-  /* width: 100%; */
-  /* height: 800px; */
-  /* rows: 4; */
-  /* resize: none; 
-} */
-/* ^ not working */
-/* textarea
-{
-  resize: none;
-} */
-/* ^ watch out, means for all textareas */
-#textArea
-{
-  resize: none;
-  /* ^ doesn't work */
-  padding-bottom: none;
-
-  /* justify-content: stretch; */
-  max-width: 1139px;
-  min-width: 497.25px;
-}
-#tA
-{
-  width: 1139px;
-  min-width: 547.25px;
-  min-height: 100px;
-  resize: none;
-  /* rows: 4;
-  columns: 108;
-  above set as rows and cols in .js file */
-}
-.submitTips > div > p
-{
-  /* float: right; */
-  margin-right: 20%;
-}
-#tipCategory
-{
-  margin-left: 16px;
-  width: 200px;
-  height: 25px;
-  font-family: 'Courier New', Courier, monospace;
-
-  cursor: pointer;
-}
-#tipButtonDiv
-{
-  text-align: end;
-  justify-content: end;
-}
-#tipButton
-{
-  margin-top: none;
-  /* margin-left: 717.5px; */
-  float: right;
-  /* margin-right: 10px; */
-  margin-bottom: 25px;
-  padding: 5px 20px;
-  font-family: 'Courier New', Courier, monospace;
-
-  cursor: pointer;
-}
-
-
-.userTipBoxes
-{
-  background-color: rgb(247, 247, 247);
-  padding: 5px 25px 20px;
-
-  /* display: flex; */
-
-  /* max-width: 1139px; */
-  width: 547.25px;
-  /* width: 66%; */
-
-  margin-right: 5px;
-  margin-top: 15px;
-
-  margin-bottom: 25px;;
-}
-.userTipBox
-{
-  background-color: rgb(235, 233, 233);
-  padding: 20px;
-  margin-top: 15px;
-  display: flex;
-
-  /* justify-content: space-between; */
-
-  /* display: grid; */
-  /* width: 400px; */
-}
-.firstLine
-{
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
-}
-.tipCategory
-{
-
-}
-/* .postInfo
-{
-  justify-content: none;
-  font-size: small;
-} */
-/* .tipDateTime
-{
-  /* font-size: small; 
-  margin-left: 10px;
-} */
-.secondLine
-{
-  display: flex;
-  justify-content: space-between;
-}
-.userTipString
-{
-  border: 1px solid black;
-  border-radius: 4px;
-  padding: 10px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: small;
-
-  /* width: 800px;
-  min-width: 316px; */
-
-  background-color: whitesmoke;
-}
-.userLikes
-{
-  min-width: 100px;
-  margin-left: 15px;
-  display: grid;
-  text-align: end;
-  justify-content: space-evenly;
-}
-.userTipLikes
-{
-  float: right;
-  min-width: 90px;
-
-  margin: 35px 0px;
-
-}
-/* can put above 2 in one */
-.modifyTip
-{
-  margin-left: 20px;
-  width: 50px;
-
-}
-.modifyTip > img
-{
-  /* margin: 1px 0px; */
-  margin: 7.5px 0px;
-}
-.modifyTip > img:hover
-{
-  cursor: pointer;
-}
-
-
-.submitTipsN
-{
-  /* margin-left: 28px; fix */
-  
-  margin-right: 5px;
-  margin-top: 15px;
-
-  /* display: flex; */
-
-  margin-bottom: 25px;
-  
-}
-/* .userTipBoxN > div */
-.submitTipsN > div
-{
-  background-color: rgb(247, 247, 247);
-  /* padding: 25px 25px 0px 25px; */
-  display: flex;
-
-  justify-content: space-between;
-
-  padding: 25px;
-  margin-bottom: 25px;
-
-  /* background-color: rgb(235, 233, 233); */
-}
-.userTipBoxN
-{
-  /* background-color: rgb(235, 233, 233);
-  padding: 20px;
-  margin-top: 15px;
-  display: flex; */
-
-  /* justify-content: space-between; */
-
-  /* display: grid; */
-  /* width: 400px; */
-
-  background-color: rgb(235, 233, 233);
-  padding: 20px;
-  /* margin-top: 15px; */
-  display: flex;
-
-  /* background-color: rgb(247, 247, 247); */
-  /* background-color: aqua; */
-
-  justify-content: space-between;
-  /*  */
-}
-.userTipInfoN
-{
-  /* padding: 20px; */
-}
-.info
-{
-  background-color: rgb(235, 233, 233);
-  padding: 25px 25px 0px 25px;
-  display: flex;
-
-  justify-content: space-between;
-
-  /* display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px; */
-
-}
-.fLine
-{
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
-}
-.tCategory
-{
-
-}
-.tDateTime
-{
-
-}
-.sLine
-{
-  display: flex;
-  justify-content: space-between;
-}
-.tString
-{
-
-}
-.tLikes
-{
-
-}
-#textAreaN
-{
-  resize: none;
-  /* ^ doesn't work */
-  padding-bottom: none;
-
-  /* justify-content: stretch; */
-  max-width: 1139px;
-  min-width: 497.25px;
-}
-#tAN
-{
-  width: 1139px;
-  min-width: 547.25px;
-  min-height: 100px;
-  resize: none;
-}
-.submitTipsN > div > p
-{
-  /* float: right; */
-  margin-right: 20%;
-}
-.modify
-{
-
-}
-
-
-/* allTips section*/
-.allTips
-{
-  background-color: rgb(247, 247, 247);
-  padding: 20px 25px;
-
-  /* display: flex; */
-
-  /* width: 66%; here */
-}
-
-#aTsameLine
-{
-  display: flex;
-
-  justify-content: space-between;
-}
-#tipFilterButton
-{
-  margin-top: none;
-  /* margin-left: 50px; */
-  /* float: right; */
-  /* margin-right: 10px; */
-  margin-bottom: 25px;
-  padding: 3px 10px;
-  font-family: 'Courier New', Courier, monospace;
-
-  cursor: pointer;
-}
-#tipFilterCategory
-{
-  /* margin-left: 16px; */
-  width: 140px;
-  height: 25px;
-  font-family: 'Courier New', Courier, monospace;
-
-  /* margin-right: 50px; */
-
-  cursor: pointer;
-}
-
-.tipBox
-{
-  background-color: rgb(235, 233, 233);
-  padding: 20px;
-  margin-top: 15px;
-  /* display: flex; */
-
-  justify-content: space-between;
-}
-.firstLine
-{
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
-}
-.tipCategory
-{
-
-}
-.postInfo
-{
-  justify-content: none;
-  font-size: small;
-}
-.tipAuthor
-{
-
-}
-.tipDateTime
-{
-  /* font-size: small; */
-  margin-left: 10px;
-}
-.secondLine
-{
-  display: flex;
-  justify-content: space-between;
-}
-.tipString
-{
-  border: 1px solid black;
-  border-radius: 4px;
-  padding: 10px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: small;
-
-  width: 850px;
-  min-width: 366px;
-
-  background-color: whitesmoke;
-}
-.likes
-{
-  min-width: 100px;
-  margin-left: 15px;
-  display: grid;
-  text-align: end;
-  justify-content: space-evenly;
-}
-.tipLikes
-{
-  float: right;
-  min-width: 90px;
-
-  margin: 20px 0px;
-
-}
-#likeTipButton
-{
-  margin-top: none;
-  padding: 3px 10px;
-  font-family: 'Courier New', Courier, monospace;
-
-  cursor: pointer;
-}
-
-
-
-
-
-
-/* .t
-{
-    display: flex;
-    justify-content: space-between;
-} */
-
-/* about us css -> testing stuff */
-[data-tab-info]
-{
-    display: none;
-}
-.active[data-tab-info]
-{
-    display: block;
-}
-.tab-content
-{
-    font-size: 16px;
-
-    /* padding-block: 20px; */
-    /* padding-inline: 20px; */
-    /* background-color: rgb(247, 247, 247); */
-    margin-top: 20px;
-
-    /* padding-left: none; */
-}
-.tabs
-{
-    display: flex;
-    /* margin: 0; */
-
-    font-weight: bold;
-    font-size: large;
-
-    /* border-left: none;
-    border-right: none; */
-
-    /* justify-content: space-around; */
-    margin: 30px 10px;
-}
-.tabs span
-{
-    padding-inline: 20px;
-    padding-block: 5px;
-
-    border-inline: 1px solid black;
-    /* border-i */
-}
-.tabs span:hover
-{
-    cursor: pointer;
-    
-    text-decoration: underline;
-}
-
-
-
-/* quiz */
-.quizButtonCont
-{
-  /* float: center; */
-  /* position: relative; */
-  /* left: 30.75%; */
-  /* left: 30%; */
-
-  /* margin-left: 30%; here */
-
-  margin-left: 37.5%;
-}
-#takeQuizButton
-{
-  margin-top: none;
-  /* margin-left: 717.5px; */
-  float: center;
-  /* margin-right: 10px; */
-  margin-bottom: 25px;
-  padding: 5px 20px;
-  font-family: 'Courier New', Courier, monospace;
-
-  cursor: pointer;
-}
-/* .container { 
-  height: 200px;
-  position: relative;
-  border: 3px solid green; 
-}
-
-.center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 37.5%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-} */
-
-.quizStats
-{
-  /* height: 100%; */
-  /* padding: 5px; */
-  /* background-color: aqua; */
-}
-/* for some reasons class stats not going in classquizStats */
-.stats
-{
-  background-color: rgb(247, 247, 247);
-  /* margin-right: 5px; */
-  margin-top: 15px;
-  /* margin-bottom: 25px; */
-  /* margin-bottom: 50px; */
-
-
-  /* margin-bottom: 300px; here */
-
-
-  /* padding: 25px 25px 0px 25px; */
-  padding: 15px;
-
-  /* max-width: 1139px;
-  min-width: 497.25px; */
-
-  /* float: left; here */
-
-
-  /* min-width: 590px; */
-
-  /* width: 70%; here */
-
-  /* width: 95%; */
-}
-
