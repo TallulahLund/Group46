@@ -32,3 +32,11 @@
   height: 15%;
   cursor: pointer;
 }
+
+.question-option:active {
+  background-color: rgba(255, 255, 255, 0.119);
+}
+
+.clicked {
+  background-color: blueviolet;
+}

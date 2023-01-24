@@ -10,6 +10,10 @@
   background-color: aliceblue;
 }
 
+.submit-button:active {
+  color: rgb(23, 98, 164);
+}
+
 .results-page {
   display: flex;
   height: 75vh;
