@@ -78,9 +78,9 @@ div#root {
   background-color: lightgrey;
 }
 
-.nav-link:active {
+/* .nav-link:active {
   background-color: red;
-}
+} */
 /* must fix */
 .nav-link-active {
   float: left;
