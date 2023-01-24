@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Quizzes.css";
 
 const QuizOptions = () => {
   return (
@@ -20,13 +21,13 @@ const QuizOptions = () => {
         <div>
           <Link to="/quiz/solar">
             <img src="logo192.png"></img>
-            <h2>Solar</h2>
+            <h2>Nuclear</h2>
           </Link>
         </div>
         <div>
           <Link to="/quiz/solar">
             <img src="logo192.png"></img>
-            <h2>Solar</h2>
+            <h2>Hydro</h2>
           </Link>
         </div>
       </div>

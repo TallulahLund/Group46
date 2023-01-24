@@ -2,6 +2,7 @@ import React from "react";
 import Question from "./Question";
 import { useState } from "react";
 import { useEffect } from "react";
+import "./Quiz.css";
 
 const Quiz = (props) => {
   const { questions } = props;
