@@ -64,7 +64,7 @@
 .submitTips {
   /* margin-left: 28px; fix */
 
-  margin-right: 5px;
+  /* margin-right: 5px; */
   margin-top: 15px;
 
   /* display: flex; */
@@ -188,6 +188,9 @@
 .secondLine {
   display: flex;
   justify-content: space-between;
+
+  /* width: 90%; here*/
+  width: 100%;
 }
 .userTipString {
   border: 1px solid black;
@@ -200,13 +203,21 @@
     min-width: 316px; */
 
   background-color: whitesmoke;
+
+
+  width: 100%;
 }
 .userLikes {
   min-width: 100px;
-  margin-left: 15px;
-  display: grid;
+  /* margin-left: 15px; here */
+  /* display: grid; here */
   text-align: end;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
+
+  width: 25%;
+  margin-left: 25px;
+  display: flex;
+  float: right;
 }
 .userTipLikes {
   float: right;
@@ -216,8 +227,11 @@
 }
 /* can put above 2 in one */
 .modifyTip {
-  margin-left: 20px;
-  width: 50px;
+  /* margin-left: 20px; here */
+  /* width: 50px; here*/
+
+  width: 5%;
+  margin-left: 5%;
 }
 .modifyTip > img {
   /* margin: 1px 0px; */
@@ -230,7 +244,7 @@
 .submitTipsN {
   /* margin-left: 28px; fix */
 
-  margin-right: 5px;
+  /* margin-right: 5px; */
   margin-top: 15px;
 
   /* display: flex; */
@@ -271,9 +285,14 @@
 
   justify-content: space-between;
   /*  */
+
+
+  width: 100%;
 }
 .userTipInfoN {
   /* padding: 20px; */
+
+  width: 90%;
 }
 .info {
   background-color: rgb(235, 233, 233);
