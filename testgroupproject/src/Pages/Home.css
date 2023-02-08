@@ -1,0 +1,33 @@
+/* Home - quote calculator */
+.myQuotes {
+  background-color: rgb(247, 247, 247);
+  /* margin-right: 5px; */
+  margin-top: 15px;
+  /* margin-bottom: 25px; */
+  /* margin-bottom: 50px; */
+  /* margin-bottom: 300px; */
+  margin-bottom: 150px;
+
+  /* padding: 25px 25px 0px 25px; */
+  padding: 15px;
+
+  /* max-width: 1139px;
+  min-width: 497.25px; */
+
+  /* float: left; */
+  /* min-width: 590px; */
+
+  /* width: 70%; here */
+}
+.quotesList {
+  border-top: 2px solid black;
+}
+.quote {
+  border-bottom: 2px solid black;
+  padding: 15px;
+}
+
+.homeList {
+  margin-left: 15px;
+  /* margin-top: 15px; */
+}
