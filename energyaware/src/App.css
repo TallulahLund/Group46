@@ -1,0 +1,104 @@
+.App {
+  text-align: center;
+}
+
+.Header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 10px 10px 10px rgba(0, 0, 0, 0.258);
+  height: 15vh;
+}
+
+.PageLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 65%;
+}
+
+.ProfileLink {
+  width: 100px;
+  height: fit-content;
+}
+
+img {
+  height: 100px;
+}
+
+.Quizzes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 70vh;
+}
+
+.Topics {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 30%;
+  width: 50%;
+}
+
+.Option {
+  display: flex;
+  flex-direction: column;
+}
+
+.question-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70vh;
+}
+
+.question-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50vh;
+  width: 60%;
+  background-color: aliceblue;
+  border: 2px solid rgb(98, 173, 238);
+  border-radius: 5px;
+}
+
+.submit-button {
+  background-color: aliceblue;
+}
+
+.question {
+  display: flex;
+  align-items: center;
+  height: 30%;
+}
+
+.question-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: left;
+  height: 70%;
+  width: 80%;
+}
+
+.question-option {
+  padding: 0px;
+  border: 2px solid rgb(40, 131, 210);
+  background-color: white;
+  border-radius: 5px;
+  height: 15%;
+  cursor: pointer;
+}
+
+.results-page {
+  display: flex;
+  height: 75vh;
+  align-items: center;
+  justify-content: center;
+}
