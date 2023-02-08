@@ -1,0 +1,115 @@
+/* renewable energy */
+.energy {
+  /* width: 2000px; */
+
+  /* width: 620px; */
+
+  /* width: 72.5%; here*/
+}
+.collapsible {
+  background-color: rgb(247, 247, 247);
+  font-family: "Courier New", Courier, monospace;
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: larger;
+
+  /* width: 580px; */
+  /* width: 58%; */
+
+  /* min-width: 29%; */
+
+  width: 100%;
+}
+.collapsible::after {
+  content: "\002B";
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+.re_active:after {
+  content: "\2212";
+}
+.content {
+  padding: 0px 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: rgb(235, 233, 233);
+  margin: 10px 0;
+
+  /* width: 560px; */
+
+  /* width: 28%; */
+
+  /* width: 96.775%; */
+
+  /* width: 97.75%; here */
+
+  /* height: 500px; */
+
+  /* display: flex;
+    justify-content: space-between; */
+}
+.content > p {
+  padding: 10px 0px;
+}
+
+#windfarmpic {
+  width: 315px;
+  height: 150px;
+
+  /* margin: 10px 0px 15px 10px; */
+  margin-top: 10px;
+  margin-left: 5px;
+
+  /* float: right; */
+}
+.image {
+  float: right;
+  font-size: smaller;
+  font-style: italic;
+}
+
+/* .windButton
+  {
+    background-color: rgb(247, 247, 247);
+    display: flex;
+    padding: 10px;
+    font-size: larger;
+    cursor: pointer;
+  }
+  .windCheck
+  {
+    display: none;
+  }
+  .windContent
+  {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0s;
+    background-color: rgb(247, 247, 247);
+    border: 1px solid black;
+    padding: 10px;
+    width: auto;
+    margin: 0;
+  }
+  .windCheck:checked + .windContent
+  {
+    max-height: 100vh;
+    opacity: 1;
+    visibility: visible;
+    margin-bottom: 20px;
+  }
+  .bar 
+  {
+    width: auto;
+    justify-content: space-around;
+  }
+  .bar > span
+  {
+    float: right;
+  } */
