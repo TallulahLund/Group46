@@ -28,8 +28,8 @@ export default function Registration(){
     const email=useRef();
     const password=useRef();
     const repPassword=useRef();
-    const buyer=useRef();
-    const seller=useRef();
+    // const buyer=useRef();
+    // const seller=useRef();
     const tos=useRef();
 
     const validateForm = () => {
@@ -47,8 +47,8 @@ export default function Registration(){
             alert("Password is too short. Please select another password");
         } else if(password.value !== repPassword.value) {
             alert("Passwords do not match. Please retry");
-        } else if (!buyer.current.checked && !seller.current.checked){
-            alert("Please check at least one checkbox to select being a seller or a buyer in the system.")
+        // } else if (!buyer.current.checked && !seller.current.checked){
+        //     alert("Please check at least one checkbox to select being a seller or a buyer in the system.")
         } else if (tos.current.validity.valueMissing){
             alert("Please agree to the Terms and Conditions, and Privacy Policy.")
         }else{
@@ -61,7 +61,10 @@ export default function Registration(){
         event.preventDefault();
 
         if(validateForm()){
-            let buyer_seller=[buyer.current.checked,seller.current.checked]
+            // let buyer_seller=[buyer.current.checked,seller.current.checked]
+            let buyer_seller=[false,true];
+
+
             // axios.post('https://reqres.in/api/users',{
             axios.post(/*'/user'*/'http://localhost:8080/user',{
                 name: name.current.value,
@@ -82,8 +85,8 @@ export default function Registration(){
                 email.current.value="";
                 password.current.value="";
                 repPassword.current.value="";
-                buyer.current.checked=false;
-                seller.current.checked=false;
+                // buyer.current.checked=false;
+                // seller.current.checked=false;
                 tos.current.checked=false;
             })
             .catch(error=>{
@@ -111,11 +114,11 @@ export default function Registration(){
             {/* <input type="day" id="birthday" name="birthday"/><input type="month" id="birthday" name="birthday"/><input type="year" id="birthday" name="birthday"/> */}
             <input type="date" id="birthday" name="birthday" max={new Date()} step="1" required/><br/><br/>
 
-            <input type="checkbox" ref={buyer} name="buyer" value="buyer"/>
+            {/* <input type="checkbox" ref={buyer} name="buyer" value="buyer"/>
             <label>I want to buy produce directly from allotment owners.</label><br/>
 
             <input type="checkbox" ref={seller} name="seller" value="seller"/>
-            <label>I want to sell produce from my allotment.</label><br/><br/>
+            <label>I want to sell produce from my allotment.</label><br/><br/> */}
 
             <input type="checkbox" ref={tos} name="tos" value="tos" required/>
             <label>I agree to the Terms of Use and Privacy Policy.</label>

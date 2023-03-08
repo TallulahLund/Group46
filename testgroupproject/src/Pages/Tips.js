@@ -1128,6 +1128,7 @@ export default function Tips(){
     }, [userdata, orderSort, oSort, cSort]);//, checkLoggedIn, getAllData]);
 
     const displayData = () => {
+      // do something bout id user doesn't have any tips
         return data ? (
         data.map((data) => {
 
