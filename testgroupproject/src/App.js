@@ -2,16 +2,20 @@
 import "./App.css";
 
 import { Link, Outlet, NavLink } from "react-router-dom"; /*added NavLink*/
-import React from "react";
+import React, {useState} from "react";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
+import Footer from "./components/Footer";
 
 export default function App() {
+
+  const [loggedInUser, setLoggedinUser] = useState("");
+
   return (
     <div className="App">
       {/* <head><title>Group Project</title></head> */}
 
-      <Header />
+      <Header context={[loggedInUser, setLoggedinUser]}/>
       <nav className="App-nav">
         {/* <Link className="nav-link" to={'/'}>Home</Link>
         <Link className="nav-link" to={'/renewable_energy'}>Renewable Energy</Link>
@@ -87,10 +91,11 @@ export default function App() {
       </nav>
       <main className="App-main">
         {/* <Sidebar/> */}
-        <Outlet />
+        <Outlet context={[loggedInUser, setLoggedinUser]}/>
         <Sidebar />
         {/* floating mainContent left fixed the problem */}
       </main>
+      <Footer/>
     </div>
   );
 }

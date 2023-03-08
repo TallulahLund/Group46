@@ -1,4 +1,4 @@
-/* tips */
+/* tips
 
 .tipLine {
   display: flex;
@@ -32,7 +32,7 @@
   width: auto;
   height: auto;
 
-  /* height: 200px; */
+  /* height: 200px; *
 }
 .tip:hover {
   height: auto;
@@ -40,7 +40,7 @@
 /* fixes tip height on hover
   - just make box bigger instead */
 
-/*  */
+/*  *
 #lightbulb {
   width: 50px;
   height: 50px;
@@ -60,14 +60,14 @@
   margin: 20px 15px;
 }
 
-/* user tips section */
+/* user tips section *
 .submitTips {
   /* margin-left: 28px; fix */
 
-  /* margin-right: 5px; */
+  /* margin-right: 5px; *
   margin-top: 15px;
 
-  /* display: flex; */
+  /* display: flex; *
 
   margin-bottom: 25px;
 }
@@ -95,13 +95,13 @@
   {
     resize: none;
   } */
-/* ^ watch out, means for all textareas */
+/* ^ watch out, means for all textareas *
 #textArea {
   resize: none;
-  /* ^ doesn't work */
+  /* ^ doesn't work *
   padding-bottom: none;
 
-  /* justify-content: stretch; */
+  /* justify-content: stretch; *
   max-width: 1139px;
   min-width: 497.25px;
 }
@@ -112,10 +112,10 @@
   resize: none;
   /* rows: 4;
     columns: 108;
-    above set as rows and cols in .js file */
+    above set as rows and cols in .js file *
 }
 .submitTips > div > p {
-  /* float: right; */
+  /* float: right; *
   margin-right: 20%;
 }
 #tipCategory {
@@ -132,9 +132,9 @@
 }
 #tipButton {
   margin-top: none;
-  /* margin-left: 717.5px; */
+  /* margin-left: 717.5px; *
   float: right;
-  /* margin-right: 10px; */
+  /* margin-right: 10px; *
   margin-bottom: 25px;
   padding: 5px 20px;
   font-family: "Courier New", Courier, monospace;
@@ -148,9 +148,9 @@
 
   /* display: flex; */
 
-  /* max-width: 1139px; */
+  /* max-width: 1139px; *
   width: 547.25px;
-  /* width: 66%; */
+  /* width: 66%; *
 
   margin-right: 5px;
   margin-top: 15px;
@@ -166,7 +166,7 @@
   /* justify-content: space-between; */
 
   /* display: grid; */
-  /* width: 400px; */
+  /* width: 400px; *
 }
 .firstLine {
   display: flex;
@@ -184,12 +184,12 @@
   {
     /* font-size: small; 
     margin-left: 10px;
-  } */
+  } *
 .secondLine {
   display: flex;
   justify-content: space-between;
 
-  /* width: 90%; here*/
+  /* width: 90%; here*
   width: 100%;
 }
 .userTipString {
@@ -200,7 +200,7 @@
   font-size: small;
 
   /* width: 800px;
-    min-width: 316px; */
+    min-width: 316px; *
 
   background-color: whitesmoke;
 
@@ -210,9 +210,9 @@
 .userLikes {
   min-width: 100px;
   /* margin-left: 15px; here */
-  /* display: grid; here */
+  /* display: grid; here *
   text-align: end;
-  /* justify-content: space-evenly; */
+  /* justify-content: space-evenly; *
 
   width: 25%;
   margin-left: 25px;
@@ -225,16 +225,16 @@
 
   margin: 35px 0px;
 }
-/* can put above 2 in one */
+/* can put above 2 in one *
 .modifyTip {
   /* margin-left: 20px; here */
-  /* width: 50px; here*/
+  /* width: 50px; here*
 
   width: 5%;
   margin-left: 5%;
 }
 .modifyTip > img {
-  /* margin: 1px 0px; */
+  /* margin: 1px 0px; *
   margin: 7.5px 0px;
 }
 .modifyTip > img:hover {
@@ -244,17 +244,17 @@
 .submitTipsN {
   /* margin-left: 28px; fix */
 
-  /* margin-right: 5px; */
+  /* margin-right: 5px; *
   margin-top: 15px;
 
-  /* display: flex; */
+  /* display: flex; *
 
   margin-bottom: 25px;
 }
-/* .userTipBoxN > div */
+/* .userTipBoxN > div *
 .submitTipsN > div {
   background-color: rgb(247, 247, 247);
-  /* padding: 25px 25px 0px 25px; */
+  /* padding: 25px 25px 0px 25px; *
   display: flex;
 
   justify-content: space-between;
@@ -262,7 +262,7 @@
   padding: 25px;
   margin-bottom: 25px;
 
-  /* background-color: rgb(235, 233, 233); */
+  /* background-color: rgb(235, 233, 233); *
 }
 .userTipBoxN {
   /* background-color: rgb(235, 233, 233);
@@ -273,24 +273,24 @@
   /* justify-content: space-between; */
 
   /* display: grid; */
-  /* width: 400px; */
+  /* width: 400px; *
 
   background-color: rgb(235, 233, 233);
   padding: 20px;
-  /* margin-top: 15px; */
+  /* margin-top: 15px; *
   display: flex;
 
   /* background-color: rgb(247, 247, 247); */
-  /* background-color: aqua; */
+  /* background-color: aqua; *
 
   justify-content: space-between;
-  /*  */
+  /*  *
 
 
   width: 100%;
 }
 .userTipInfoN {
-  /* padding: 20px; */
+  /* padding: 20px; *
 
   width: 90%;
 }
@@ -303,7 +303,7 @@
 
   /* display: flex;
     justify-content: space-between;
-    margin-bottom: 5px; */
+    margin-bottom: 5px; *
 }
 .fLine {
   display: flex;
@@ -324,10 +324,10 @@
 }
 #textAreaN {
   resize: none;
-  /* ^ doesn't work */
+  /* ^ doesn't work *
   padding-bottom: none;
 
-  /* justify-content: stretch; */
+  /* justify-content: stretch; *
   max-width: 1139px;
   min-width: 497.25px;
 }
@@ -338,20 +338,20 @@
   resize: none;
 }
 .submitTipsN > div > p {
-  /* float: right; */
+  /* float: right; *
   margin-right: 20%;
 }
 .modify {
 }
 
-/* allTips section*/
+/* allTips section*
 .allTips {
   background-color: rgb(247, 247, 247);
   padding: 20px 25px;
 
   /* display: flex; */
 
-  /* width: 66%; here */
+  /* width: 66%; here *
 }
 
 #aTsameLine {
@@ -363,7 +363,7 @@
   margin-top: none;
   /* margin-left: 50px; */
   /* float: right; */
-  /* margin-right: 10px; */
+  /* margin-right: 10px; *
   margin-bottom: 25px;
   padding: 3px 10px;
   font-family: "Courier New", Courier, monospace;
@@ -371,12 +371,12 @@
   cursor: pointer;
 }
 #tipFilterCategory {
-  /* margin-left: 16px; */
+  /* margin-left: 16px; *
   width: 140px;
   height: 25px;
   font-family: "Courier New", Courier, monospace;
 
-  /* margin-right: 50px; */
+  /* margin-right: 50px; *
 
   cursor: pointer;
 }
@@ -385,7 +385,7 @@
   background-color: rgb(235, 233, 233);
   padding: 20px;
   margin-top: 15px;
-  /* display: flex; */
+  /* display: flex; *
 
   justify-content: space-between;
 }
@@ -403,7 +403,7 @@
 .tipAuthor {
 }
 .tipDateTime {
-  /* font-size: small; */
+  /* font-size: small; *
   margin-left: 10px;
 }
 .secondLine {
@@ -449,7 +449,7 @@
       justify-content: space-between;
   } */
 
-/* about us css -> testing stuff */
+/* about us css -> testing stuff *
 [data-tab-info] {
   display: none;
 }
@@ -461,14 +461,14 @@
 
   /* padding-block: 20px; */
   /* padding-inline: 20px; */
-  /* background-color: rgb(247, 247, 247); */
+  /* background-color: rgb(247, 247, 247); *
   margin-top: 20px;
 
-  /* padding-left: none; */
+  /* padding-left: none; *
 }
 .tabs {
   display: flex;
-  /* margin: 0; */
+  /* margin: 0; *
 
   font-weight: bold;
   font-size: large;
@@ -476,7 +476,7 @@
   /* border-left: none;
       border-right: none; */
 
-  /* justify-content: space-around; */
+  /* justify-content: space-around; *
   margin: 30px 10px;
 }
 .tabs span {
@@ -484,10 +484,712 @@
   padding-block: 5px;
 
   border-inline: 1px solid black;
-  /* border-i */
+  /* border-i *
 }
 .tabs span:hover {
   cursor: pointer;
 
   text-decoration: underline;
+} */
+
+
+
+
+
+
+
+
+
+
+/* tips */
+.data
+{
+    background-color: grey;
+    padding: 0px 15px;
+    margin: 10px;
+
+    /* height: 60px; */
+    height: 120px;
+    width: 400px;
+
+    /* display: flex;
+    justify-content: space-between; */
+    align-items: center;
+
+    cursor: pointer;
 }
+
+.tipFL
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tipSL
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.ta
+{
+    resize: none;
+    
+    /* width: 80%; */
+}
+
+/* needed */
+.userTipString:focus
+{
+    /* border: none; */
+    /* border: 0 none #FFF; */
+    overflow: hidden;
+    outline: none;
+}
+
+.manageBox
+{
+    display: grid;
+    width: 15%;
+}
+
+.tipinput
+{
+    height: auto;
+}
+
+
+
+
+
+
+
+
+/* group project tips.css */
+/* tips */
+
+.tipLine {
+    display: flex;
+    justify-content: space-around;
+    /* margin: 20px 0px; */
+
+    margin: 20px 0px 0px 0px;
+  }
+  
+  .tip {
+    background-color: rgb(247, 247, 247);
+    list-style-type: none;
+    padding: 25px;
+    width: 38%;
+    /* height: 85px; */
+    display: flex;
+
+    /*  */
+    height: 90px;
+  }
+  .beforeH {
+    display: flex;
+  }
+  .afterH {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .tip:hover .beforeH {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .tip:hover .afterH {
+    opacity: 1;
+    width: auto;
+    height: auto;
+  
+    /* height: 200px; */
+  }
+  .tip:hover {
+    height: auto;
+  }
+  /* fixes tip height on hover
+    - just make box bigger instead */
+  
+  /*  */
+  #lightbulb {
+    width: 50px;
+    height: 50px;
+    float: right;
+    margin: 10px 25px;
+  }
+  #shower {
+    width: 50px;
+    height: 50px;
+    float: right;
+    margin: 20px 25px;
+  }
+  #kettle {
+    width: 60px;
+    height: 60px;
+    float: right;
+    margin: 20px 15px;
+  }
+  
+
+
+  /* user tips section */
+
+  .tbox {
+    display: flex;
+    justify-content: space-around;
+}
+.lbox
+{
+    /* margin: 0; */
+    width: 95%;
+}
+
+  .submitTips {
+    /* margin-left: 28px; fix */
+  
+    /* margin-right: 5px; */
+    margin-top: 15px;
+  
+    /* display: flex; */
+  
+    margin-bottom: 25px;
+
+    /*  */
+    /* width: 91.5%; */
+
+    /* width: 97.1%; */
+  }
+  .submitTips > div {
+    background-color: rgb(247, 247, 247);
+    padding: 25px 25px 0px 25px;
+    display: flex;
+  
+    justify-content: space-between;
+  }
+  /* .submitTips > input
+    {
+      width: 100%;
+      height: 100px;
+    } */
+  /* .submitTips > textarea
+    {
+      /* width: 100%; */
+  /* height: 800px; */
+  /* rows: 4; */
+  /* resize: none; 
+    } */
+  /* ^ not working */
+  /* textarea
+    {
+      resize: none;
+    } */
+  /* ^ watch out, means for all textareas */
+  #textArea {
+    resize: none;
+    /* ^ doesn't work */
+    padding-bottom: none;
+  
+    /* justify-content: stretch; */
+    max-width: 1139px;
+    min-width: 497.25px;
+  }
+  #tA {
+    width: 1139px;
+    min-width: 547.25px;
+    min-height: 100px;
+    resize: none;
+    /* rows: 4;
+      columns: 108;
+      above set as rows and cols in .js file */
+  }
+  .submitTips > div > p {
+    /* float: right; */
+    margin-right: 20%;
+  }
+  #tipCategory {
+    margin-left: 16px;
+    width: 200px;
+    height: 25px;
+    font-family: "Courier New", Courier, monospace;
+  
+    cursor: pointer;
+  }
+  #tipButtonDiv {
+    text-align: end;
+    justify-content: end;
+  }
+  #tipButton {
+    margin-top: none;
+    /* margin-left: 717.5px; */
+    float: right;
+    /* margin-right: 10px; */
+    margin-bottom: 25px;
+    padding: 5px 20px;
+    font-family: "Courier New", Courier, monospace;
+  
+    cursor: pointer;
+  }
+  
+  .userTipBoxes {
+    background-color: rgb(247, 247, 247);
+    padding: 5px 25px 20px;
+  
+    /* display: flex; */
+  
+    /* max-width: 1139px; */
+    width: 547.25px;
+    /* width: 66%; */
+  
+    margin-right: 5px;
+    margin-top: 15px;
+  
+    margin-bottom: 25px;
+  }
+  .userTipBox {
+    background-color: rgb(235, 233, 233);
+    padding: 20px;
+    margin-top: 15px;
+    display: flex;
+  
+    /* justify-content: space-between; */
+  
+    /* display: grid; */
+    /* width: 400px; */
+  }
+  .firstLine {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  .tipCategory {
+  }
+  /* .postInfo
+    {
+      justify-content: none;
+      font-size: small;
+    } */
+  /* .tipDateTime
+    {
+      /* font-size: small; 
+      margin-left: 10px;
+    } */
+  .secondLine {
+    display: flex;
+    justify-content: space-between;
+  
+    /* width: 90%; here*/
+    width: 100%;
+  }
+  .userTipString {
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+  
+    /* width: 800px;
+      min-width: 316px; */
+  
+    background-color: whitesmoke;
+  
+  
+    /* width: 100%; */
+
+    /* merging */
+    resize: none;
+    /* width: 65%; */
+
+    width: 80%;
+  }
+  /*  */
+  .userTipStringAll {
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+  
+    /* width: 800px;
+      min-width: 316px; */
+  
+    background-color: whitesmoke;
+  
+  
+    /* width: 100%; */
+
+    /* merging */
+    resize: none;
+    width: 80%;
+  }
+
+  .userTipStringAll:focus
+  {
+    overflow: hidden;
+    outline: none;
+  }
+  /*  */
+  .userLikes {
+    min-width: 100px;
+    /* margin-left: 15px; here */
+    /* display: grid; here */
+    text-align: end;
+    justify-content: space-evenly;
+    /* == */
+  
+    width: 25%;
+    /* margin-left: 25px;== */
+    display: flex;
+    float: right;
+
+    /*  */
+    /* margin-left: 15px; */
+  }
+  .userTipLikes {
+    float: right;
+    min-width: 90px;
+  
+    margin: 35px 0px;
+
+    display: flex;
+    justify-content: space-evenly;
+  }
+  /* can put above 2 in one */
+  .modifyTip {
+    /* margin-left: 20px; here */
+    /* width: 50px; here*/
+  
+    width: 5%;
+
+    /*  */
+    /* margin-left: 5%; */
+    margin-right: 3%;
+  }
+  .modifyTip > img {
+    /* margin: 1px 0px; */
+    margin: 7.5px 0px;
+  }
+  .modifyTip > img:hover {
+    cursor: pointer;
+  }
+
+  /* tooltiptext */
+  /* .editBtn
+  {
+    position: relative;
+  } */
+  .editBtn .tooltiptext
+  {
+    color: grey;
+    visibility: hidden;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 2px;
+    padding: 1px 5px;
+    margin-top: 20px;
+
+    position: absolute;
+    /* position:sticky; */
+    z-index: 1;
+  }
+
+  .editBtn:hover .tooltiptext
+  {
+    visibility: visible;
+  }
+
+  
+  .submitTipsN {
+    /* margin-left: 28px; fix */
+  
+    /* margin-right: 5px; */
+    margin-top: 15px;
+  
+    /* display: flex; */
+  
+    margin-bottom: 25px;
+  }
+  /* .userTipBoxN > div */
+  .submitTipsN > div {
+    background-color: rgb(247, 247, 247);
+    /* padding: 25px 25px 0px 25px; */
+    display: flex;
+  
+    justify-content: space-between;
+  
+    padding: 25px;
+    margin-bottom: 25px;
+  
+    /* background-color: rgb(235, 233, 233); */
+  }
+  .userTipBoxN {
+    /* background-color: rgb(235, 233, 233);
+      padding: 20px;
+      margin-top: 15px;
+      display: flex; */
+  
+    /* justify-content: space-between; */
+  
+    /* display: grid; */
+    /* width: 400px; */
+  
+    /* background-color: rgb(235, 233, 233); */
+    padding: 20px;
+    /* margin-top: 15px; */
+    display: flex;
+  
+    /* background-color: rgb(247, 247, 247); */
+    /* background-color: aqua; */
+  
+    justify-content: space-between;
+    /*  */
+  
+  
+    /* width: 100%; */
+
+    /*  */
+    background-color: rgb(247, 247, 247);
+    /* width: 91.5%;90%; */
+    /* margin-bottom: 25px; */
+    margin-top: 20px;
+
+    /* width: 100%; */
+  }
+  .userTipInfoN {
+    /* padding: 20px; */
+  
+    /* width: 90%; */
+
+    /*  */
+    background-color: rgb(235, 233, 233);
+    width: 100%;
+    padding: 15px;
+  }
+
+.editBtn
+{
+    width: 50px;
+    border: none;
+    padding: 2px;
+    background-color: rgb(235, 233, 233);
+}
+.editBtn:hover
+{
+    cursor: pointer;
+}
+
+
+
+  /* .info {
+    background-color: rgb(235, 233, 233);
+    padding: 25px 25px 0px 25px;
+    display: flex;
+  
+    justify-content: space-between;
+  
+    /* display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px; 
+  } */
+  /* .fLine {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  .tCategory {
+  }
+  .tDateTime {
+  }
+  .sLine {
+    display: flex;
+    justify-content: space-between;
+  }
+  .tString {
+  }
+  .tLikes {
+  } */
+  #textAreaN {
+    resize: none;
+    /* ^ doesn't work */
+    padding-bottom: none;
+  
+    /* justify-content: stretch; */
+    max-width: 1139px;
+    min-width: 497.25px;
+  }
+  #tAN {
+    width: 1139px;
+    min-width: 547.25px;
+    min-height: 100px;
+    resize: none;
+  }
+  .submitTipsN > div > p {
+    /* float: right; */
+    margin-right: 20%;
+  }
+  .modify {
+  }
+  
+
+
+  /* allTips section*/
+
+  .tab2 {
+    display: flex;
+    justify-content: space-around;
+}
+
+  .allTips {
+    background-color: rgb(247, 247, 247);
+    padding: 20px 25px;
+  
+    /* display: flex; */
+  
+    /* width: 66%; here */
+
+
+
+    width: 90%;
+    justify-content: space-around;
+  }
+  
+  #aTsameLine {
+    display: flex;
+  
+    justify-content: space-between;
+  }
+  #tipFilterButton {
+    margin-top: none;
+    /* margin-left: 50px; */
+    /* float: right; */
+    /* margin-right: 10px; */
+    margin-bottom: 25px;
+    padding: 3px 10px;
+    font-family: "Courier New", Courier, monospace;
+  
+    cursor: pointer;
+  }
+  #tipFilterCategory {
+    /* margin-left: 16px; */
+    width: 140px;
+    height: 25px;
+    font-family: "Courier New", Courier, monospace;
+  
+    /* margin-right: 50px; */
+  
+    cursor: pointer;
+  }
+  
+  .tipBox {
+    background-color: rgb(235, 233, 233);
+    padding: 20px;
+    margin-top: 15px;
+    /* display: flex; */
+  
+    justify-content: space-between;
+  }
+  .firstLine {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  .tipCategory {
+  }
+  .postInfo {
+    justify-content: none;
+    font-size: small;
+  }
+  .tipAuthor {
+  }
+  .tipDateTime {
+    /* font-size: small; */
+    margin-left: 10px;
+  }
+  .secondLine {
+    display: flex;
+    justify-content: space-between;
+  }
+  .tipString {
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+  
+    width: 850px;
+    min-width: 366px;
+  
+    background-color: whitesmoke;
+  }
+  .likes {
+    min-width: 100px;
+    margin-left: 15px;
+    display: grid;
+    text-align: end;
+    justify-content: space-evenly;
+  }
+  .tipLikes {
+    float: right;
+    min-width: 90px;
+  
+    margin: 20px 0px;
+  }
+  #likeTipButton {
+    margin-top: none;
+    padding: 3px 10px;
+    font-family: "Courier New", Courier, monospace;
+  
+    cursor: pointer;
+  }
+  
+  /* .t
+    {
+        display: flex;
+        justify-content: space-between;
+    } */
+  
+  /* about us css -> testing stuff */
+  [data-tab-info] {
+    display: none;
+  }
+  .active[data-tab-info] {
+    display: block;
+  }
+  .tab-content {
+    font-size: 16px;
+  
+    /* padding-block: 20px; */
+    /* padding-inline: 20px; */
+    /* background-color: rgb(247, 247, 247); */
+    margin-top: 20px;
+  
+    /* padding-left: none; */
+  }
+  .tabs {
+    display: flex;
+    /* margin: 0; */
+  
+    font-weight: bold;
+    font-size: large;
+  
+    /* border-left: none;
+        border-right: none; */
+  
+    /* justify-content: space-around; */
+    margin: 30px 10px;
+  }
+  .tabs span {
+    padding-inline: 20px;
+    padding-block: 5px;
+  
+    border-inline: 1px solid black;
+    /* border-i */
+  }
+  .tabs span:hover {
+    cursor: pointer;
+  
+    text-decoration: underline;
+  }
+  

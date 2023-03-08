@@ -1,11 +1,35 @@
 import React from "react";
+import { Link, useNavigate, useOutletContext } from "react-router-dom";
+
 import "./Home.css";
 
 export default function Home() {
+
+  // 
+  const [loggedInUser, setLoggedinUser] = useOutletContext();
+    
+  const nav = useNavigate();
+
+  const logout = () => {
+    sessionStorage.removeItem("jwt");
+    nav("/login");
+    // nav("/");        need to refresh home page -> need to put logout in header
+}
+
+
+
   return (
     // <div><p>This is home.</p><header>anything</header></div>
 
     <section className="mainContent">
+
+      {/*  */}
+      <p>
+      <button className="AO-link" onClick={logout}>Log Out</button>
+      </p>
+      <br/><br/><br/>
+      {/*  */}
+
       <p>
         Spending too much on your energy bill? Or do you simply want to switch
         to a better more sustainable source of energy?
