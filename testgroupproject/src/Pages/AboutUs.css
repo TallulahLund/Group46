@@ -1,0 +1,33 @@
+/* about us */
+.teammembers
+{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.teammembers > div
+{
+    /* padding: 13px; */
+    margin: 10px;
+    padding: 10px;
+
+    background-color: lightgrey;
+    /* height: 100px; */
+    /* align-items:; */
+
+    width: 200px;
+    text-align: center;
+}
+
+.teammembers > span > p
+{
+    background-color: grey;
+    height: 20px;
+}
+
+.pic
+{
+    height: 170px;
+    padding-bottom: 10px;
+}

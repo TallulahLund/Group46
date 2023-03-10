@@ -2,20 +2,25 @@
 import "./App.css";
 
 import { Link, Outlet, NavLink } from "react-router-dom"; /*added NavLink*/
-import React, {useState} from "react";
+import React, {createContext, useState} from "react";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 
 export default function App() {
 
+  const UserContext = createContext();
   const [loggedInUser, setLoggedinUser] = useState("");
+  // const UserContext = createContext();
 
   return (
     <div className="App">
       {/* <head><title>Group Project</title></head> */}
 
-      <Header context={[loggedInUser, setLoggedinUser]}/>
+      {/* <Header context={[loggedInUser, setLoggedinUser]}/> */}
+      <UserContext.Provider value={loggedInUser}>
+        <Header/>
+      </UserContext.Provider>
       <nav className="App-nav">
         {/* <Link className="nav-link" to={'/'}>Home</Link>
         <Link className="nav-link" to={'/renewable_energy'}>Renewable Energy</Link>
@@ -91,7 +96,11 @@ export default function App() {
       </nav>
       <main className="App-main">
         {/* <Sidebar/> */}
-        <Outlet context={[loggedInUser, setLoggedinUser]}/>
+        
+        {/* <Outlet context={[loggedInUser, setLoggedinUser]}/> */}
+        <UserContext.Provider value={loggedInUser}>
+          <Outlet context={[loggedInUser, setLoggedinUser]}/>
+        </UserContext.Provider>
         <Sidebar />
         {/* floating mainContent left fixed the problem */}
       </main>

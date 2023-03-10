@@ -20,7 +20,20 @@ export default function AboutUs() {
         <br />
         <h3>Meet The Team</h3>
         <br />
-        <p>the team</p>
+        <div className="teammembers">
+          {/* <span>{/*<p/>*}Tanish Ahuja</span>
+          <span>Tiago Esteves</span>
+          <span>Taiye Ige</span>
+          <span>Tallulah Lund</span>
+          <span>Dillion Madhoo</span>
+          <span>Jaspreet Singh</span> */}
+          <div><p className="pic"/>Tanish Ahuja</div>
+          <div><p className="pic"/>Tiago Esteves</div>
+          <div><p className="pic"/>Taiye Ige</div>
+          <div><p className="pic"/>Tallulah Lund</div>
+          <div><p className="pic"/>Dillion Madhoo</div>
+          <div><p className="pic"/>Jaspreet Singh</div>
+        </div>
       </div>
     </section>
   );

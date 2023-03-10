@@ -70,6 +70,10 @@ public class SecurityConfiguration {
 //	    .requestMatchers(HttpMethod.GET, "/tip")
 		.permitAll()
 	    .and()
+		.authorizeHttpRequests()
+	    .requestMatchers(HttpMethod.GET, "/tip")
+		.permitAll()
+	    .and()
 //	    .authorizeRequests()  // deprecated
 	    .authorizeHttpRequests()
 		.anyRequest().authenticated()

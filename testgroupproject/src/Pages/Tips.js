@@ -1049,12 +1049,15 @@ export default function Tips(){
             );
         })
         ) : (
-            <div>
-                <h3>Want to post helpful tips for others? Create an account to submit your tips.</h3>
-                <h3>If you already have an account Login to see your tips.</h3>
-            </div>
+            // <div>
+            //     <h3>Want to post helpful tips for others? Create an account to submit your tips.</h3>
+            //     <h3>If you already have an account Login to see your tips.</h3>
+            // </div>
 
-            // <h3>No data yet</h3>
+            <div>
+              <br/>
+              <h3>No data yet</h3>
+            </div>
         );
     }
 
@@ -1221,7 +1224,14 @@ export default function Tips(){
             );
         })
         ) : (
-        <h3>No data yet</h3>
+        // <h3>No data yet</h3>
+
+          <div>
+            <br/>
+            <h4>Want to post helpful tips for others? Create an account to submit your tips.</h4>
+            <h4>If you already have an account Login to see your tips.</h4>
+          </div>
+
         );
     }
 

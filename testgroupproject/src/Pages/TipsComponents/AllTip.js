@@ -119,7 +119,9 @@ const AllTip = (props) =>
     const [userdata, setUserdata] = useState("");
 
     const getUserData = () => {
+        console.log("gud liu=", loggedInUser);
         if(loggedInUser!=="" && userdata===""){
+            console.log("in if");
 
             console.log("liu=", loggedInUser);      //loggedInUser is just email not user
 
@@ -151,6 +153,32 @@ const AllTip = (props) =>
             // const jwt = sessionStorage.getItem('jwt');
             console.log(jwt);
         }
+        else
+        {
+            console.log("else");
+            const jwt = sessionStorage.getItem('jwt');
+            console.log(jwt);
+            axios({
+                method: 'get',
+                url: 'http://localhost:8080/user/findByEmail',
+                // params: {email: loggedInUser.email},
+                params: {email: 'test@email.com'},
+                headers: {"Authorization" : `Bearer ${jwt}`}
+            }).then((response) => {
+                if (response.status === 200){
+                    console.log(response.data);
+                    console.log('response.data = ', response.data);
+                    console.log(response.data.userType);
+                    setUserdata(response.data);
+                    console.log('userdata in then = ', userdata);
+                    // getAllData();
+                }
+            }).catch(err => {
+                console.log(err.response);
+                setUserdata("Data failure");
+            })
+        }
+
     }
 
     /////////

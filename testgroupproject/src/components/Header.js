@@ -24,17 +24,26 @@
 // import React from "react";
 import {Link} from "react-router-dom";
 
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import { useOutletContext } from "react-router-dom";
 import axios from "axios";
+import UserContext from '../App.js'
 
 // import {AO} from './AO';
 
-export default function Header(){
+export default function Header(/*{user}*/props){
+
+    // const {user} = props;
+    const {loggedInUser, setLoggedInUser} = props;
+    // const user = useContext(UserContext);
+    // console.log("user= ", user);
 
     // const [loggedInUser, setLoggedinUser] = useOutletContext();
-    const [loggedInUser, setLoggedinUser] = useState("");
-    // console.log(loggedInUser);
+    // const [loggedInUser, setLoggedinUser] = useState("");
+    // const [loggedInUser, setLoggedinUser] = useContext();
+    // const [loggedInUser, setLoggedinUser] = user;
+
+    console.log("liu= ", loggedInUser);
     // const [userdata, setUserdata] = useState("");
 
     // const refreshAO = () => {
@@ -102,11 +111,14 @@ export default function Header(){
             {/* refreshAO() */}
             <span className="title"><h1>EnergyAware</h1></span>
             <span><div className="AccountOptions">
-                <nav className="AO-nav">
+                {/* <nav className="AO-nav">
                     <Link className="AO-link" to={'/register'}>Sign Up</Link>
                     <p className="AO-or">or</p>
                     <Link className="AO-link" to={'/login'}>Login</Link>
-                </nav>
+                </nav> */}
+
+                {/* <p>.{loggedInUser}.</p> */}
+
             </div></span>
         </header>
     )
