@@ -5,10 +5,10 @@ import { useEffect } from "react";
 import "./QuizHandler.css";
 
 const QuizHandler = (props) => {
-  const { questions } = props;
+  const { questions, stats, setStats } = props;
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const correctAnswers = questions.map((questions) => questions.correctAnswer);
-  const [currentAnswer, setCurrentAnswer] = useState("");
+  const [currentAnswer, setCurrentAnswer] = useState(null);
   const [userAnswers, setUserAnswers] = useState([]);
 
   const [score, setScore] = useState(0);
@@ -28,28 +28,50 @@ const QuizHandler = (props) => {
         //submitQuiz();
       }
     } else {
-      console.log("Select an Option");
+      alert("Select an Option");
     }
   };
 
   const submitQuiz = () => {
     //compare correct answers to user answers and return a score
     setScore(0);
+    let ss = 0;
     for (let i = 0; i < correctAnswers.length; i++) {
       if (correctAnswers[i] === userAnswers[i]) {
-        setScore((prevscore) => prevscore + 1);
+        ss++;
       } else {
         //console.log("wrong");
       }
+      setScore(ss);
     }
     setShowResults(true);
     console.log("Quiz Sumbitted");
+  };
+
+  const calculateStats = () => {
+    let ss = score;
+    // let newAverage =
+    //   ((stats.averageScore * stats.testsTaken + score / 4) /
+    //     (stats.testsTaken + 1)) *
+    //   100;
+    // let takentests = stats.testsTaken + 1;
+    // setStats({
+    //   lastScore: ss,
+    //   testsTaken: takentests,
+    //   averageScore: newAverage,
+    //   perfectScores: 0,
+    // });
+    // console.log(stats);
+    // console.log(newAverage);
+    setStats({ ...stats, lastScore: score });
+    console.log(score);
   };
 
   useEffect(() => {
     if (userAnswers.length === correctAnswers.length) {
       console.log(userAnswers);
       submitQuiz();
+      calculateStats();
     }
   }, [userAnswers]);
 
