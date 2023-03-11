@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Quiz.css";
 import Questions from "./QuizComponents/Questions";
 import QuizHandler from "./QuizComponents/Quizhandler";
