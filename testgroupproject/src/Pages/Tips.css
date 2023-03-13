@@ -846,6 +846,12 @@
     overflow: hidden;
     outline: none;
   }
+
+  .spanLikes
+  {
+    display: flex;
+  }
+
   /*  */
   .userLikes {
     min-width: 100px;

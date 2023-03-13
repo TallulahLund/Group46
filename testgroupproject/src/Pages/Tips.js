@@ -878,41 +878,69 @@ export default function Tips(){
         console.log("in cust_sort funct a=", a.updatedAt, ", b=", b, ".");
         console.log("in cust_sort funct ", allTipData, ".");
         console.log("in cust_sort funct i=", allTipData.index, ".");
-        console.log("a test=", new Date(a.updatedAt));
-        return new Date(b.updatedAt)/*.getTime()*/ - new Date(a.updatedAt)/*.getTime()*/;
-    }
+        // console.log("a test=", new Date(a.updatedAt));
+        console.log("a test=", new Date(a.createdAt));
+
+        // return new Date(b.updatedAt)/*.getTime()*/ - new Date(a.updatedAt)/*.getTime()*/;
+        return new Date(b.createdAt)/*.getTime()*/ - new Date(a.createdAt)/*.getTime()*/;
+      }
 
     // const [likeno, setLikeno] = useState(""); //moved to top
     // const [likearr, setLikearr] = useState([]);
 
     function mp_sort(a, b)
     {
-        console.log("in most popular sort");
-        console.log("a= ", a, "gla= ", getLikes(a), "ln= ", likeno);
-        console.log("b= ", b, "glb= ", getLikes(b), "ln= ", likeno);
-        // return (getLikes(a) - getLikes(b));
-        console.log("a.id= ", a.id, " likes= ", <Likes props={a} />);
-        console.log("a.id= ", a.id, " likes el= ", <Likes props={a} />);
+      console.log("in most popular sort a= ", a, " b= ", b);
+      // console.log("a + Likes + ", Likes(a));
+      // console.log("b + Likes + ", Likes(b));
+      // console.log("a= ", a, "gla= ", getLikes(a), "ln= ", likeno);
+      // console.log("b= ", b, "glb= ", getLikes(b), "ln= ", likeno);
+      // // return (getLikes(a) - getLikes(b));
+      // console.log("a.id= ", a.id, " likes= ", <Likes props={a} />);
+      // console.log("a.id= ", a.id, " likes el= ", <Likes props={a} />);
 
-        console.log("b.id= ", b.id, " likes= ", <Likes props={b} />);
+      // console.log("b.id= ", b.id, " likes= ", <Likes props={b} />);
 
-        // var fl = String(<Likes props={a}/>);
-        // var sl = String(<Likes props={b} />);
-        console.log("before");
-        <Likes props={a} />
+      // // var fl = String(<Likes props={a}/>);
+      // // var sl = String(<Likes props={b} />);
+      // console.log("before");
+      // var likeElement = <Likes props={a} >tipLikes</Likes>;
+      // var likes = likeElement.value;
+      // console.log("likes = tipLikes= ", likes);
 
-        // console.log("Likes(a)= ", Likes(a));
+      // console.log("Likes(a)= ", Likes(a));
 
-        console.log("after");
+      var opEla = document.getElementById(a.id + "option");
+      console.log("opEla= ", opEla);
+      console.log("opEla id= ", opEla.id, " val= ", opEla.value, " textC= ", opEla.textContent);
 
-        // var f = Likes(a);
-        // console.log("f= ", f);
+      var opElb = document.getElementById(b.id + "option");
+      console.log("opElb= ", opElb);
+      console.log("opElb id= ", opElb.id, " val= ", opElb.value);
 
-        // console.log("fl= ", fl, "sl= ", sl);
+      console.log("after");
 
-        // return(<Likes props={a} /> - <Likes props={b}/>);
-        // return (fl - sl);
-        return b - a;
+      // var f = Likes(a);
+      // console.log("f= ", f);
+
+      // console.log("fl= ", fl, "sl= ", sl);
+
+      // return(<Likes props={a} /> - <Likes props={b}/>);
+      // return (fl - sl);
+      // return b - a;
+
+      if(opEla.value === "" || opElb.value === "")
+      {
+        console.log("value blank");
+      }
+      else
+      {
+        console.log("not blank)");
+      }
+
+      return opElb.value - opEla.value;
+      // return opEla.value - opElb.value;
+      // return (opElb.value - opEla.value);
     }
 
     const displayAllTipData = () => {
@@ -985,17 +1013,30 @@ export default function Tips(){
         else if (orderSort.current.value === "Most Popular" && allTipData !== "")
         {
             console.log("in most popular");
-            allTipData.sort(mp_sort);
 
-
-            allTipData.map((allTipData, index) => {
+            allTipData.map((aTD, index) => {
 
               // console.log("before atd");
               // console.log("Likes(atd)= ", Likes(allTipData));
               // console.log("after atd");
 
-                getLikes(allTipData)
+                // getLikes(allTipData);
+
+                // <Likes tip={allTipData} />
+                <Likes tip={aTD} />
             })
+
+            allTipData.sort(mp_sort);
+            // allTipData.sort(mp_sort);
+
+            // allTipData.map((allTipData, index) => {
+
+            //   // console.log("before atd");
+            //   // console.log("Likes(atd)= ", Likes(allTipData));
+            //   // console.log("after atd");
+
+            //     getLikes(allTipData)
+            // })
         }
         else // will be original which is Oldest First
         {
@@ -1070,7 +1111,7 @@ export default function Tips(){
                             <span className="postInfo">
                                 <span className="tipAuthor">posted by: {/*smithy*/}{allTipData.author.name}</span>
                                 <span className="tipDateTime">
-                                    {/*{" "}{/*posted*/} - {/*06/01/2023 15:28*/}{/*--/--/---- --:--*/}{new Date(allTipData.updatedAt).toLocaleDateString('en-gb', { /*weekday:"short",*/ year:"numeric", month:"numeric", day:"numeric", hour:"2-digit", minute:"2-digit"}) }
+                                    {/*{" "}{/*posted*/} - {/*06/01/2023 15:28*/}{/*--/--/---- --:--*/}{new Date(allTipData.createdAt).toLocaleDateString('en-gb', { /*weekday:"short",*/ year:"numeric", month:"numeric", day:"numeric", hour:"2-digit", minute:"2-digit"}) }
                                 </span>
                             </span>
                         </div>
@@ -1101,7 +1142,7 @@ export default function Tips(){
                                 </span>
                                 <span> */}
                                     {/* <p>//{loggedInUser}//</p> */}
-                                    <AllTip loggedInUser={loggedInUser} allTipData={allTipData} order={order}/>
+                                    <AllTip loggedInUser={loggedInUser} allTipData={allTipData} order={order}/>{/*<p>Likes</p>*/}
                                 </span>
                             </span>
                             {/* <div className="modifyTip">  */}
@@ -1259,7 +1300,7 @@ export default function Tips(){
                             {/* </span> */}
                             <span className="userLikes">
                                 <span className="userTipLikes">
-                                <Likes tip={data}/><p>Likes</p>
+                                <Likes tip={data}/>{/* <p>Likes</p> */}
                                     {/* <p>{/*207*}{/*tipLikes*}- Likes</p> */}
                                 </span>
                             </span>
@@ -2012,8 +2053,8 @@ export default function Tips(){
                                     <option id="newest">Newest First</option>
                                     <option id="oldest">Oldest First</option>
                                     {/* need to implement */}
-                                    <option id="mostPop">Most Popular</option>
-                                    <option id="leastPop">Least Popular</option>
+                                    {/* <option id="mostPop">Most Popular</option>
+                                    <option id="leastPop">Least Popular</option> */}
                                 </select>
                             </span>
                             {/* <!-- proper name -> organise similar elements for css --> */}
