@@ -720,17 +720,33 @@
   #tipButtonDiv {
     text-align: end;
     justify-content: end;
+
+    padding-bottom: 25px;
   }
-  #tipButton {
+  /* #tipButton {
     margin-top: none;
-    /* margin-left: 717.5px; */
+    /* margin-left: 717.5px; *
     float: right;
-    /* margin-right: 10px; */
+    /* margin-right: 10px; *
     margin-bottom: 25px;
     padding: 5px 20px;
     font-family: "Courier New", Courier, monospace;
   
     cursor: pointer;
+  } */
+  .tipButton {
+    margin-top: none;
+    /* margin-left: 717.5px; */
+    float: right;
+    /* margin-right: 10px; */
+    /* margin-bottom: 25px; */
+    /* padding: 5px 20px; */
+    padding: 5px 15px;
+    font-family: "Courier New", Courier, monospace;
+  
+    cursor: pointer;
+
+    height: fit-content;
   }
   
   .userTipBoxes {
@@ -1071,7 +1087,17 @@
   
     cursor: pointer;
   }
-  #tipFilterCategory {
+  /* #tipFilterCategory {
+    /* margin-left: 16px; *
+    width: 140px;
+    height: 25px;
+    font-family: "Courier New", Courier, monospace;
+  
+    /* margin-right: 50px; *
+  
+    cursor: pointer;
+  } */
+  .tipFilterCategory {
     /* margin-left: 16px; */
     width: 140px;
     height: 25px;

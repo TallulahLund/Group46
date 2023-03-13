@@ -354,6 +354,9 @@ div#root {
 
   border: none;
   background: none;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+  font-size: medium;
 }
 
 .AO-link:hover {

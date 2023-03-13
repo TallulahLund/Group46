@@ -132,10 +132,14 @@
 
 import React from "react";
 import "./RenewableEnergy.css";
+import {Link, useNavigate} from "react-router-dom";
 
 import windfarm from "./RenewableComponents/wind farm.jpg";
 
 export default function RenewableEnergy() {
+
+  const nav = useNavigate();
+
   const dropdownButton = () => {
     var coll = document.getElementsByClassName("collapsible");
     var i;
@@ -161,6 +165,7 @@ export default function RenewableEnergy() {
       <h3>Renewable Energy</h3>
       <br />
       <p>
+        When energy comes from a source that is not depleted when used, it is renewable.
         There are many different types of renewable energy, explore this section
         to learn about each one.
       </p>
@@ -226,7 +231,7 @@ export default function RenewableEnergy() {
           <p>The UK is currently the global leader in offshore wind energy. The offshore wind turbines generated 10% of the UK’s energy! Wind energy contributed to 26.1% of the UK’s total electricity generation!</p>
 
           <p><strong>Want a Quote?</strong></p>
-          <p>Use our Calculator to get quoted for wind energy in your area!</p>
+          <p>Use our <a href="/">Calculator</a>{/*<Link to={'/'}>Calculator</Link>*/} to get quoted for wind energy in your area!</p>
 
           <br/>
           
@@ -254,7 +259,7 @@ export default function RenewableEnergy() {
           <p><strong>Fun Fact:</strong></p>
           <p>China is the leading producer of solar energy. Generating a staggering 340GW!</p>
           <p><strong>Want a Quote?</strong></p>
-          <p>Use our Calculator to get quoted for solar energy in your area!</p>
+          <p>Use our {/*<a onClick={() => nav('/')}>Calculator</a>*/}<a href="/">Calculator</a>{/*<Link to={'/'}>Calculator</Link>*/} to get quoted for solar energy in your area!</p>
 
           <br/>
         </div>
@@ -278,7 +283,7 @@ export default function RenewableEnergy() {
           <p><strong>Fun Fact:</strong></p>
           <p>China is the leading producer of hydroelectric power, generating 856.35 billion kW a year. Brazil at 2nd generates 411.9 billion kW a year. What a huge gap!</p>
           <p><strong>Want a Quote?</strong></p>
-          <p>Use our Calculator to get quoted for hydro energy in your area! </p>
+          <p>Use our <a href="/">Calculator</a>{/*<Link to={'/'}>Calculator</Link>*/} to get quoted for hydro energy in your area! </p>
           <br/>
         </div>
       </div>
@@ -301,7 +306,7 @@ export default function RenewableEnergy() {
           <p><strong>Fun Fact:</strong></p>
           <p>In 2021, the US was the leading producer of geothermal energy, generating a whooping 3.7 gW! And second, was Indonesia with 2.3 gW. </p>
           <p><strong>Want a Quote?</strong></p>
-          <p>Use our Calculator to get quoted for geothermal energy in your area!</p>
+          <p>Use our <a href="/">Calculator</a>{/*<Link to={'/'}>Calculator</Link>*/} to get quoted for geothermal energy in your area!</p>
           {/* <p><strong></strong></p>
           <p></p> */}
           <br/>

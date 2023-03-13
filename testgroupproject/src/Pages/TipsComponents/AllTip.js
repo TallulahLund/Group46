@@ -11,6 +11,7 @@ import Likes from './Likes';
 // export default 
 const AllTip = (props) => 
 {
+    console.log("in AllTip");
     const {loggedInUser, allTipData, order} = props;
     console.log("atd= ", allTipData);
 
@@ -188,8 +189,9 @@ const AllTip = (props) =>
     const like = (tip, index) =>
     {
         // event.preventDefault();
+        console.log("in like - ud = ", userdata);
 
-        if (userdata === "")
+        if (userdata === "" || userdata === "Data failure")
         {
             alert("Login to Like Tips");
         }
@@ -255,6 +257,7 @@ const AllTip = (props) =>
     const getIsLiked = (tip) => {
         const jwt = sessionStorage.getItem('jwt');
         console.log(jwt);
+        console.log("alltip gil tip=, ", tip);
         axios({
             method: 'get',
             url: 'http://localhost:8080/like/findByTipId',
@@ -299,11 +302,12 @@ const AllTip = (props) =>
 
         var noLikes = 0;
 
+        console.log("alltip gL tip=, ", tip);
         axios({
             method: 'get',
             url: 'http://localhost:8080/like/findByTipId',
             params: {tipId : tip.id},
-            headers: { "Authorization" : `Bearer ${jwt}`}
+            // headers: { "Authorization" : `Bearer ${jwt}`}
         }).then(response=>{
             // console.log("tipId= ", tip, " nolikes= ", response.data.user.length);
             // if (response.status === 201){
@@ -321,7 +325,7 @@ const AllTip = (props) =>
             // setResult(result => [...result, response]);
             // setRes(response.data);
 
-            return noLikes;
+            // return noLikes;
 
         // }).then(()=>{
         //     tipCategory.current.value="";
@@ -331,7 +335,7 @@ const AllTip = (props) =>
         .catch(error=>{
             console.log(error);
         })
-        return noLikes;
+        // return noLikes;
         // return response.data.length;
     }
 
@@ -534,16 +538,20 @@ const AllTip = (props) =>
 
     }
 
+    console.log("atdae= ", allTipData.author.email, "liu = ", loggedInUser, "iL = ", isLiked);
 
     if (allTipData.author.email === loggedInUser)   // if the tip belongs to the user
     {
+        console.log("first if");
         getLikes(allTipData);
         return (<><p>{tipLikes} Likes</p><br/></>)
     }
     if (isLiked === false)//(isLiked === "")
     {
+        console.log("isliked = false");
         getIsLiked(allTipData);
         getLikes(allTipData);
+        console.log("isliked = false still");
         return (
             <div>
                 {/* <p>..{allTipData.id}..</p> */}
@@ -568,6 +576,7 @@ const AllTip = (props) =>
     }
     else
     {
+        console.log("else");
         getIsLiked(allTipData);
         getLikes(allTipData);
         return (
@@ -580,7 +589,7 @@ const AllTip = (props) =>
                 {/* <p>+{getLikes(allTipData)}, {tipLikes} - Likes</p> */}
 
                 {/* {() => getLikes(allTipData)} */}
-                <p>{tipLikes} Likes</p>
+                <p>{tipLikes} Likes</p><br/>
                 <button id="likeTipButton" onClick={() => setInfo(allTipData/*unlike(allTipData/*, index*/)}>Unlike</button>
                 {/* <button id="likeTipButton" onClick={() => unlike(allTipData/*unlike(allTipData/*, index*)}>Unlike2</button> */}
             </div>
@@ -599,7 +608,8 @@ export default AllTip;
     -   make sure only have to click button once - have to click delete twice 
         -> useEffect think is working
 
-    -*   can't like if not signed in - display data if not signed in - back end security authoriation ---- be careful!!!!!!
+    -   can't like if not signed in - display data if not signed in - back end security authoriation ---- be careful!!!!!!
+        -> done
 
     -   can't like if it your tip 
         -> done - removed button if tip belongs to logged in user
@@ -625,5 +635,6 @@ export default AllTip;
     -   pagination for tips if can
 
     -   edit tips pop up form?
+        -> no pop up fix -> fixed editting
 
 */

@@ -1,4 +1,5 @@
-import React, { useRef, useState, useEffect } from "react";
+// import React, { useRef, useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 
@@ -7,11 +8,29 @@ import '../Tips.css';
 // export default function AllTip(loggedInUser)
 // export default 
 const Likes = (props) => 
+// function Likes(props)
 {
-    const {tip} = props;
+    console.log("in Likes: tL useState before");
+
+    // const[tipLikes, setTipLikes] = useState("");
+    // var tipLikes = "";
+
+    console.log("in Likes: tL useState after");
+    console.log("in Likes");
+    // console.log("props= ", props);
+    const {tip} = props; // fixes issues for Tips From You as tip props
+    // const tip = props;
     console.log("tip= ", tip);
+    console.log("tip= after");
+    console.log("tip= after after");
+
+    // console.log("in Likes: tL useState before");
 
     const[tipLikes, setTipLikes] = useState("");
+    // console.log("in Likes: tL useState after");
+
+    getLikes(tip);
+    
     function getLikes(tip)
     {
         console.log("in tip getLikes");
@@ -19,8 +38,8 @@ const Likes = (props) =>
         const jwt = sessionStorage.getItem('jwt');
         console.log(jwt);
 
-        var noLikes = 0;
-
+        // var noLikes = 0;
+        console.log("likes tip=, ", tip);
         axios({
             method: 'get',
             url: 'http://localhost:8080/like/findByTipId',
@@ -30,19 +49,28 @@ const Likes = (props) =>
 
             console.log("tl res data= ", response.data);
             console.log("tl count= ", response.data.length);
-            noLikes = response.data.length;
+            // noLikes = response.data.length;
             setTipLikes(response.data.length);
+            // settingTipLikes(response.data.length);
+            console.log("tipLikes= ", tipLikes);
 
-            return noLikes;
+            // return noLikes;
         })
         .catch(error=>{
             console.log(error);
         })
-        return noLikes;
+        // return noLikes;
     }
 
+    // function settingTipLikes(data)
+    // {
+    //     setTipLikes(data);
+    //     // tipLikes = data;
+    //     console.log("tipLikes= ", tipLikes);
+    // }
+
     // getIsLiked(allTipData);
-    getLikes(tip);
+    // getLikes(tip);
     // return (
     //     <div>
     //         {/* <p>{tipLikes} Likes</p> */}
@@ -50,7 +78,7 @@ const Likes = (props) =>
     //      </div>
 
     // )
-    // return {tipLikes};
+    // return {tipLikes}; bad very bad
 
     return tipLikes;
 };

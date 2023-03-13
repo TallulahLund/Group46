@@ -570,7 +570,7 @@
 
 
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, createElement } from "react";
 import axios from "axios";
 
 import { useOutletContext } from "react-router-dom";
@@ -593,6 +593,23 @@ export default function Tips(){
 
     const [loggedInUser, setLoggedinUser] = useOutletContext();
     const [userdata, setUserdata] = useState("");
+
+    var [tipC, setTipC] = useState();
+
+    const [allTipData, setAllTipData] = useState("");
+
+    const [likeno, setLikeno] = useState("");
+    const [likearr, setLikearr] = useState([]);
+
+    const [data, setData] = useState("");
+    const [dataCat, setDataCat] = useState("");
+    const [dataStr, setDataStr] = useState("");
+
+    const [oSort, setOSort] = useState("Newest First");
+
+    const catSort = useRef("");
+    const [cSort, setCSort] = useState("");
+
 
     // useEffect(()=>{
     //     if(loggedInUser!=="" && userdata===""){
@@ -687,8 +704,14 @@ export default function Tips(){
     }
 
 
-    const tipCategory = useRef();
-    const tipString = useRef();
+    var tipCategory = useRef();
+    var tipString = useRef();
+    const tipCategory2 = useRef("ahhhhh");
+    const tipString2 = useRef();
+
+    // var [tipC, setTipC] = useState(); //moved to top
+    var ro = true;
+
     const author = useRef();
     // remove author op
 
@@ -746,6 +769,38 @@ export default function Tips(){
         }
         return formValid;
     }
+    const validateForm2 = (tipID) => {
+      let formValid = false;
+
+      const newtC = document.getElementById(tipID + "select");
+      console.log("vF2 tC= ", newtC);
+
+      var tC = document.getElementById(tipID + "tC");
+      var tS = document.getElementById(tipID);
+      console.log("in VF2, tC= ", tC);
+      console.log("tS= ", tS.textContent);// old
+      console.log("tS= ", tS.value);// new
+
+      console.log("tc2= ", tipCategory2, "ts2= ", tipString2);
+
+      if (newtC.value === "" || tS.value === ""){
+        // tipCategory2.current.validity.valueMissing 
+        //   || tipString2.current.validity.valueMissing 
+          // || author.current.validity.valueMissing)
+          // )
+      // {
+          alert("Please fill in all text fields.");
+      }
+      else if (checkWords(tS.value))//tipString2.current.value))
+      {
+          alert("This tip contains banned language. \nPlease enter again.");
+      }
+      else
+      {
+          formValid = true;
+      }
+      return formValid;
+  }
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -793,7 +848,7 @@ export default function Tips(){
     }
 
     ///////////////
-    const [allTipData, setAllTipData] = useState("");
+    // const [allTipData, setAllTipData] = useState(""); //moved to top
 
     const getAllTipData = () => {
         const jwt = sessionStorage.getItem('jwt');
@@ -827,8 +882,8 @@ export default function Tips(){
         return new Date(b.updatedAt)/*.getTime()*/ - new Date(a.updatedAt)/*.getTime()*/;
     }
 
-    const [likeno, setLikeno] = useState("");
-    const [likearr, setLikearr] = useState([]);
+    // const [likeno, setLikeno] = useState(""); //moved to top
+    // const [likearr, setLikearr] = useState([]);
 
     function mp_sort(a, b)
     {
@@ -836,70 +891,79 @@ export default function Tips(){
         console.log("a= ", a, "gla= ", getLikes(a), "ln= ", likeno);
         console.log("b= ", b, "glb= ", getLikes(b), "ln= ", likeno);
         // return (getLikes(a) - getLikes(b));
-        console.log("a= ", a.id, " likes= ", <Likes props={a} />);
-        console.log("b= ", b.id, " likes= ", <Likes props={b} />);
+        console.log("a.id= ", a.id, " likes= ", <Likes props={a} />);
+        console.log("a.id= ", a.id, " likes el= ", <Likes props={a} />);
 
-        var fl = String(<Likes props={a}/>);
-        var sl = String(<Likes props={b} />);
+        console.log("b.id= ", b.id, " likes= ", <Likes props={b} />);
+
+        // var fl = String(<Likes props={a}/>);
+        // var sl = String(<Likes props={b} />);
+        console.log("before");
+        <Likes props={a} />
+
+        // console.log("Likes(a)= ", Likes(a));
+
+        console.log("after");
 
         // var f = Likes(a);
         // console.log("f= ", f);
 
-        console.log("fl= ", fl, "sl= ", sl);
+        // console.log("fl= ", fl, "sl= ", sl);
 
         // return(<Likes props={a} /> - <Likes props={b}/>);
-        return (fl - sl);
+        // return (fl - sl);
+        return b - a;
     }
 
     const displayAllTipData = () => {
 
-        if (catSort.current.value === "Home" && allTipData !== "")
-        {
-            // allTipData.filter(function (el) {
-            //     console.log("el tc= ", el.tipCategory);
-            //     return el.tipCategory === "Home";
-            //   });
-            const fil = allTipData.filter((e) => e.tipCategory === 'Home');
-            // allTipData = allTipData.filter((e) => e.tipCategory === 'Home')
-            // console.log("fil= ", fil);
-            console.log("inner os= ", orderSort.current.value, " cs= ", catSort.current.value, " atd= ", allTipData);
+        // if (catSort.current.value === "Home" && allTipData !== "") // all cat sort been put into 1
+        // {
+        //     // allTipData.filter(function (el) {
+        //     //     console.log("el tc= ", el.tipCategory);
+        //     //     return el.tipCategory === "Home";
+        //     //   });
+        //     const fil = allTipData.filter((e) => e.tipCategory === 'Home');
+        //     // allTipData = allTipData.filter((e) => e.tipCategory === 'Home')
+        //     // console.log("fil= ", fil);
+        //     console.log("inner os= ", orderSort.current.value, " cs= ", catSort.current.value, " atd= ", allTipData);
 
-            //
-            // if (orderSort.current.value === "Newest First")
-            // {
-            //         // allTipData.updatedAt.sort(function(a, b){return a - b});
-            //     console.log("in catsort ordersort check nf ", fil.updatedAt, ".");
-            //         fil.sort(custom_sort);
+        //     //
+        //     // if (orderSort.current.value === "Newest First")
+        //     // {
+        //     //         // allTipData.updatedAt.sort(function(a, b){return a - b});
+        //     //     console.log("in catsort ordersort check nf ", fil.updatedAt, ".");
+        //     //         fil.sort(custom_sort);
 
-            //         // var t1 = allTipData.substring(0,23);
-            //         // var t2 = allTipData.substring(26);
-            //         // var t3 = t1 + t2;
-            //         // print(t3);
-            //         // var  ms = Date.parse(t3);
-            //         // print(ms);
+        //     //         // var t1 = allTipData.substring(0,23);
+        //     //         // var t2 = allTipData.substring(26);
+        //     //         // var t3 = t1 + t2;
+        //     //         // print(t3);
+        //     //         // var  ms = Date.parse(t3);
+        //     //         // print(ms);
 
-            //         console.log("os= ", orderSort.current.value, " fil= ", fil);
-            // }
-            // else // will be original which is Oldest First
-            // {
-            //     console.log("in catsort ordersort check else ", oSort);
-            // }
+        //     //         console.log("os= ", orderSort.current.value, " fil= ", fil);
+        //     // }
+        //     // else // will be original which is Oldest First
+        //     // {
+        //     //     console.log("in catsort ordersort check else ", oSort);
+        //     // }
 
-            console.log("atd.tc= ", allTipData.tipCategory);
-            console.log("atd= ", allTipData);
-            // console.log(allTipData.forEach((e) => e.tipCategory === "Home"));
-            for (let i = 0; i < allTipData.length; i++)
-                {console.log("for atd= ", allTipData.indexOf(i));}
-            allTipData.map((allTipData, index) => {
-                console.log("in if atd.map");
-            // })
-            if (allTipData.tipCategory !== "Home")
-            {
-                console.log("in if atd.tc != home");
-                return (<></>);
-            }
-        })
-        }
+        //     console.log("atd.tc= ", allTipData.tipCategory);
+        //     console.log("atd= ", allTipData);
+        //     // console.log(allTipData.forEach((e) => e.tipCategory === "Home"));
+        //     for (let i = 0; i < allTipData.length; i++)
+        //         {console.log("for atd= ", allTipData.indexOf(i));}
+        //     allTipData.map((allTipData, index) => {
+        //         console.log("in if atd.map");
+        //     // })
+        //     if (allTipData.tipCategory !== "Home")
+        //     {
+        //         console.log("in if atd.tc != home");
+        //         return (<></>);
+        //     }
+        // })
+        // }
         console.log("os= ", orderSort.current.value, " cs= ", catSort.current.value, " atd= ", allTipData);
 
 
@@ -923,7 +987,13 @@ export default function Tips(){
             console.log("in most popular");
             allTipData.sort(mp_sort);
 
+
             allTipData.map((allTipData, index) => {
+
+              // console.log("before atd");
+              // console.log("Likes(atd)= ", Likes(allTipData));
+              // console.log("after atd");
+
                 getLikes(allTipData)
             })
         }
@@ -985,6 +1055,7 @@ export default function Tips(){
                 }
             }
 
+            console.log("in displayalldata");
             return (
                 <div className=/*"userTipBoxN"*/"tipBox">
                     <span className=/*"userTipInfoN"*/"box" key={allTipData.id}>
@@ -1063,9 +1134,9 @@ export default function Tips(){
 
     ///////////////
 
-    const [data, setData] = useState("");
-    const [dataCat, setDataCat] = useState("");
-    const [dataStr, setDataStr] = useState("");
+    // const [data, setData] = useState(""); //moved to top
+    // const [dataCat, setDataCat] = useState("");
+    // const [dataStr, setDataStr] = useState("");
     const getAllData = () => {
         const jwt = sessionStorage.getItem('jwt');
 
@@ -1114,11 +1185,11 @@ export default function Tips(){
             });
         };
 
-        const orderSort = useRef("Newest First");// had to put before useeffect
-        const [oSort, setOSort] = useState("Newest First");
+    const orderSort = useRef("Newest First");// had to put before useeffect
+    // const [oSort, setOSort] = useState("Newest First"); //moved top top
 
-        const catSort = useRef("");
-        const [cSort, setCSort] = useState("");
+    // const catSort = useRef("");
+    // const [cSort, setCSort] = useState("");
 
     useEffect(() => {
         checkLoggedIn();
@@ -1128,7 +1199,11 @@ export default function Tips(){
         ///////
         getAllTipData();
 
-    }, [userdata, orderSort, oSort, cSort]);//, checkLoggedIn, getAllData]);
+
+        /////
+        // updateTip();
+
+    }, [userdata, orderSort, oSort, cSort, tipCategory2, tipC]);//, checkLoggedIn, getAllData]);
 
     const displayData = () => {
       // do something bout id user doesn't have any tips
@@ -1137,6 +1212,10 @@ export default function Tips(){
 
             console.log("d = ", data);
             getLikes(data);//
+            var tC = data.id + "tC";
+            var tE = data.id + "tE";
+            var tD = data.id + "tD";
+            var tM = data.id + "tM";
             return (
                 // <div className="data" key={data.id}>
                 //     <div className="tipFL">
@@ -1163,8 +1242,9 @@ export default function Tips(){
                         <div className="firstLine">
                             {/* <h3>{data.tipCategory}</h3>
                             <p>date</p> */}
-                            <span className="tipCategory">
-                            <p>{data.tipCategory}</p>
+                            <span className="tipCategory" id={tC}>
+                            {/* <p>{data.tipCategory}</p> */}
+                            {data.tipCategory}
                             </span>
                             <span className="postInfo">
                                 <span className="tipDateTime">
@@ -1175,7 +1255,7 @@ export default function Tips(){
                         </div>
                         <div className="secondLine">
                             {/* <span className="userTipString"> */}
-                            <textarea className="userTipString" /*"ta*/readOnly>{data.tipString}</textarea>
+                            <textarea className="userTipString" id={data.id}/*"ta*/readOnly={ro}>{data.tipString}</textarea>
                             {/* </span> */}
                             <span className="userLikes">
                                 <span className="userTipLikes">
@@ -1183,32 +1263,36 @@ export default function Tips(){
                                     {/* <p>{/*207*}{/*tipLikes*}- Likes</p> */}
                                 </span>
                             </span>
-                            <div className="modifyTip"> 
-                            {/* button don't go to just 1 tip but all tips -> fix =>fixed*/}
-                                <button className="editBtn" onClick={() => editTip(data.id)}>{/*Edit*/}
-                                {/* <span className="tooltiptext">Edit</span> */}
-                                <img
-                            src={pencil}
-                            alt="editingButton"
-                            id="edit"
-                            width="25px"
-                            height="35px"
-                        />
-                        <span className="tooltiptext">Edit</span>
+                            <div className="endSecondLine">
+                              <div className="modifyTip" id={tM}> 
+                              {/* button don't go to just 1 tip but all tips -> fix =>fixed*/}
+                                  <button className="editBtn" onClick={() => editTip(data.id)}>{/*Edit*/}
+                                  {/* <span className="tooltiptext">Edit</span> */}
+                                    <img
+                                      src={pencil}
+                                      alt="editingButton"
+                                      // id="edit"
+                                      id={tE}
+                                      width="25px"
+                                      height="35px"
+                                    /> 
+                                    <span className="tooltiptext">Edit</span>
 
-                        </button>              
-                                <button className=/*"deleteBtn"*/"editBtn" onClick={() => deleteTip(data.id)}>{/*Delete*/}
-                                {/* <span className="tooltiptext">Delete</span> */}
-                                <img
-                            src={bin}
-                            alt="deletingButton"
-                            id="delete"
-                            width="25px"
-                            height="35px"
-                        />
-                        <span className="tooltiptext">Delete</span>
-                        </button>
-                                {/* fix ACAO error */}
+                                  </button>              
+                                  <button className=/*"deleteBtn"*/"editBtn" onClick={() => deleteTip(data.id)}>{/*Delete*/}
+                                  {/* <span className="tooltiptext">Delete</span> */}
+                                    <img
+                                      src={bin}
+                                      alt="deletingButton"
+                                      // id="delete"
+                                      id={tD}
+                                      width="25px"
+                                      height="35px"
+                                    />
+                                    <span className="tooltiptext">Delete</span>
+                                  </button>
+                                  {/* fix ACAO error */}
+                              </div>
                             </div>
                         </div>
                     </span>
@@ -1298,46 +1382,248 @@ export default function Tips(){
     function editTip(tipID) {
         // event.preventDefault();
 
-        if(validateForm()){
+      console.log("edit tipId= ", tipID);
+      console.log("ti= ", document.getElementById(tipID));
+      // document.getElementById(tipID).style.backgroundColor = "red";
+      const el = document.getElementById(tipID);
+      // el.style.readOnly = false;
+      ro = false;
+      el.readOnly = false;// this works
+      console.log("el.readOnly= ", el.readOnly, "esro= ", el.style.readOnly);
+      // el.value = "editing";
 
-            const jwt = sessionStorage.getItem('jwt');
-            console.log(jwt);
+      const tC = document.getElementById(tipID + "tC");
+      console.log("tC= ", tC);
+      console.log("tC value= ", tC.value);
+      console.log("tC textContent= ", tC.textContent);
+      // tC.color = "red";
+      // tC.value = "T";
+      // console.log("tC value after= ", tC.value);
 
-            axios({
-                method: 'put',
-                url: 'http://localhost:8080/tip/' + tipID,
-                // params: {id: tipID},
-                data: {
-                    tipCategory: tipCategory.current.value,
-                    tipString: tipString.current.value,
-                    // author: userdata,
-                    author: {
-                        id: userdata.id,
-                        name: userdata.name,
-                        email: userdata.email,
-                        password: userdata.password,
-                        buyer_seller: userdata.buyer_seller,
-                    }
-                },
-                headers: { "Authorization" : `Bearer ${jwt}`,
-                "Access-Control-Allow-Origin": "http://localhost:8080"}
-            }).then(response=>{
-                console.log(response);
-                if (response.status === 200){
-                    alert("Tip updated.")
-                    getAllData();//
-                }
-            }).then(()=>{
-                tipCategory.current.value="empty";
-                tipString.current.value="empty";
-                author.current.value=0;
+      // tC.textContent = "T";
 
-                getAllData();// not updating the tipString for some reason
-            })
-            .catch(error=>{
-                console.log(error);
-            })
-        }
+      var d = document.createElement('select');
+      d.className = 'tipFilterCategory';
+      d.id = tipID + "select";
+
+      // d.ref={tipCategory2};
+      // d.ref.current = {tipCategory};
+      // console.log("d ref= ", d.ref, "d ref c= ", d.ref.current);
+
+      d.innerHTML = tC.innerHTML;
+
+      tC.parentNode.replaceChild(d, tC);
+      // d.className = "tipFilterCatagory";
+
+      let opts = ["", "Home", "Car", "Transport"];
+      for (var i = 0; i < opts.length; i++) {
+        var option = document.createElement("option");
+        option.value = opts[i];
+        option.text = opts[i];
+        d.appendChild(option);
+    }
+
+    d.ref={tipCategory2};
+    console.log("d ref= ", d.ref, "d ref c= ", d.ref.current);
+
+    // var selectedValue = d.options[d.selectedIndex].value;
+    // if (selectedValue !== "")
+    // {
+    //   // alert("Please select a card type");
+    //   setTipC(selectedValue);
+    //   console.log("sv= ", selectedValue, "state tipC= ", tipC);
+    // }
+
+    // tC.ref
+
+    // d.ref = {tipCategory};
+    console.log("d ref= ", d.ref, " tC2= ", tipCategory2, " tC2v= ", tipCategory2.current);
+
+
+    //
+    const tE = document.getElementById(tipID + "tE");
+    const tD = document.getElementById(tipID + "tD");
+    const tM = document.getElementById(tipID + "tM");
+
+    var e = document.createElement('button');
+    // e.className = "";
+    // e.innerHTML = 
+
+    // e.value = "Submit";
+    e.textContent = "Submit";
+    e.text = "Submit";
+    e.className = "tipButton";
+    e.id = tipID + "subBtn";
+    // e.onClick = () => eTip(tipID);
+    e.onclick = () => eTip(tipID);
+
+    tM.parentNode.replaceChild(e, tM);
+
+    // e.onClick = eTip(tipID);
+
+
+    }
+
+    // function updateTip()
+    // {
+    //   const d = getElementById
+    // }
+
+    function eTip(tipID)
+    {
+      console.log("eTip tipC= ", tipC, "tipCat2= ", tipCategory2);
+      const tC = document.getElementById(tipID + "select");
+      console.log("eTip tC= ", tC, "textc= ", tC.textContent, "tc val= ", tC.value);
+      const tS = document.getElementById(tipID);
+
+      // const spantC = document.getElementById(tipID + "tC");
+      // const spantC = document.createElement("span");
+      // spantC.className = "tipCategory";
+      // spantC.innerHTML = tC.value;
+      // console.log("spantC= ", spantC);
+
+      // tC.parentNode.replaceChild(spantC, tC);
+
+
+
+      // var tS = document.getElementById(tipID);
+      // tS.readOnly = true;
+
+      if(validateForm2(tipID)){
+
+          const jwt = sessionStorage.getItem('jwt');
+          console.log(jwt);
+
+          axios({
+              method: 'put',
+              url: 'http://localhost:8080/tip/' + tipID,
+              // params: {id: tipID},
+              data: {
+                  tipCategory: tC.value,
+                  //tipCategory2.current.value,
+                  // tipCategory: tipC,
+                  tipString: tS.value,
+                  //tipString2.current.value,
+                  // author: userdata,
+                  author: {
+                      id: userdata.id,
+                      name: userdata.name,
+                      email: userdata.email,
+                      password: userdata.password,
+                      buyer_seller: userdata.buyer_seller,
+                  }
+              },
+              headers: { "Authorization" : `Bearer ${jwt}`,
+              "Access-Control-Allow-Origin": "http://localhost:8080"}
+          }).then(response=>{
+              console.log(response);
+              if (response.status === 200){
+                alert("Tip updated.")
+                getAllData();//
+
+                // make select options text span again
+                // leave category on current instaed of going blank
+
+                // tip Category
+                const spantC = document.createElement("span");
+                spantC.id = tipID + "tC";
+                spantC.className = "tipCategory";
+                spantC.innerHTML = tC.value;
+                console.log("spantC= ", spantC);
+                tC.parentNode.replaceChild(spantC, tC);
+
+                // tip String
+                tS.readOnly = true;
+
+                // modify tip
+                const oldtM = document.getElementById(tipID + "tM");
+                console.log("oldtM= ", oldtM);
+                const tM = document.createElement("div");
+                tM.id = tipID + "tM";
+
+                // edit
+                const eB = document.createElement("button");
+                eB.className = "editBtn";
+                eB.onclick = () => editTip(tipID);
+                const eBimg = document.createElement("img");
+                eBimg.id = tipID + "tE";
+                eBimg.alt="editingButton";
+                eBimg.src= pencil;
+                eBimg.style.width="25px";
+                eBimg.style.height="35px";
+                const eBimgttt = document.createElement("span");
+                eBimgttt.className = "tooltiptext";
+                eBimgttt.innerHTML = "Edit";
+
+                eBimg.appendChild(eBimgttt);
+                eB.appendChild(eBimg);
+
+                tM.appendChild(eB);
+
+                // delete
+                const dB = document.createElement("button");
+                dB.className = "editBtn";
+                dB.onclick = () => deleteTip(tipID);
+                const dBimg = document.createElement("img");
+                dBimg.id = tipID + "tE";
+                dBimg.alt="editingButton";
+                dBimg.src= bin;
+                dBimg.style.width="25px";
+                dBimg.style.height="35px";
+                const dBimgttt = document.createElement("span");
+                dBimgttt.className = "tooltiptext";
+                dBimgttt.innerHTML = "Delete";
+
+                dBimg.appendChild(dBimgttt);
+                dB.appendChild(dBimg);
+
+                tM.appendChild(dB);
+
+                // eB.innerHTML = 
+                // <button className="editBtn" onClick={() => editTip(data.id)}>
+                //   <img
+                //     src={pencil}
+                //     alt="editingButton"
+                //     // id="edit"
+                //     id={tE}
+                //     width="25px"
+                //     height="35px"
+                //   /> 
+                //   <span className="tooltiptext">Edit</span>
+
+                // </button>              
+                // <button className=/*"deleteBtn"*/"editBtn" onClick={() => deleteTip(data.id)}>{/*Delete*/}
+                // {/* <span className="tooltiptext">Delete</span> */}
+                //   <img
+                //     src={bin}
+                //     alt="deletingButton"
+                //     // id="delete"
+                //     id={tD}
+                //     width="25px"
+                //     height="35px"
+                //   />
+                //   <span className="tooltiptext">Delete</span>
+                // </button>
+
+                console.log("tM= ", tM);
+
+                const subBtn = document.getElementById(tipID + "subBtn");
+
+                subBtn.parentNode.replaceChild(tM, subBtn);
+
+              }
+          }).then(()=>{
+              // tipCategory.current.value="empty";
+              // tipString.current.value="empty";
+              // author.current.value=0;
+
+
+              getAllData();// not updating the tipString for some reason
+          })
+          .catch(error=>{
+              console.log(error);
+          })
+      }
     }
 
     function deleteTip(tipID) {
@@ -1713,21 +1999,21 @@ export default function Tips(){
                         <div id="aTsameLine">
                             <span>
                                 Category:
-                                <select id="tipFilterCategory" ref={catSort} onChange={(e) => setCSort(e.target.value)}>
-                                    <option></option>
-                                    <option id="homeOption">Home</option>
-                                    <option id="carOption">Car</option>
-                                    <option >Transport</option>
+                                <select /*id=*/className="tipFilterCategory" ref={catSort} onChange={(e) => setCSort(e.target.value)}>
+                                    <option value=""></option>
+                                    <option id="homeOption" value="Home">Home</option>
+                                    <option id="carOption" vlaue="Car">Car</option>
+                                    <option value="Transport">Transport</option>
                                 </select>
                             </span>
                             <span>
                                 Order:
-                                <select id="tipFilterCategory" ref={orderSort} onChange={(e) => setOSort(e.target.value)}>
+                                <select id="tipFilterCategory" className="tipFilterCategory" ref={orderSort} onChange={(e) => setOSort(e.target.value)}>
                                     <option id="newest">Newest First</option>
                                     <option id="oldest">Oldest First</option>
                                     {/* need to implement */}
-                                    {/* <option id="mostPop">Most Popular</option>
-                                    <option id="leastPop">Least Popular</option> */}
+                                    <option id="mostPop">Most Popular</option>
+                                    <option id="leastPop">Least Popular</option>
                                 </select>
                             </span>
                             {/* <!-- proper name -> organise similar elements for css --> */}
@@ -1826,10 +2112,10 @@ export default function Tips(){
                             <p>Do you have helpful tips for others?</p>
                             <span>Category: </span>
                             <select id="tipCategory" ref={tipCategory} required>
-                                <option></option>
-                                <option id="homeOption">Home</option>
-                                <option is="carOption">Car</option>
-                                <option >Transport</option>
+                                <option value=""></option>
+                                <option id="homeOption" value="Home">Home</option>
+                                <option id="carOption" value="Car">Car</option>
+                                <option value="Transport">Transport</option>
                             </select>
                         </div>
                         <div id="textArea">
@@ -1840,7 +2126,7 @@ export default function Tips(){
                             ></textarea>
                         </div>
                         <div id="tipButtonDiv">
-                            <button id="tipButton" onClick={handleSubmit}>Submit</button>
+                            <button /*id*/className="tipButton" onClick={handleSubmit}>Submit</button>
                         </div>
                     </div>
 

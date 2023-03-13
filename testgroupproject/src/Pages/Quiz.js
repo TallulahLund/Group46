@@ -26,7 +26,7 @@ export default function Quiz() {
       <section className="mainContent">
         <div>
           <p>
-            Why not test your knowledge about different energy types but taking
+            Why not test your knowledge about different energy types by taking
             a quiz?
           </p>
           <br />
