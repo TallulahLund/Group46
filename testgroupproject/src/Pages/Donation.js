@@ -20,7 +20,7 @@ export default function Donation() {
         </p>
         <br />
         <div className="project">
-          <h4>The _ Project</h4>
+          <h4>The Project</h4>
           <br />
           <p>This project...</p>
           <p>
@@ -31,7 +31,7 @@ export default function Donation() {
         <br />
 
         <div className="project">
-          <h4>The _ Project</h4>
+          <h4>The Project</h4>
           <br />
           <p>This project...</p>
           <p>
