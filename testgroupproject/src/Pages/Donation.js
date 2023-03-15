@@ -3,7 +3,6 @@ import "./Donation.css";
 
 export default function Donation() {
   return (
-    // <div><p>This is Donation</p></div>
     <section className="mainContent">
       <div className="newProjects">
         <h3>Upcoming Projects</h3>
@@ -15,7 +14,7 @@ export default function Donation() {
         <br />
         <p>
           If you want to help these underfunded projects then you can donate to
-          their causes by following the links to their donation pages.
+          their causes by filling out the form below.
         </p>
         <br />
         <div className="project">
@@ -25,7 +24,9 @@ export default function Donation() {
             This community-based project aimed at promoting the use of renewable
             energy in Uxbridge. The project aims to install solar panels on
             residential and commercial buildings, as well as develop a community
-            solar farm to provide clean energy to low-income households.
+            solar farm to provide clean energy to low-income households.</p>
+          <p>
+            <a href="">Find out more.</a>
           </p>
           <form action="https://example.com/donate" method="post">
             <label htmlFor="amount">Donation amount:</label>
@@ -50,7 +51,9 @@ export default function Donation() {
             Community-driven initiative aimed at promoting the use of renewable
             energy in local schools and reducing their carbon footprint. The
             project aims to install solar panels on the roofs of schools to
-            generate clean energy and reduce their dependence on fossil fuels.
+            generate clean energy and reduce their dependence on fossil fuels.</p>
+          <p>
+            <a href="">Find out more.</a>
           </p>
           <form action="https://example.com/donate" method="post">
             <label htmlFor="amount">Donation amount:</label>
