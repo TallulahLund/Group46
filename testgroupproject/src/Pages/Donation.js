@@ -29,17 +29,18 @@ export default function Donation() {
             <a href="">Find out more.</a>
           </p>
           <form action="http://localhost:3000/donations" method="post">
-            <label htmlFor="amount">Donation amount:</label>
-            <input type="number" id="amount" name="amount" required />
-            <br />
-            <label htmlFor="name">Name:</label>
-            <input type="text" id="name" name="name" required />
-            <br />
-            <label htmlFor="email">Email:</label>
-            <input type="email" id="email" name="email" required />
-            <br />
-            <button type="submit">Donate</button>
-          </form>
+  <label htmlFor="amount">Donation amount:</label>
+  <input type="text" id="amount" name="amount" pattern="[0-9]+" title="Please enter a whole number" required />
+  <br />
+  <label htmlFor="name">Name:</label>
+  <input type="text" id="name" name="name" required />
+  <br />
+  <label htmlFor="email">Email:</label>
+  <input type="email" id="email" name="email" required />
+  <br />
+  <button type="submit">Donate</button>
+</form>
+
         </div>
         <br />
         <br />
@@ -56,17 +57,17 @@ export default function Donation() {
             <a href="">Find out more.</a>
           </p>
           <form action="http://localhost:3000/donations" method="post">
-            <label htmlFor="amount">Donation amount:</label>
-            <input type="number" id="amount" name="amount" required />
-            <br />
-            <label htmlFor="name">Name:</label>
-            <input type="text" id="name" name="name" required />
-            <br />
-            <label htmlFor="email">Email:</label>
-            <input type="email" id="email" name="email" required />
-            <br />
-            <button type="submit">Donate</button>
-          </form>
+  <label htmlFor="amount">Donation amount:</label>
+  <input type="text" id="amount" name="amount" pattern="[0-9]+" title="Please enter a whole number" required />
+  <br />
+  <label htmlFor="name">Name:</label>
+  <input type="text" id="name" name="name" required />
+  <br />
+  <label htmlFor="email">Email:</label>
+  <input type="email" id="email" name="email" required />
+  <br />
+  <button type="submit">Donate</button>
+</form>
         </div>
         <br />
         <br />
