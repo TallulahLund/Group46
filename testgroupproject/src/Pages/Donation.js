@@ -28,9 +28,9 @@ export default function Donation() {
           <p>
             <a href="">Find out more.</a>
           </p>
-          <form action="https://example.com/donate" method="post">
+          <form action="http://localhost:3000/donations" method="post">
             <label htmlFor="amount">Donation amount:</label>
-            <input type="text" id="amount" name="amount" pattern="[0-9]+" required />
+            <input type="number" id="amount" name="amount" required />
             <br />
             <label htmlFor="name">Name:</label>
             <input type="text" id="name" name="name" required />
@@ -55,9 +55,9 @@ export default function Donation() {
           <p>
             <a href="">Find out more.</a>
           </p>
-          <form action="https://example.com/donate" method="post">
+          <form action="http://localhost:3000/donations" method="post">
             <label htmlFor="amount">Donation amount:</label>
-            <input type="text" id="amount" name="amount" pattern="[0-9]+" required />
+            <input type="number" id="amount" name="amount" required />
             <br />
             <label htmlFor="name">Name:</label>
             <input type="text" id="name" name="name" required />
