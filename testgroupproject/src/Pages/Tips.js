@@ -883,6 +883,16 @@ export default function Tips(){
 
         // return new Date(b.updatedAt)/*.getTime()*/ - new Date(a.updatedAt)/*.getTime()*/;
         return new Date(b.createdAt)/*.getTime()*/ - new Date(a.createdAt)/*.getTime()*/;
+    }
+    function custom_sort_old(a, b) {
+        // console.log("in cust_sort funct a=", a.updatedAt, ", b=", b, ".");
+        // console.log("in cust_sort funct ", allTipData, ".");
+        // console.log("in cust_sort funct i=", allTipData.index, ".");
+        // console.log("a test=", new Date(a.updatedAt));
+        // console.log("a test=", new Date(a.createdAt));
+
+        // return new Date(b.updatedAt)/*.getTime()*/ - new Date(a.updatedAt)/*.getTime()*/;
+        return new Date(a.createdAt)/*.getTime()*/ - new Date(b.createdAt)/*.getTime()*/;
       }
 
     // const [likeno, setLikeno] = useState(""); //moved to top
@@ -948,6 +958,11 @@ export default function Tips(){
       return b - a;
     }
 
+    function testsortleast(a, b)
+    {
+      return a - b;
+    }
+
     function isZero(i) {
       return i === "0";
     }
@@ -959,6 +974,13 @@ export default function Tips(){
     }
 
     const displayAllTipData = () => {
+        // getAllTipData();
+
+        console.log("displayAllTipData");
+
+        var mappingAllTipData = allTipData;
+
+        // <AllTip loggedInUser={loggedInUser} allTipData={allTipData} order={order}/>
 
         // if (catSort.current.value === "Home" && allTipData !== "") // all cat sort been put into 1
         // {
@@ -1048,10 +1070,12 @@ export default function Tips(){
                 // <Likes tip={allTipData} />
                 // <Likes tip={aTD} />
 
-                var opEla = document.getElementById(aTD.id + "option");
+                var opEla = document.getElementById(aTD.id + "option");// for some reason after catsort, can't get element
+                console.log("aTD.id= ", aTD.id);
                 console.log("opEla= ", opEla);
                 console.log("opEla id= ", opEla.id, " val= ", opEla.value, " textC= ", opEla.textContent);
 
+                // array = [...array, opEla.value];
                 array.push(opEla.value);
                 keys.push(index);
                 console.log("index= ", index, "array= ", array);
@@ -1088,8 +1112,9 @@ export default function Tips(){
                 a.push(obj[key]);
               }
             }
-            console.log("obj array a= ", a);
+            console.log("obj array a before= ", a);
             console.log("obj array a sort= ", a.sort(testsort));
+            console.log("obj array a after= ", a);
 
             for (var key in obj)
             {
@@ -1112,14 +1137,14 @@ export default function Tips(){
             let index = [];
             let sorted = [];
 
-            for (var i = start; start >= end; i--)
+            for (var i = start; i >= end; i--)
             {
               console.log("array in 1st for");
               for (var j = 0; j < array.length; j++)
               {
-                console.log("array in 2nd for");
+                console.log("array in 2nd for, array[j]= ", array[j], "i= ", i);
 
-                if (array[j] === i)
+                if (array[j] == i)
                 {
                   console.log("array in if");
 
@@ -1128,8 +1153,48 @@ export default function Tips(){
                 }
               }
             }
-            // console.log("array index= ", index);
+            console.log("array index= ", index);
             console.log("array sorted= ", sorted);
+
+            let newATD = [];
+
+            for (var i = 0; i < index.length; i++)
+            {
+                // for (var tip in allTipData)
+                // {
+                //     console.log("array allTipData.indexOf(tip)=", allTipData.indexOf(tip)," i= ", i);
+
+                //     if (allTipData.indexOf(tip) == i)
+                //     {
+                //         newATD.push(tip);
+                //     }
+                // }
+
+                allTipData.map((aTD, ix) => {
+                    console.log("array aTD=", aTD," ix= ", ix, "i= ", i, "index[i]= ", index[i]);
+                    if (ix == index[i])
+                    {
+                        newATD.push(aTD);
+                        console.log("array aTD added");
+                    }
+                })
+            }
+            console.log("array newATD= ", newATD);
+            // allTipData = newATD;
+            // console.log("array matd.len= ", mappingAllTipData.length);
+            // mappingAllTipData.length = 0;
+            console.log("array matd.len= ", mappingAllTipData.length);
+            console.log("array natd.len= ", newATD.length);
+
+            // mappingAllTipData = newATD;
+            for (var i = 0; i < mappingAllTipData.length; i++)
+            {
+                mappingAllTipData[i] = newATD[i];
+            }
+
+            console.log("array mappingAllTipData= ", mappingAllTipData);
+            console.log("array matd.len= ", mappingAllTipData.length);
+
 
 
             goodarray.sort(testsort);
@@ -1161,13 +1226,378 @@ export default function Tips(){
 
 
         }
+        else if (orderSort.current.value === "Least Popular" && allTipData !== "")
+        {
+            console.log("in least popular");
+
+            let goodarray = [];
+
+            let keys = [];
+            let array = [];
+
+            var obj = {};
+            var a = [];
+
+            allTipData.map((aTD, index) => {
+
+              // console.log("before atd");
+              // console.log("Likes(atd)= ", Likes(allTipData));
+              // console.log("after atd");
+
+                // getLikes(allTipData);
+
+                // <Likes tip={allTipData} />
+                // <Likes tip={aTD} />
+
+                var opEla = document.getElementById(aTD.id + "option");
+                console.log("opEla= ", opEla);
+                console.log("opEla id= ", opEla.id, " val= ", opEla.value, " textC= ", opEla.textContent);
+
+                // array = [...array, opEla.value];
+                array.push(opEla.value);
+                keys.push(index);
+                console.log("index= ", index, "array= ", array);
+
+            })
+
+            // array.sort(testsort);
+            // console.log("sort array= ", array);
+
+            if (array.every(isZero))//() => a === "0"))
+            {
+              console.log("bad array, ", array);
+            }
+            else
+            {
+              console.log("good array");
+              goodarray = array;
+              console.log("good array= ", goodarray, "key array= ", keys);
+            }
+
+            for (var  i = 0; i < keys.length; i++)
+            {
+              obj[keys[i]] = array[i];
+            }
+
+            // sortArrayOfObjects = (arr, key) => {return arr.sort((a, b) => a[key] - b[key]);};
+
+            // sortArrayOfObjects(array, )
+            console.log("obj array= ", obj);
+            for (var key in obj)
+            {
+              if (obj.hasOwnProperty(key))
+              {
+                a.push(obj[key]);
+              }
+            }
+            console.log("obj array a before= ", a);
+            console.log("obj array a sort= ", a.sort(testsort));
+            console.log("obj array a after= ", a);
+
+            for (var key in obj)
+            {
+              if(a[key] === obj[key])
+              {
+                console.log("array a[k] == obj[k] ", a[key], obj[key]);
+              }
+              else
+              {
+                console.log("array else");
+              }
+            }
+
+            var start = a[0];
+            console.log("array a start= ", a[0]);
+            var end = a[a.length - 1];
+            // console.log("array a end= ", a.slice(-1));
+            console.log("array a end= ", a[a.length - 1]);
+
+            let index = [];
+            let sorted = [];
+
+            for (var i = start; i >= end; i--)
+            {
+              console.log("array in 1st for");
+              for (var j = 0; j < array.length; j++)
+              {
+                console.log("array in 2nd for, array[j]= ", array[j], "i= ", i);
+
+                if (array[j] == i)
+                {
+                  console.log("array in if");
+
+                  sorted.push(array[j]);
+                  index.push(j);
+                }
+              }
+            }
+            console.log("array index= ", index);
+            console.log("array sorted= ", sorted);
+
+            let newATD = [];
+
+            for (var i = 0; i < index.length; i++)
+            {
+                // for (var tip in allTipData)
+                // {
+                //     console.log("array allTipData.indexOf(tip)=", allTipData.indexOf(tip)," i= ", i);
+
+                //     if (allTipData.indexOf(tip) == i)
+                //     {
+                //         newATD.push(tip);
+                //     }
+                // }
+
+                allTipData.map((aTD, ix) => {
+                    console.log("array aTD=", aTD," ix= ", ix, "i= ", i, "index[i]= ", index[i]);
+                    if (ix == index[i])
+                    {
+                        newATD.push(aTD);
+                        console.log("array aTD added");
+                    }
+                })
+            }
+            console.log("array newATD= ", newATD);
+            // allTipData = newATD;
+            // console.log("array matd.len= ", mappingAllTipData.length);
+            // mappingAllTipData.length = 0;
+            console.log("array matd.len= ", mappingAllTipData.length);
+            console.log("array natd.len= ", newATD.length);
+
+            // mappingAllTipData = newATD;
+            for (var i = 0; i < newATD.length; i++)
+            {
+                console.log("array before matd[i]= ", mappingAllTipData[i], "natd[i]= ", newATD[i]);
+                mappingAllTipData[i] = newATD[newATD.length - 1 - i];
+                console.log("array after matd[i]= ", mappingAllTipData[i], "natd[i]= ", newATD[i]);
+            }
+
+            console.log("array mappingAllTipData= ", mappingAllTipData);
+            mappingAllTipData.map((data, index) => {
+                console.log("array map index= ", index, "data", data.id);
+            })
+            console.log("array matd.len= ", mappingAllTipData.length);
+
+
+
+            goodarray.sort(testsort);
+            console.log("sorted good array= ", goodarray);
+
+            // obj.sort(testsortobj);
+            console.log("sorted obj good array= ", obj);
+
+
+            // allTipData.sort(mp_sort);
+            // allTipData.sort(mp_sort);
+
+            // allTipData.map((allTipData, index) => {
+
+            //   // console.log("before atd");
+            //   // console.log("Likes(atd)= ", Likes(allTipData));
+            //   // console.log("after atd");
+
+            //     getLikes(allTipData)
+            // })
+
+
+            //test sort
+            let arr = ["5", "4", "4", "0","0","0","2", "1", "0", "1", "0", "0"];
+            console.log("arr= ", arr);
+            arr.sort(testsort);
+            console.log("arr= ", arr);
+
+
+
+        }
+        // else if (orderSort.current.value === "Least Popular" && allTipData !== "")
+        // {
+        //     console.log("in least popular");
+
+        //     let goodarray = [];
+
+        //     let keys = [];
+        //     let array = [];
+
+        //     var obj = {};
+        //     var a = [];
+
+        //     allTipData.map((aTD, index) => {
+
+        //       // console.log("before atd");
+        //       // console.log("Likes(atd)= ", Likes(allTipData));
+        //       // console.log("after atd");
+
+        //         // getLikes(allTipData);
+
+        //         // <Likes tip={allTipData} />
+        //         // <Likes tip={aTD} />
+
+        //         var opEla = document.getElementById(aTD.id + "option");
+        //         console.log("opEla= ", opEla);
+        //         console.log("opEla id= ", opEla.id, " val= ", opEla.value, " textC= ", opEla.textContent);
+
+        //         // array = [...array, opEla.value];
+        //         array.push(opEla.value);
+        //         keys.push(index);
+        //         console.log("index= ", index, "array= ", array);
+
+        //     })
+
+        //     // array.sort(testsort);
+        //     // console.log("sort array= ", array);
+
+        //     if (array.every(isZero))//() => a === "0"))
+        //     {
+        //       console.log("bad array, ", array);
+        //     }
+        //     else
+        //     {
+        //       console.log("good array");
+        //       goodarray = array;
+        //       console.log("good array= ", goodarray, "key array= ", keys);
+        //     }
+
+        //     for (var  i = 0; i < keys.length; i++)
+        //     {
+        //       obj[keys[i]] = array[i];
+        //     }
+
+        //     // sortArrayOfObjects = (arr, key) => {return arr.sort((a, b) => a[key] - b[key]);};
+
+        //     // sortArrayOfObjects(array, )
+        //     console.log("obj array= ", obj);
+        //     for (var key in obj)
+        //     {
+        //       if (obj.hasOwnProperty(key))
+        //       {
+        //         a.push(obj[key]);
+        //       }
+        //     }
+        //     console.log("obj array a before = ", a);
+        //     console.log("obj array a sort= ", a.sort(testsortleast));
+        //     console.log("obj array a after= ", a);
+
+
+        //     for (var key in obj)
+        //     {
+        //       if(a[key] === obj[key])
+        //       {
+        //         console.log("array a[k] == obj[k] ", a[key], obj[key]);
+        //       }
+        //       else
+        //       {
+        //         console.log("array else");
+        //       }
+        //     }
+
+        //     var start = a[0];
+        //     console.log("array a start= ", a[0]);//5 with testsort // 0 with testsort least
+        //     var end = a[a.length - 1];
+        //     // console.log("array a end= ", a.slice(-1));
+        //     console.log("array a end= ", a[a.length - 1]);//0 with testsort // 5 with testsort least
+
+        //     let index = [];
+        //     let sorted = [];
+
+        //     for (var i = start; i <= end; i++)
+        //     {
+        //       console.log("array in 1st for");
+        //       for (var j = 0; j < array.length; j++)
+        //       {
+        //         console.log("array in 2nd for, array[j]= ", array[j], "i= ", i);
+
+        //         if (array[j] == i)
+        //         {
+        //           console.log("array in if");
+
+        //           sorted.push(array[j]);
+        //           index.push(j);
+        //         }
+        //       }
+        //     }
+        //     console.log("array index= ", index);
+        //     console.log("array sorted= ", sorted);
+
+        //     let newATD = [];
+
+        //     for (var i = 0; i < index.length; i++)
+        //     {
+        //         // for (var tip in allTipData)
+        //         // {
+        //         //     console.log("array allTipData.indexOf(tip)=", allTipData.indexOf(tip)," i= ", i);
+
+        //         //     if (allTipData.indexOf(tip) == i)
+        //         //     {
+        //         //         newATD.push(tip);
+        //         //     }
+        //         // }
+
+        //         allTipData.map((aTD, ix) => {
+        //             console.log("array aTD=", aTD," ix= ", ix, "i= ", i, "index[i]= ", index[i]);
+        //             if (ix == index[i])
+        //             {
+        //                 newATD.push(aTD);
+        //                 console.log("array aTD added");
+        //             }
+        //         })
+        //     }
+        //     console.log("array newATD= ", newATD);
+        //     // // allTipData = newATD;
+        //     // // console.log("array matd.len= ", mappingAllTipData.length);
+        //     // // mappingAllTipData.length = 0;
+        //     console.log("array matd.len= ", mappingAllTipData.length);
+
+        //     // mappingAllTipData = newATD;
+        //     for (var i = 0; i < mappingAllTipData.length; i++)
+        //     {
+        //         mappingAllTipData[i] = newATD[i];
+        //     }
+
+        //     console.log("array mappingAllTipData= ", mappingAllTipData);
+        //     console.log("array matd.len= ", mappingAllTipData.length);
+
+
+
+        //     // goodarray.sort(testsort);
+        //     // console.log("sorted good array= ", goodarray);
+
+        //     // // obj.sort(testsortobj);
+        //     // console.log("sorted obj good array= ", obj);
+
+
+        //     // allTipData.sort(mp_sort);
+        //     // allTipData.sort(mp_sort);
+
+        //     // allTipData.map((allTipData, index) => {
+
+        //     //   // console.log("before atd");
+        //     //   // console.log("Likes(atd)= ", Likes(allTipData));
+        //     //   // console.log("after atd");
+
+        //     //     getLikes(allTipData)
+        //     // })
+
+
+        //     //test sort
+        //     let arr = ["5", "4", "4", "0","0","0","2", "1", "0", "1", "0", "0"];
+        //     console.log("arr= ", arr);
+        //     arr.sort(testsort);
+        //     console.log("arr= ", arr);
+
+
+
+        // }
         else // will be original which is Oldest First
         {
-            console.log("in ordersort check else ", oSort);
+            console.log("in ordersort check else ", oSort, " allTipData= ", allTipData);
+            // allTipData.sort(custom_sort_old);
         }
 
         return allTipData ? (
-        allTipData.map((allTipData, index) => {
+        // return mappingAllTipData ? (
+        // allTipData.map((allTipData, index) => {
+        mappingAllTipData.map((allTipData, index) => {
+            // console.log("array in mappingATD matd= ", mappingAllTipData, " atd= ", allTipData, "index= ", index);
 
             // if (orderSort.current.value === "Newest First")
             // {
@@ -1211,11 +1641,18 @@ export default function Tips(){
             // }
 
             // all cat in 1 if
+            console.log("catSort= ", catSort.current.value, "atd= ", allTipData, "index= ", index);
             if(catSort.current.value !== "" && allTipData !== "")
             {
+                // <AllTip loggedInUser={loggedInUser} allTipData={allTipData} order={order}/>
+
                 if (allTipData.tipCategory !== catSort.current.value)
                 {
-                    return (<></>);
+                    return (
+                    <div className="hidden" width="0" height="0">
+                        <AllTip loggedInUser={loggedInUser} allTipData={allTipData} order={order}/>
+                    </div>
+                    );
                 }
             }
 
@@ -1355,19 +1792,21 @@ export default function Tips(){
     // const catSort = useRef("");
     // const [cSort, setCSort] = useState("");
 
+    // let isRendered = useRef(false);
     useEffect(() => {
+        // isRendered = true;
         checkLoggedIn();
         getAllData();
         console.log('uE userdata = ', userdata);
 
         ///////
         getAllTipData();
-
+        // return () => {isRendered = false};
 
         /////
         // updateTip();
 
-    }, [userdata, orderSort, oSort, cSort, tipCategory2, tipC]);//, checkLoggedIn, getAllData]);
+    }, [userdata, catSort]);//, allTipData]);//, orderSort]);//userdata, orderSort, oSort, cSort, tipCategory2]);//, tipC]);//, allTipData]);//, checkLoggedIn, getAllData]);
 
     const displayData = () => {
       // do something bout id user doesn't have any tips

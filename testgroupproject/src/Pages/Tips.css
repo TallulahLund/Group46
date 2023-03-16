@@ -697,8 +697,10 @@
     min-width: 497.25px;
   }
   #tA {
-    width: 1139px;
-    min-width: 547.25px;
+    /* width: 1139px; */
+    /* width: 80%; */
+    width: 100%;
+    /* min-width: 547.25px; */
     min-height: 100px;
     resize: none;
     /* rows: 4;
@@ -795,6 +797,7 @@
   .secondLine {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   
     /* width: 90%; here*/
     width: 100%;
@@ -1112,6 +1115,12 @@
     /* margin-right: 50px; */
   
     cursor: pointer;
+  }
+
+  .hidden
+  {
+    visibility: hidden;
+    display: none;
   }
   
   .tipBox {

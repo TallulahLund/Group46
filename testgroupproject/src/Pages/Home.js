@@ -116,7 +116,7 @@ export default function Home() {
           <li>
             <p>Want to reduce your energy bills in the meantime?</p>
             <p>
-              Look through our energy ssving tips as well as user-posted tips{" "}
+              Look through our energy saving tips as well as user-posted tips{" "}
               <a href="/tips">here</a>.
             </p>
           </li>
@@ -132,7 +132,7 @@ export default function Home() {
           <li>
             <p>How much do you know about our energy?</p>
             <p>
-              Test your knowledge <a href="/quiz">here</a> by taking interacctive
+              Test your knowledge <a href="/quiz">here</a> by taking interactive
               quizzes.
             </p>
           </li>

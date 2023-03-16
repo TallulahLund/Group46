@@ -1,5 +1,5 @@
 // import React, { useRef, useState, useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 
@@ -65,6 +65,11 @@ const Likes = (props) =>
         })
         // return noLikes;
     }
+
+    // useEffect(() =>
+    // {
+    //     console.log("testing tipLikes ", tipLikes);
+    // }, [tipLikes]);
 
     // function settingTipLikes(data)
     // {

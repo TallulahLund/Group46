@@ -54,7 +54,7 @@ export default function Donation() {
             project aims to install solar panels on the roofs of schools to
             generate clean energy and reduce their dependence on fossil fuels.</p>
           <p>
-            <a href="">Find out more.</a>
+            <a href=""/*"https://www.solarforschools.co.uk/" target={_blank}*/ onClick={() => window.open("https://www.solarforschools.co.uk/", "_blank")}>Find out more.</a>
           </p>
           <form action="http://localhost:3000/donations" method="post">
             <label htmlFor="amount">Donation amount:</label>
