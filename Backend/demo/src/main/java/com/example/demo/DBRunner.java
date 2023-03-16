@@ -32,6 +32,18 @@ public class DBRunner implements CommandLineRunner{
 	@Autowired
 	private LikeRepository likeRepository;
 	
+	// Petition
+	@Autowired
+	private PetitionRepository petitionRepository;
+	
+	
+	// Questions
+	@Autowired
+	private QuestionRepository questionRepository;
+	
+	
+	
+	
 	@Override
 	 public void run(String... args) throws Exception {
 //		priceRepository.deleteAll();
