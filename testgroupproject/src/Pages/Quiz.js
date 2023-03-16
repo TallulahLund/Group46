@@ -70,9 +70,6 @@ export default function Quiz() {
             <p>You have taken a total of {stats.testsTaken} quizzes.</p>
             <p>Average score: {stats.averageScore}%</p>
             <p>Total number of 100%: {stats.perfectScores}</p>
-            <p>Best area: </p>
-            <p>Worst area: </p>
-            <p>any other stats that can be found</p>
           </div>
         </div>
       </section>
