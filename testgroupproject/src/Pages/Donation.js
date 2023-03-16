@@ -27,7 +27,7 @@ export default function Donation() {
             solar farm to provide clean energy to low-income households.</p>
           <p>
             <a href="">Find out more.</a>
-          </p>
+          </p><br/>
           <form action="http://localhost:3000/donations" method="post">
             <label htmlFor="amount">Donation amount:</label>
             <input type="text" id="amount" name="amount" pattern="[0-9]+" title="Please enter a whole number" required />
@@ -55,7 +55,7 @@ export default function Donation() {
             generate clean energy and reduce their dependence on fossil fuels.</p>
           <p>
             <a href=""/*"https://www.solarforschools.co.uk/" target={_blank}*/ onClick={() => window.open("https://www.solarforschools.co.uk/", "_blank")}>Find out more.</a>
-          </p>
+          </p><br/>
           <form action="http://localhost:3000/donations" method="post">
             <label htmlFor="amount">Donation amount:</label>
             <input type="text" id="amount" name="amount" pattern="[0-9]+" title="Please enter a whole number" required />
