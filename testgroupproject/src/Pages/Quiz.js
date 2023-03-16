@@ -3,8 +3,13 @@ import { useState, useEffect } from "react";
 import "./Quiz.css";
 import Questions from "./QuizComponents/Questions";
 import QuizHandler from "./QuizComponents/Quizhandler";
+import axios from "axios";
 
 export default function Quiz() {
+  let data = [];
+  const correctAnswers = [];
+  let currentQuestion = 0;
+
   const [outTest, setOutTest] = useState(true);
   const [stats, setStats] = useState({
     lastScore: 0,
@@ -12,6 +17,27 @@ export default function Quiz() {
     averageScore: 0,
     perfectScores: 0,
   });
+  const [fetchedQuestions, setFetchedQuestions] = useState([]);
+
+  const getQuestions = () => {
+    axios
+      .get("/getquestions")
+      .then((response) => {
+        data = response.data;
+        setFetchedQuestions([...data]);
+        for (let i = 0; i < data.length; i++) {
+          correctAnswers.push(data[i].correctAnswer);
+        }
+      })
+      .then(() => {
+        console.log(data);
+        console.log(fetchedQuestions);
+        console.log(correctAnswers);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const toggleView = () => {
     if (outTest == true) {
@@ -26,8 +52,8 @@ export default function Quiz() {
       <section className="mainContent">
         <div>
           <p>
-            Why not test your knowledge about different energy types by taking
-            a quiz?
+            Why not test your knowledge about different energy types by taking a
+            quiz?
           </p>
           <br />
           <div className="quizButtonCont">

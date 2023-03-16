@@ -943,6 +943,21 @@ export default function Tips(){
       // return (opElb.value - opEla.value);
     }
 
+    function testsort(a, b)
+    {
+      return b - a;
+    }
+
+    function isZero(i) {
+      return i === "0";
+    }
+
+    function testsortobj(a, b, key)
+    {
+      // return b - a;
+      return a[key] - b[key];
+    }
+
     const displayAllTipData = () => {
 
         // if (catSort.current.value === "Home" && allTipData !== "") // all cat sort been put into 1
@@ -1014,6 +1029,14 @@ export default function Tips(){
         {
             console.log("in most popular");
 
+            let goodarray = [];
+
+            let keys = [];
+            let array = [];
+
+            var obj = {};
+            var a = [];
+
             allTipData.map((aTD, index) => {
 
               // console.log("before atd");
@@ -1023,10 +1046,100 @@ export default function Tips(){
                 // getLikes(allTipData);
 
                 // <Likes tip={allTipData} />
-                <Likes tip={aTD} />
+                // <Likes tip={aTD} />
+
+                var opEla = document.getElementById(aTD.id + "option");
+                console.log("opEla= ", opEla);
+                console.log("opEla id= ", opEla.id, " val= ", opEla.value, " textC= ", opEla.textContent);
+
+                array.push(opEla.value);
+                keys.push(index);
+                console.log("index= ", index, "array= ", array);
+
             })
 
-            allTipData.sort(mp_sort);
+            // array.sort(testsort);
+            // console.log("sort array= ", array);
+
+            if (array.every(isZero))//() => a === "0"))
+            {
+              console.log("bad array, ", array);
+            }
+            else
+            {
+              console.log("good array");
+              goodarray = array;
+              console.log("good array= ", goodarray, "key array= ", keys);
+            }
+
+            for (var  i = 0; i < keys.length; i++)
+            {
+              obj[keys[i]] = array[i];
+            }
+
+            // sortArrayOfObjects = (arr, key) => {return arr.sort((a, b) => a[key] - b[key]);};
+
+            // sortArrayOfObjects(array, )
+            console.log("obj array= ", obj);
+            for (var key in obj)
+            {
+              if (obj.hasOwnProperty(key))
+              {
+                a.push(obj[key]);
+              }
+            }
+            console.log("obj array a= ", a);
+            console.log("obj array a sort= ", a.sort(testsort));
+
+            for (var key in obj)
+            {
+              if(a[key] === obj[key])
+              {
+                console.log("array a[k] == obj[k] ", a[key], obj[key]);
+              }
+              else
+              {
+                console.log("array else");
+              }
+            }
+
+            var start = a[0];
+            console.log("array a start= ", a[0]);
+            var end = a[a.length - 1];
+            // console.log("array a end= ", a.slice(-1));
+            console.log("array a end= ", a[a.length - 1]);
+
+            let index = [];
+            let sorted = [];
+
+            for (var i = start; start >= end; i--)
+            {
+              console.log("array in 1st for");
+              for (var j = 0; j < array.length; j++)
+              {
+                console.log("array in 2nd for");
+
+                if (array[j] === i)
+                {
+                  console.log("array in if");
+
+                  sorted.push(array[j]);
+                  index.push(j);
+                }
+              }
+            }
+            // console.log("array index= ", index);
+            console.log("array sorted= ", sorted);
+
+
+            goodarray.sort(testsort);
+            console.log("sorted good array= ", goodarray);
+
+            // obj.sort(testsortobj);
+            console.log("sorted obj good array= ", obj);
+
+
+            // allTipData.sort(mp_sort);
             // allTipData.sort(mp_sort);
 
             // allTipData.map((allTipData, index) => {
@@ -1037,6 +1150,16 @@ export default function Tips(){
 
             //     getLikes(allTipData)
             // })
+
+
+            //test sort
+            let arr = ["5", "4", "4", "0","0","0","2", "1", "0", "1", "0", "0"];
+            console.log("arr= ", arr);
+            arr.sort(testsort);
+            console.log("arr= ", arr);
+
+
+
         }
         else // will be original which is Oldest First
         {
@@ -2053,8 +2176,8 @@ export default function Tips(){
                                     <option id="newest">Newest First</option>
                                     <option id="oldest">Oldest First</option>
                                     {/* need to implement */}
-                                    {/* <option id="mostPop">Most Popular</option>
-                                    <option id="leastPop">Least Popular</option> */}
+                                    <option id="mostPop">Most Popular</option>
+                                    <option id="leastPop">Least Popular</option>
                                 </select>
                             </span>
                             {/* <!-- proper name -> organise similar elements for css --> */}

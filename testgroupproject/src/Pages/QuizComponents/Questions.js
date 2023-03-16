@@ -1,23 +1,43 @@
 const Questions = [
   {
-    question: "Sustainable?",
-    choices: ["Solar", "Wind", "Coal", "Hydro"],
-    correctAnswer: "Coal",
+    question:
+      "Which one of the following energy uses windmills for mechanical power?",
+    choiceA: "Solar energy",
+    choiceB: "Biomass and biofuel",
+    choiceC: "Hydropower",
+    choiceD: "Wind power",
+    correctAnswer: "Wind power",
+    id: 5,
   },
   {
-    question: "Sustainabless?",
-    choices: ["Solar", "Wind", "Coal", "Hydro"],
-    correctAnswer: "Coal",
+    question:
+      "Which one of the following energy uses windmills for mechanical power?",
+    choiceA: "Solar energy",
+    choiceB: "Biomass and biofuel",
+    choiceC: "Hydropower",
+    choiceD: "Wind power",
+    correctAnswer: "Wind power",
+    id: 5,
   },
   {
-    question: "Sustainablessssss?",
-    choices: ["Solar", "Wind", "Coal", "Hydro"],
-    correctAnswer: "Coal",
+    question:
+      "Which one of the following energy uses windmills for mechanical power?",
+    choiceA: "Solar energy",
+    choiceB: "Biomass and biofuel",
+    choiceC: "Hydropower",
+    choiceD: "Wind power",
+    correctAnswer: "Wind power",
+    id: 5,
   },
   {
-    question: "Sustainablesssssssssssssss?",
-    choices: ["Solar", "Wind", "Coal", "Hydro"],
-    correctAnswer: "Coal",
+    question:
+      "Which one of the following energy uses windmills for mechanical power?",
+    choiceA: "Solar energy",
+    choiceB: "Biomass and biofuel",
+    choiceC: "Hydropower",
+    choiceD: "Wind power",
+    correctAnswer: "Wind power",
+    id: 5,
   },
 ];
 
