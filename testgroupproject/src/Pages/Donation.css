@@ -13,22 +13,27 @@
     border-radius: 5px;
   }
   
-  h3, h4 {
+  .donationh3 > h3 {
     font-weight: bold;
   }
   
-  h4 {
+  .donationh4 > h4 {
     margin-top: 20px;
+    font-weight: bold;
   }
   
-  label {
+  .donationLabel {
     display: block;
     margin-bottom: 5px;
   }
   
+  /* #donationForm >
   input[type="number"],
   input[type="text"],
-  input[type="email"] {
+  input[type="email"]  */
+  
+  #donationForm > input
+  {
     padding: 10px;
     border: none;
     border-radius: 5px;
