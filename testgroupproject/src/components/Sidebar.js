@@ -17,11 +17,13 @@ export default function Sidebar(){
 
                 <p>Sign-up to receive our monthly newsletter emails <a href="">here</a></p>
 
-                <br/>
+                <br/><br/>
                 <p><strong>What's going on in your area?</strong></p>
+                <br/>
                 <p>There has been a significant increase in the number of residential and commercial solar power installations in the area. 
                     We our proud to have played a key role in this growth, 
                     helping homeowners and businesses make the switch to clean, renewable energy.</p>
+                <br/>
                 <p>Many local organisations are offering energy efficiency programs to help residents and businesses reduce their 
                     carbon footprint and save money on their energy bills. 
                     We are proud to partner with these organisations and provide expertise in renewable energy solutions.</p>
