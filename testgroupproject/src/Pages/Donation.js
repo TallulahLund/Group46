@@ -25,8 +25,8 @@ export default function Donation() {
             energy in Uxbridge. The project aims to install solar panels on
             residential and commercial buildings, as well as develop a community
             solar farm to provide clean energy to low-income households.</p>
-          <p>
-            <a href="">Find out more.</a>
+            <p>
+            <a href=""/*"https://www.hillingdon.gov.uk/" target={_blank}*/ onClick={() => window.open("https://www.hillingdon.gov.uk/", "_blank")}>Find out more.</a>
           </p><br/>
           <form id="donationForm" action="http://localhost:3000/donations" method="post">
             <label className="donationLabel" htmlFor="amount">Donation amount:</label>
