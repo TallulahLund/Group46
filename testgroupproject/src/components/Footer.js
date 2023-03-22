@@ -26,34 +26,36 @@ export default function Footer(){
     //     </header>
 
         <footer className="App-footer">
-            <div>
-                <strong>Address</strong>
-                <div className="address">
-                    <img src={location} alt="location icon" id="location"></img>
-                    <span className="addressText">
-                        <p>23 Leila Junction</p>
-                        <p>Uxbridge</p>
-                        <p>UB46 7BY</p>
-                    </span>
-                </div>
-            </div>
-            <div>
-                <strong>Contact Details</strong>
-                <div className="cD">
-                    <div className="contactDetails">
-                        <p>Email:</p>
-                        <p>Telephone:</p>
-                    </div>
-                    <div className="cDetails">
-                        <p>energyaware.moreinfo@gmail.com</p>
-                        <p>+44 2235678195</p>
+            <div className="footerBox">
+                <div>
+                    <strong>Address</strong>
+                    <div className="address">
+                        <img src={location} alt="location icon" id="location"></img>
+                        <span className="addressText">
+                            <p>23 Leila Junction</p>
+                            <p>Uxbridge</p>
+                            <p>UB46 7BY</p>
+                        </span>
                     </div>
                 </div>
-            </div>
-            <div>
-                <strong>Social Media</strong>
-                <p>Instagram</p>
-                <p>Facebook</p>
+                <div>
+                    <strong>Contact Details</strong>
+                    <div className="cD">
+                        <div className="contactDetails">
+                            <p>Email:</p>
+                            <p>Telephone:</p>
+                        </div>
+                        <div className="cDetails">
+                            <p>energyaware.moreinfo@gmail.com</p>
+                            <p>+44 2235678195</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <strong>Social Media</strong>
+                    <p>Instagram</p>
+                    <p>Facebook</p>
+                </div>
             </div>
         </footer>
     )

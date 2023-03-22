@@ -109,17 +109,19 @@ export default function Header(/*{user}*/props){
     return (
         <header className="App-header">
             {/* refreshAO() */}
-            <span className="title"><h1>EnergyAware</h1></span>
-            <span><div className="AccountOptions">
-                {/* <nav className="AO-nav">
-                    <Link className="AO-link" to={'/register'}>Sign Up</Link>
-                    <p className="AO-or">or</p>
-                    <Link className="AO-link" to={'/login'}>Login</Link>
-                </nav> */}
+            <div className="headerBox">
+                <span className="title"><h1>EnergyAware</h1></span>
+                {/* <span><div className="AccountOptions"> */}
+                    {/* <nav className="AO-nav">
+                        <Link className="AO-link" to={'/register'}>Sign Up</Link>
+                        <p className="AO-or">or</p>
+                        <Link className="AO-link" to={'/login'}>Login</Link>
+                    </nav> */}
 
-                {/* <p>.{loggedInUser}.</p> */}
+                    {/* <p>.{loggedInUser}.</p> */}
 
-            </div></span>
+                {/* </div></span> */}
+            </div>
         </header>
     )
 }
