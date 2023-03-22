@@ -9,7 +9,7 @@ export default function Sidebar(){
 
             <div className="sidebarcontent">
                 <h3>Newsletter</h3><br/>
-                {/* <p>Read the latest information and be kept up-to-date our current energy situation with our monthly Newsletters.</p>
+                <p>Read the latest information and be kept up-to-date our current energy situation with our monthly Newsletters.</p>
                 <br/>
 
                 <a href="">Newsletter: 01/01/2023</a><br/><br/>
@@ -26,7 +26,7 @@ export default function Sidebar(){
                 <br/>
                 <p>Many local organisations are offering energy efficiency programs to help residents and businesses reduce their 
                     carbon footprint and save money on their energy bills. 
-                    We are proud to partner with these organisations and provide expertise in renewable energy solutions.</p> */}
+                    We are proud to partner with these organisations and provide expertise in renewable energy solutions.</p>
             </div>
 
 
