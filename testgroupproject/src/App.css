@@ -786,6 +786,28 @@ div#root {
   font-size: smaller;
 }
 
+.address
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+#location
+{
+  width: 23px;
+  height: 30px;
+  /* display: flex;
+  align-items: center; */
+  margin-right: 10px;
+}
+
+.addressText
+{
+  font-size: smaller;
+}
+
 .contactDetails
 {
   font-size: smaller;

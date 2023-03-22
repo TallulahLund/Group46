@@ -4,9 +4,8 @@
   align-items: center;
   height: 50vh;
   width: 70%;
-  background-color: lightgrey;
-  border: 2px solid grey;
-  border-radius: 5px;
+  background-color: rgb(247, 247, 247);
+  padding: 10px;
 }
 
 .question {
@@ -26,8 +25,8 @@
 
 .question-option {
   padding: 0px;
-  border: 2px solid rgb(14, 199, 14);
-  background-color: rgb(14, 199, 14);
+  border: 2px solid rgb(133, 130, 130);
+  background-color: rgb(133, 130, 130);
   border-radius: 5px;
   height: 15%;
   cursor: pointer;
@@ -38,5 +37,5 @@
 }
 
 .clicked {
-  background-color: blueviolet;
+  background-color: whitesmoke;
 }

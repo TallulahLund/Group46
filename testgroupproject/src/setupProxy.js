@@ -9,3 +9,7 @@ module.exports = function(app) {
     })
   );
 };
+
+
+
+// for package.json - "proxy": "http://localhost:8080",

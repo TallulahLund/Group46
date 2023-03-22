@@ -1,5 +1,5 @@
 // import React, { useRef, useState, useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 
@@ -12,7 +12,7 @@ const Likes = (props) =>
 {
     console.log("in Likes: tL useState before");
 
-    // const[tipLikes, setTipLikes] = useState("");
+    const[tipLikes, setTipLikes] = useState(0);
     // var tipLikes = "";
 
     console.log("in Likes: tL useState after");
@@ -20,13 +20,17 @@ const Likes = (props) =>
     // console.log("props= ", props);
     const {tip} = props; // fixes issues for Tips From You as tip props
     // const tip = props;
-    console.log("tip= ", tip);
+    console.log("tip= ", {tip});
     console.log("tip= after");
     console.log("tip= after after");
 
+    console.log("in Likes tip.id= ", tip.id);
+    const tipID = tip.id + "option";
+    console.log("in Likes tipID= ", tipID);
+
     // console.log("in Likes: tL useState before");
 
-    const[tipLikes, setTipLikes] = useState("");
+    // const[tipLikes, setTipLikes] = useState("");
     // console.log("in Likes: tL useState after");
 
     getLikes(tip);
@@ -62,6 +66,11 @@ const Likes = (props) =>
         // return noLikes;
     }
 
+    // useEffect(() =>
+    // {
+    //     console.log("testing tipLikes ", tipLikes);
+    // }, [tipLikes]);
+
     // function settingTipLikes(data)
     // {
     //     setTipLikes(data);
@@ -71,16 +80,20 @@ const Likes = (props) =>
 
     // getIsLiked(allTipData);
     // getLikes(tip);
-    // return (
-    //     <div>
-    //         {/* <p>{tipLikes} Likes</p> */}
-    //         <p>{tipLikes}</p>
-    //      </div>
+    console.log("before return tiplikes= ", tipLikes);
+    // while(tipLikes !== "") {
+    return (
+        // <div>
+            // {/* <p>{tipLikes} Likes</p> */}
+            // <p>{tipLikes}</p>
+            <option id={tipID} value={tipLikes}>{tipLikes} Likes</option>
+        //  </div>
 
-    // )
+    )
+// }
     // return {tipLikes}; bad very bad
 
-    return tipLikes;
+    // return tipLikes;
 };
 
 export default Likes;

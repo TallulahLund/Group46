@@ -7,6 +7,8 @@ import { useOutletContext } from "react-router-dom";
 
 // import {AO} from '../AO';
 
+import location from './location pic.jpg';
+
 export default function Footer(){
 
     // const [loggedInUser, setLoggedinUser] = useState("");
@@ -26,9 +28,14 @@ export default function Footer(){
         <footer className="App-footer">
             <div>
                 <strong>Address</strong>
-                <p>23 Leila Junction</p>
-                <p>Uxbridge</p>
-                <p>UB46 7BY</p>
+                <div className="address">
+                    <img src={location} alt="location icon" id="location"></img>
+                    <span className="addressText">
+                        <p>23 Leila Junction</p>
+                        <p>Uxbridge</p>
+                        <p>UB46 7BY</p>
+                    </span>
+                </div>
             </div>
             <div>
                 <strong>Contact Details</strong>

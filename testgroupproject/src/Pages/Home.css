@@ -59,4 +59,6 @@
 .introPara
 {
   width: 70%;
+  /* width: 65%; */
+  margin-right: 15px;
 }

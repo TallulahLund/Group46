@@ -12,14 +12,41 @@ const QuizHandler = (props) => {
   const [score, setScore] = useState(0);
   const [showResults, setShowResults] = useState(false);
 
+  const { choiceA, choiceB, choiceC, choiceD } = questions[currentQuestion];
+
+  const [clickedA, setClickedA] = useState("");
+  const [clickedB, setClickedB] = useState("");
+  const [clickedC, setClickedC] = useState("");
+  const [clickedD, setClickedD] = useState("");
+
   const handleAnswer = (answer) => {
     setCurrentAnswer(answer);
+    setClickedA("");
+    setClickedB("");
+    setClickedC("");
+    setClickedD("");
+    if (answer == choiceA) {
+      setClickedA(" clicked");
+    }
+    if (answer == choiceB) {
+      setClickedB(" clicked");
+    }
+    if (answer == choiceC) {
+      setClickedC(" clicked");
+    }
+    if (answer == choiceD) {
+      setClickedD(" clicked");
+    }
   };
 
   const submitAnswer = () => {
     if (currentAnswer != null) {
       setUserAnswers((prevAnswers) => [...prevAnswers, currentAnswer]);
       setCurrentAnswer(null);
+      setClickedA("");
+      setClickedB("");
+      setClickedC("");
+      setClickedD("");
       if (currentQuestion < questions.length - 1) {
         setCurrentQuestion((prevcurrentQuestion) => prevcurrentQuestion + 1);
       } else {
@@ -44,12 +71,15 @@ const QuizHandler = (props) => {
     }
 
     let newPerfect = 0;
+    let newNumerator = 0;
     let takentests = stats.testsTaken + 1;
     let scorePercentage = (ss / 4) * 100;
-    let newNumerator = stats.averageScore * stats.takentests + scorePercentage;
+    newNumerator += stats.testsTaken * stats.averageScore + scorePercentage;
     let newAverage = newNumerator / takentests;
     if (ss === 4) {
       newPerfect = stats.perfectScores + 1;
+    } else {
+      newPerfect = stats.perfectScores;
     }
 
     setStats({
@@ -61,6 +91,7 @@ const QuizHandler = (props) => {
 
     setShowResults(true);
     console.log("Quiz Sumbitted");
+    console.log(newNumerator);
   };
 
   const calculateStats = () => {
@@ -97,18 +128,25 @@ const QuizHandler = (props) => {
       </div>
     );
   } else {
-    const { question, choices } = questions[currentQuestion];
+    const { question, choiceA, choiceB, choiceC, choiceD } =
+      questions[currentQuestion];
     return (
       <div className="question-display">
         <Question
           question={question}
-          choices={choices}
+          choiceA={choiceA}
+          choiceB={choiceB}
+          choiceC={choiceC}
+          choiceD={choiceD}
           handleAnswer={handleAnswer}
+          clickedA={clickedA}
+          clickedB={clickedB}
+          clickedC={clickedC}
+          clickedD={clickedD}
         />
         <button className="takeQuizButton" onClick={submitAnswer}>
           Next
         </button>
-        <div>{userAnswers}</div>
       </div>
     );
   }

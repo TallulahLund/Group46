@@ -542,16 +542,26 @@ const AllTip = (props) =>
 
     if (allTipData.author.email === loggedInUser)   // if the tip belongs to the user
     {
-        console.log("first if");
+        console.log("first if, ", allTipData);
         getLikes(allTipData);
-        return (<><p>{tipLikes} Likes</p><br/></>)
+        console.log("first if af, ", allTipData);
+        return (<>
+            {/* <p>{tipLikes} Likes</p><br/> this*/}
+            {/* can put all like stuff in Likes instead */}
+            {/* <span className="spanLikes">
+                    <Likes tip={allTipData}/><br/><p> </p>
+                    <p> Likes</p><br/>
+                </span> */}
+                
+                <Likes tip={allTipData}/><br/>
+        </>)
     }
     if (isLiked === false)//(isLiked === "")
     {
-        console.log("isliked = false");
+        console.log("isliked = false, ", allTipData);
         getIsLiked(allTipData);
         getLikes(allTipData);
-        console.log("isliked = false still");
+        console.log("isliked = false still, ", allTipData);
         return (
             <div>
                 {/* <p>..{allTipData.id}..</p> */}
@@ -563,11 +573,15 @@ const AllTip = (props) =>
                 {/* <p>+{getLikes(allTipData)}, {tipLikes} - Likes</p> */}
 
                 {/* <p>{getLikes(allTipData)}</p> */}
-                <p>{tipLikes} Likes</p><br/>
+
+                {/* <p>{tipLikes} Likes</p><br/> this */}
 
                 {/* can put all like stuff in Likes instead */}
-                {/* <Likes tip={allTipData}/> */}
-
+                {/* <span className="spanLikes">
+                    <Likes tip={allTipData}/><br/><p> </p>
+                    <p> Likes</p><br/>
+                </span> */}
+                <Likes tip={allTipData}/><br/>
 
                 <button id="likeTipButton" onClick={() => like(allTipData/*, index*/)}>Like</button>
             </div>
@@ -576,9 +590,10 @@ const AllTip = (props) =>
     }
     else
     {
-        console.log("else");
+        console.log("else, ", allTipData);
         getIsLiked(allTipData);
         getLikes(allTipData);
+        console.log("else af, ", allTipData);
         return (
             <div>
             {/* {displayAllTipData()} */}
@@ -589,7 +604,16 @@ const AllTip = (props) =>
                 {/* <p>+{getLikes(allTipData)}, {tipLikes} - Likes</p> */}
 
                 {/* {() => getLikes(allTipData)} */}
-                <p>{tipLikes} Likes</p><br/>
+
+                {/* <p>{tipLikes} Likes</p><br/> this*/}
+
+                {/* can put all like stuff in Likes instead */}
+                {/* <span className="spanLikes">
+                    <Likes tip={allTipData}/><br/><p> </p>
+                    <p> Likes</p><br/>
+                </span> */}
+                <Likes tip={allTipData}/><br/>
+
                 <button id="likeTipButton" onClick={() => setInfo(allTipData/*unlike(allTipData/*, index*/)}>Unlike</button>
                 {/* <button id="likeTipButton" onClick={() => unlike(allTipData/*unlike(allTipData/*, index*)}>Unlike2</button> */}
             </div>
