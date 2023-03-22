@@ -73,7 +73,7 @@ const QuizHandler = (props) => {
     let newPerfect = 0;
     let newNumerator = 0;
     let takentests = stats.testsTaken + 1;
-    let scorePercentage = (ss / 4) * 100;
+    let scorePercentage = (ss / 10) * 100;
     newNumerator += stats.testsTaken * stats.averageScore + scorePercentage;
     let newAverage = newNumerator / takentests;
     if (ss === 4) {

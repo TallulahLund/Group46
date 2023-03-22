@@ -4,10 +4,12 @@ import "./Quiz.css";
 import Questions from "./QuizComponents/Questions";
 import QuizHandler from "./QuizComponents/Quizhandler";
 import axios from "axios";
+//Add Leaderboard feature once quiz Stats works
 
 export default function Quiz() {
   let data = [];
-  const correctAnswers = [];
+  let list = [];
+  let correctAnswers = [];
   let currentQuestion = 0;
 
   const [outTest, setOutTest] = useState(true);
@@ -19,20 +21,24 @@ export default function Quiz() {
   });
   const [fetchedQuestions, setFetchedQuestions] = useState([]);
 
+  useEffect(() => {
+    getQuestions();
+  }, []);
+
   const getQuestions = () => {
     axios
-      .get("/getquestions")
+      .get("/questions")
       .then((response) => {
         data = response.data;
         setFetchedQuestions([...data]);
-        for (let i = 0; i < data.length; i++) {
-          correctAnswers.push(data[i].correctAnswer);
-        }
+        // for (let i = 0; i < data.length; i++) {
+        //   correctAnswers.push(data[i].correctAnswer);
+        // }
       })
       .then(() => {
         console.log(data);
         console.log(fetchedQuestions);
-        console.log(correctAnswers);
+        console.log(list);
       })
       .catch((error) => {
         console.log(error);
@@ -40,6 +46,8 @@ export default function Quiz() {
   };
 
   const toggleView = () => {
+    console.log("Hey");
+    console.log(fetchedQuestions);
     if (outTest == true) {
       setOutTest(false);
     } else {

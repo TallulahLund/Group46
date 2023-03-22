@@ -1666,7 +1666,7 @@ export default function Tips(){
                             </span>
 
                             {/* <span>{allTipData.indexOf(current)}</span> */}
-                            <span>={index}=</span>
+                            {/* <span>={index}=</span> */}
 
                             <span className="postInfo">
                                 <span className="tipAuthor">posted by: {/*smithy*/}{allTipData.author.name}</span>
