@@ -120,8 +120,10 @@ export default function Registration(){
             <input type="checkbox" ref={seller} name="seller" value="seller"/>
             <label>I want to sell produce from my allotment.</label><br/><br/> */}
 
-            <input type="checkbox" ref={tos} name="tos" value="tos" required/>
-            <label>I agree to the Terms of Use and Privacy Policy.</label>
+            {/* <div className="cBox"> */}
+                <input type="checkbox" ref={tos} name="tos" value="tos" required/>
+                <label>I agree to the Terms of Use and Privacy Policy.</label>
+            {/* </div> */}
             <br/><br/>
 
             <div className="submitform">

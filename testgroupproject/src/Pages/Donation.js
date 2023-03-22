@@ -5,7 +5,7 @@ export default function Donation() {
   return (
     <section className="mainContent">
       <div className="newProjects">
-        <h3>Upcoming Projects</h3>
+        <h3 className="donationh3">Upcoming Projects</h3>
         <br />
         <p>
           Here's a few new projects that aim to make renewable energy more
@@ -18,7 +18,7 @@ export default function Donation() {
         </p>
         <br />
         <div className="project">
-          <h4>Clean Energy Uxbridge</h4>
+          <h4 className="donationh4">Clean Energy Uxbridge</h4>
           <br />
           <p>
             This community-based project aimed at promoting the use of renewable
@@ -28,15 +28,15 @@ export default function Donation() {
           <p>
             <a href="">Find out more.</a>
           </p><br/>
-          <form action="http://localhost:3000/donations" method="post">
-            <label htmlFor="amount">Donation amount:</label>
-            <input type="text" id="amount" name="amount" pattern="[0-9]+" title="Please enter a whole number" required />
+          <form id="donationForm" action="http://localhost:3000/donations" method="post">
+            <label className="donationLabel" htmlFor="amount">Donation amount:</label>
+            <input type="text" id="damount" name="amount" pattern="[0-9]+" title="Please enter a whole number" required />
             <br />
-            <label htmlFor="name">Name:</label>
-            <input type="text" id="name" name="name" required />
+            <label className="donationLabel" htmlFor="name">Name:</label>
+            <input type="text" id="dname" name="name" required />
             <br />
-            <label htmlFor="email">Email:</label>
-            <input type="email" id="email" name="email" required />
+            <label className="donationLabel" htmlFor="email">Email:</label>
+            <input type="email" id="demail" name="email" required />
             <br />
             <button type="submit">Donate</button>
           </form>
@@ -46,7 +46,7 @@ export default function Donation() {
         <br />
 
         <div className="project">
-          <h4>Solar for Schools</h4>
+          <h4 className="donationh4">Solar for Schools</h4>
           <br />
           <p>
             Community-driven initiative aimed at promoting the use of renewable
@@ -56,15 +56,15 @@ export default function Donation() {
           <p>
             <a href=""/*"https://www.solarforschools.co.uk/" target={_blank}*/ onClick={() => window.open("https://www.solarforschools.co.uk/", "_blank")}>Find out more.</a>
           </p><br/>
-          <form action="http://localhost:3000/donations" method="post">
-            <label htmlFor="amount">Donation amount:</label>
-            <input type="text" id="amount" name="amount" pattern="[0-9]+" title="Please enter a whole number" required />
+          <form id="donationForm" action="http://localhost:3000/donations" method="post">
+            <label className="donationLabel" htmlFor="amount">Donation amount:</label>
+            <input type="text" id="damount" name="amount" pattern="[0-9]+" title="Please enter a whole number" required />
             <br />
-            <label htmlFor="name">Name:</label>
-            <input type="text" id="name" name="name" required />
+            <label className="donationLabel" htmlFor="name">Name:</label>
+            <input type="text" id="dname" name="name" required />
             <br />
-            <label htmlFor="email">Email:</label>
-            <input type="email" id="email" name="email" required />
+            <label className="donationLabel" htmlFor="email">Email:</label>
+            <input type="email" id="demail" name="email" required />
             <br />
             <button type="submit">Donate</button>
           </form>
