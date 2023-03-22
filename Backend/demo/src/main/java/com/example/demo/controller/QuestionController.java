@@ -15,7 +15,7 @@ public class QuestionController {
 	@Autowired
 	QuestionService questionService;
 	
-	@GetMapping("/getquestions")
+	@GetMapping("/questions")
 	public List<Question> getQuestions() {
 		return questionService.getQuestions();
 	}
