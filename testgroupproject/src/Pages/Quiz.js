@@ -45,6 +45,10 @@ export default function Quiz() {
       });
   };
 
+  const PostStats = () => {};
+
+  const ShowLeaderBoard = () => {};
+
   const toggleView = () => {
     console.log("Hey");
     console.log(fetchedQuestions);
@@ -79,6 +83,14 @@ export default function Quiz() {
             <p>Average score: {stats.averageScore}%</p>
             <p>Total number of 100%: {stats.perfectScores}</p>
           </div>
+        </div>
+        <div id="statsSection">
+          <button className="statButton" onClick={PostStats}>
+            Save Stats
+          </button>
+          <button className="statButton" onClick={ShowLeaderBoard}>
+            Show LeaderBoard
+          </button>
         </div>
       </section>
     );
