@@ -8,6 +8,7 @@ import { useOutletContext } from "react-router-dom";
 // import {AO} from '../AO';
 
 import location from './location pic.jpg';
+import insta from './insta pic.jpg';
 
 export default function Footer(){
 
@@ -53,7 +54,7 @@ export default function Footer(){
                 </div>
                 <div className="socialMedia">
                     <strong>Social Media</strong>
-                    <p>Instagram</p>
+                    {/* <p>Instagram <img src={insta} alt="instagram icon" id="insta"></img></p> */}
                     <p>Facebook</p>
                 </div>
             </div>

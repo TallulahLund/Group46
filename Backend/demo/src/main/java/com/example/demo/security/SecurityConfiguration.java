@@ -65,7 +65,7 @@ public class SecurityConfiguration {
 //		.authorizeRequests() // deprecated
 		.authorizeHttpRequests()
 //		.antMatchers(HttpMethod.POST, "/user") // doesn't work because of deprecated
-		.requestMatchers(HttpMethod.POST, "/user","/petition")//, "/tip")//(HttpMethod.POST, "/user", "/tip")//.requestMatchers( HttpMethod.GET, "/tip")
+		.requestMatchers(HttpMethod.POST, "/user","/petition", "/donations")//, "/tip")//(HttpMethod.POST, "/user", "/tip")//.requestMatchers( HttpMethod.GET, "/tip")
 //	    .and()
 //	    .requestMatchers(HttpMethod.GET, "/tip")
 		.permitAll()
