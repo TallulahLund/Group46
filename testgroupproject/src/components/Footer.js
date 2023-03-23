@@ -8,6 +8,8 @@ import { useOutletContext } from "react-router-dom";
 // import {AO} from '../AO';
 
 import location from './location pic.jpg';
+import insta from './insta pic.png';
+import facebook from './facebook pic.jpg';
 
 export default function Footer(){
 
@@ -28,7 +30,7 @@ export default function Footer(){
         <footer className="App-footer">
             <div className="footerBox">
                 <div>
-                    <strong>Address</strong>
+                    <strong>Address</strong><br/>
                     <div className="address">
                         <img src={location} alt="location icon" id="location"></img>
                         <span className="addressText">
@@ -39,7 +41,7 @@ export default function Footer(){
                     </div>
                 </div>
                 <div>
-                    <strong>Contact Details</strong>
+                    <strong>Contact Details</strong><br/>
                     <div className="cD">
                         <div className="contactDetails">
                             <p>Email:</p>
@@ -53,8 +55,8 @@ export default function Footer(){
                 </div>
                 <div className="socialMedia">
                     <strong>Social Media</strong>
-                    <p>Instagram</p>
-                    <p>Facebook</p>
+                    <p className="sm">Instagram <img src={insta} alt="instagram icon" id="smpic"></img></p>
+                    <p className="sm">Facebook <img src={facebook} alt="facebook icon" id="smpic"></img></p>
                 </div>
             </div>
         </footer>

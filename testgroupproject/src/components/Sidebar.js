@@ -12,6 +12,8 @@ export default function Sidebar(){
                 <p>Read the latest information and be kept up-to-date our current energy situation with our monthly Newsletters.</p>
                 <br/>
 
+                <a href="">Newsletter: 01/03/2023</a><br/><br/>
+                <a href="">Newsletter: 01/02/2023</a><br/><br/>
                 <a href="">Newsletter: 01/01/2023</a><br/><br/>
                 <a href="">Newsletter: 01/12/2022</a><br/><br/>
 

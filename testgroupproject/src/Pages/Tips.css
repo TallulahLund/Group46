@@ -695,6 +695,8 @@
     /* justify-content: stretch; */
     max-width: 1139px;
     min-width: 497.25px;
+
+    /* fix min n max width for responsive */
   }
   #tA {
     /* width: 1139px; */
