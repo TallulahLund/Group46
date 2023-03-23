@@ -92,6 +92,12 @@ public class PetitionController {
     	return Optional.ofNullable(petitionService.findByPtitle(title));
     }
 	
+	@GetMapping("/getPetitionSigns")
+    public int [] getPetitionSigns(){
+    	
+    	return petitionService.getPetitionSigns();
+
+     }
 	
 	
 }
