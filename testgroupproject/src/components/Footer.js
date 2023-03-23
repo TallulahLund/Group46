@@ -51,7 +51,7 @@ export default function Footer(){
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className="socialMedia">
                     <strong>Social Media</strong>
                     <p>Instagram</p>
                     <p>Facebook</p>
