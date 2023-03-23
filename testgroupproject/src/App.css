@@ -840,3 +840,8 @@ div#root {
   display: flex;
   justify-content: space-between;
 }
+
+.socialMedia > p
+{
+  font-size: smaller;
+}
