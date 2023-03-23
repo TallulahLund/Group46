@@ -37,7 +37,7 @@ export default function Petitions() {
             <p className="sBarGrey"></p>
           </div>
         </div>
-
+        
         <div className="petition">
           <div className="pTitle">
             <h4>Petition to have all renewable energy companies handled by the government (06/01/2023)</h4>
