@@ -617,6 +617,7 @@ div#root {
 .sidebar {
   width: 25%;
   min-width: 180px;
+  max-width: 400px;
   /* background-color: #deded8; */
   /* height: 100%; */
   display: block;
@@ -789,7 +790,8 @@ div#root {
 
 .footerBox
 {
-  padding: 30px 60px;
+  /* padding: 30px 60px; */
+  padding: 25px 60px;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -840,3 +842,32 @@ div#root {
   display: flex;
   justify-content: space-between;
 }
+
+.socialMedia > p
+{
+  font-size: smaller;
+}
+
+.sm
+{
+  display: flex;
+    align-items: center;
+}
+
+#smpic
+{
+  width: 25px;
+  height: 25px;
+  /* display: flex;
+  align-items: center; */
+  margin-left: 10px;
+}
+
+/* #fb
+{
+  width: 30px;
+  height: 30px;
+  /* display: flex;
+  align-items: center; *
+  margin-left: 10px;
+} */

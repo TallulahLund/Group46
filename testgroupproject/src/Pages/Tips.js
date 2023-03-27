@@ -2713,13 +2713,15 @@ export default function Tips(){
                     <div className="submitTips">
                         <div>
                             <p>Do you have helpful tips for others?</p>
-                            <span>Category: </span>
-                            <select id="tipCategory" ref={tipCategory} required>
-                                <option value=""></option>
-                                <option id="homeOption" value="Home">Home</option>
-                                <option id="carOption" value="Car">Car</option>
-                                <option value="Transport">Transport</option>
-                            </select>
+                            <div>
+                                <span>Category: </span>
+                                <select id="tipCategory" ref={tipCategory} required>
+                                    <option value=""></option>
+                                    <option id="homeOption" value="Home">Home</option>
+                                    <option id="carOption" value="Car">Car</option>
+                                    <option value="Transport">Transport</option>
+                                </select>
+                            </div>
                         </div>
                         <div id="textArea">
                             <textarea
