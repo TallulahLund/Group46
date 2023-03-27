@@ -140,7 +140,8 @@ export default function RenewableEnergy() {
 
   const nav = useNavigate();
 
-  const dropdownButton = () => {
+  // const dropdownButton = () => {
+    function dropdownButton() {
     var coll = document.getElementsByClassName("collapsible");
     var i;
     for (i = 0; i < coll.length; i++) {

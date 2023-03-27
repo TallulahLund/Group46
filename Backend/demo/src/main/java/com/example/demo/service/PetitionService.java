@@ -29,6 +29,28 @@ public class PetitionService {
 		return (List<Petition>) petitionRepository.findAll();
 	}
 
+    public int [] getPetitionSigns(){
+    	
+    	List <Petition> petitions = getPetitions();
+    	
+    	int [] signs = new int [3];
+    	signs[0] = 0;
+    	signs [1] = 0;
+    	signs [2] = 0;
+    	
+        for(int i =0; i<petitions.size();i++) {
+        	
+        	if(petitions.get(i).getPTitle()=="petition-1")
+        		signs[0] += 1;
+        	else if(petitions.get(i).getPTitle()=="petition-2")
+        		signs[1] += 1;
+        	else
+        		signs[2] += 1;
+        	
+        }
+        
+        return signs;
+     }
 	
 	public void addPetition(Petition newPetition) {
 		
