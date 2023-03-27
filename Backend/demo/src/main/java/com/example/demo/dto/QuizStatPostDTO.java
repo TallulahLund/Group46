@@ -16,25 +16,25 @@ public class QuizStatPostDTO {
 
 	
 	String LastScore;
-//	User UserId;
+	User UserId;
 	
 	public QuizStatPostDTO() {
 		super();
 	}
 
-	public QuizStatPostDTO(String LastScore) {
+	public QuizStatPostDTO(String LastScore, User UserId) {
 		super();
 		this.LastScore = LastScore;
-//		this.UserId = UserId;
+		this.UserId = UserId;
 	}
 
-//	public User getUserId() {
-//		return UserId;
-//	}
-//
-//	public void setUserId(User userId) {
-//		UserId = userId;
-//	}
+	public User getUserId() {
+		return UserId;
+	}
+
+	public void setUserId(User userId) {
+		UserId = userId;
+	}
 
 	public String getLastScore() {
 		return LastScore;

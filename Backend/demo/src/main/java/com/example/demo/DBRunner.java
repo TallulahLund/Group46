@@ -59,13 +59,7 @@ public class DBRunner implements CommandLineRunner{
 		
 		priceRepository.deleteAll();
 		produceRepository.deleteAll();
-		questionRepository.deleteAll();
 		
-		Question newQuestions = new Question("Sustinable?", "Coal", "Wind", "Coal", "Hydro", "Solar");
-		questionRepository.save(newQuestions);
-		
-		Question newQuestions2 = new Question("Sustinablesssss?", "Coal", "Wind", "Coal", "Hydro", "Solar");
-		questionRepository.save(newQuestions2);
 //		likeRepository.deleteAll();
 //		tipRepository.deleteAll();
 //		userRepository.deleteAll();

@@ -91,7 +91,6 @@ const QuizHandler = (props) => {
 
     setShowResults(true);
     console.log("Quiz Sumbitted");
-    console.log(newNumerator);
   };
 
   const calculateStats = () => {

@@ -34,7 +34,7 @@ public class QuizStat implements Serializable{
 	@LastModifiedDate
 	private Date updatedAt;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "userId", referencedColumnName = "id")
 	User testee;
 

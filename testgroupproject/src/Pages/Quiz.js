@@ -1,12 +1,16 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useOutletContext } from "react-router-dom";
 import "./Quiz.css";
 import Questions from "./QuizComponents/Questions";
 import QuizHandler from "./QuizComponents/Quizhandler";
 import axios from "axios";
+import LeaderBoard from "./QuizComponents/LeaderBoard";
 //Add Leaderboard feature once quiz Stats works
 
 export default function Quiz() {
+  const [loggedInUser, setLoggedinUser] = useOutletContext();
+  const [userdata, setUserdata] = useState("");
   let data = [];
   let list = [];
   let correctAnswers = [];
@@ -20,14 +24,26 @@ export default function Quiz() {
     perfectScores: 0,
   });
   const [fetchedQuestions, setFetchedQuestions] = useState([]);
+  const [LeaderBoardList, setLeaderboardList] = useState([]);
+  const stringScore = stats.lastScore.toString();
 
   useEffect(() => {
     getQuestions();
   }, []);
 
+  useEffect(() => {
+    console.log(LeaderBoardList);
+  }, [LeaderBoardList]);
+
+  // useEffect(() => {
+  //   checkLoggedIn();
+  // }, []);
+
   const getQuestions = () => {
-    axios
-      .get("/questions")
+    axios({
+      method: "get",
+      url: "http://localhost:8080/questions",
+    })
       .then((response) => {
         data = response.data;
         setFetchedQuestions([...data]);
@@ -38,25 +54,115 @@ export default function Quiz() {
       .then(() => {
         console.log(data);
         console.log(fetchedQuestions);
-        console.log(list);
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
-  const PostStats = () => {};
+  const SaveStats = () => {
+    console.log(stringScore);
+    if (!checkLoggedIn()) {
+      alert("You need to log in");
+    } else {
+      if (userdata != "") {
+        PostStats();
+      } else {
+        alert("Please Check That You Are Logged In");
+      }
+    }
+  };
 
-  const ShowLeaderBoard = () => {};
+  const PostStats = () => {
+    console.log(userdata.id);
+    const jwt = sessionStorage.getItem("jwt");
+    axios({
+      method: "post",
+      url: "http://localhost:8080/stat",
+      data: {
+        lastScore: stringScore,
+        // author: userdata,
+        userId: {
+          id: userdata.id,
+          name: userdata.name,
+          email: userdata.email,
+          password: userdata.password,
+          buyer_seller: userdata.buyer_seller,
+        },
+      },
+      headers: { Authorization: `Bearer ${jwt}` },
+    })
+      .then((response) => {
+        console.log(response);
+        if (response.status === 201) {
+          alert("Stat Saved.");
+
+          ////////
+          //getAllData();
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const ShowLeaderBoard = () => {
+    axios({
+      method: "get",
+      url: "http://localhost:8080/stat",
+    })
+      .then((response) => {
+        data = response.data;
+        setLeaderboardList([...data]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    console.log(LeaderBoardList);
+  };
 
   const toggleView = () => {
-    console.log("Hey");
     console.log(fetchedQuestions);
-    if (outTest == true) {
-      setOutTest(false);
-    } else {
-      setOutTest(true);
+    if (fetchedQuestions != []) {
+      if (outTest == true) {
+        setOutTest(false);
+      } else {
+        setOutTest(true);
+      }
     }
+  };
+
+  const checkLoggedIn = () => {
+    if (loggedInUser !== "" && userdata === "") {
+      const jwt = sessionStorage.getItem("jwt");
+      console.log(jwt);
+      axios({
+        method: "get",
+        url: "http://localhost:8080/user/findByEmail",
+        params: { email: loggedInUser },
+        headers: { Authorization: `Bearer ${jwt}` },
+      })
+        .then((response) => {
+          if (response.status === 200) {
+            console.log("response.data = ", response.data);
+            console.log(response.data.userType);
+            setUserdata(response.data);
+          }
+        })
+        .catch((err) => {
+          console.log(err.response);
+          setUserdata("Data failure");
+          return false;
+        });
+
+      ///////////////
+
+      // const jwt = sessionStorage.getItem('jwt');
+      console.log(jwt);
+
+      return true;
+    }
+    return true;
   };
 
   if (outTest) {
@@ -85,19 +191,24 @@ export default function Quiz() {
           </div>
         </div>
         <div id="statsSection">
-          <button className="statButton" onClick={PostStats}>
+          <button className="statButton" onClick={SaveStats}>
             Save Stats
           </button>
           <button className="statButton" onClick={ShowLeaderBoard}>
             Show LeaderBoard
           </button>
         </div>
+        <LeaderBoard LeaderBoardList={LeaderBoardList} />
       </section>
     );
   } else {
     return (
       <div className="mainContent">
-        <QuizHandler questions={Questions} stats={stats} setStats={setStats} />
+        <QuizHandler
+          questions={fetchedQuestions}
+          stats={stats}
+          setStats={setStats}
+        />
         <button id="takeQuizButton" onClick={toggleView}>
           Go Back
         </button>

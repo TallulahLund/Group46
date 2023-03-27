@@ -1,0 +1,19 @@
+.leaderBoardContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  background-color: rgb(247, 247, 247);
+  border: 5px solid black;
+  border-radius: 5px;
+}
+
+.leader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+
+  border-bottom: 2px solid black;
+  width: 95%;
+}

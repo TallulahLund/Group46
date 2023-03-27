@@ -37,16 +37,17 @@ public class QuizStatController {
 		return quizStatService.getQuizStat();
 	}
 	
-	@PostMapping("/stat/{id}")
-	public ResponseEntity<Optional<QuizStat>> addStat(@PathVariable(value = "id") long Id, @RequestBody QuizStatPostDTO newQuizStatDTO){
-		if(newQuizStatDTO.getLastScore()==null || userService.findByID(Id) == null){
+	@PostMapping("/stat")
+	public ResponseEntity<Optional<QuizStat>> addStat(@RequestBody QuizStatPostDTO newQuizStatDTO){
+		if(newQuizStatDTO.getLastScore()==null || newQuizStatDTO.getUserId()==null){
+			System.out.println(newQuizStatDTO.getUserId());
 			return new ResponseEntity<>(Optional.ofNullable(null), HttpStatus.BAD_REQUEST);
 		}
 		QuizStat newQuizStat = new QuizStat();
 		
 		
 		newQuizStat.setLastScore(newQuizStatDTO.getLastScore());
-		User optionalUser = userService.findByID(Id).get();
+		User optionalUser = newQuizStatDTO.getUserId();
 		newQuizStat.setTestee(optionalUser);
 		quizStatService.addStats(newQuizStat);
 		return new ResponseEntity<>(Optional.ofNullable(newQuizStat), HttpStatus.CREATED);
