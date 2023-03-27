@@ -108,6 +108,7 @@ export default function Donation() {
             <input type="email" id="demail" name="email" required />
             <br />
             <button type="submit">Donate</button>
+            {donationSuccess && <p>Thanks for your donation you will be contacted via email shortly!</p>}
           </form>
         </div>
         <br />
