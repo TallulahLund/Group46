@@ -71,7 +71,7 @@ public class SecurityConfiguration {
 		.permitAll()
 	    .and()
 		.authorizeHttpRequests()
-	    .requestMatchers(HttpMethod.GET, "/tip", "/questions", "/stat")
+	    .requestMatchers(HttpMethod.GET, "/tip", "/like/findByTipId", "/questions", "/stat")
 		.permitAll()
 	    .and()
 //	    .authorizeRequests()  // deprecated
