@@ -2,8 +2,9 @@ import { useParams } from "react-router-dom";
 import React, { useRef } from "react";
 import petitions from "./PetitionComponents/Petition_content";
 import NotFoundPage from "./PetitionComponents/NotFoundPage";
+import badlang from "./TipsComponents/badLang.json";
 import axios from "axios";
-
+import "./Petitions.css";
 
 
 const PetitionSignForm = () => {
@@ -46,7 +47,7 @@ if(firstname.indexOf(' ')>= 0 || lastname.indexOf(' ')>= 0){
 return nonvalidtext;
 }
 
-const checkInappropriateWords = (firstname, lastname) =>{
+/*const checkInappropriateWords = (firstname, lastname) =>{
 
 if(typeof firstname==='string' && typeof lastname ==='string'){
 firstname = firstname.toLocaleLowerCase();
@@ -66,7 +67,7 @@ for(var i = 0; badlang.length; i++){
 
 return false;
 
-}
+}*/
 
 
   const checkUserAge = () => {
@@ -145,12 +146,12 @@ return false;
 
   /*HTML displayed on the page*/
   return (
-    <div className="petitionform">
+    <div className="petitionForm">
       <h1>{petition.title}</h1>
       {petition.content.map((paragraph, i) => (
         <p key={i}>{paragraph}</p>
       ))}
-      <div className="dataform">
+      <div className="dataForm">
       <form noValidate onSubmit={handleSubmit}>
         <label><span> First Name<span className="required">*</span></span></label>
         <input className="textarea" type="text" ref={Fname} name="Fname" required></input>
@@ -164,7 +165,7 @@ return false;
         <input className="textarea" type="email" ref={email} name="email" required></input>
 
         <br />
-        <label><span>Date Of Birth<span className="required">*</span></span></label>
+        <label><span>Birthday<span className="required">*</span></span></label>
         <input className="textarea" type="date" ref={birthday} name="birthday" required></input>
 
         <br />
