@@ -47,7 +47,8 @@ export default function Donation() {
   return (
     <section className="mainContent">
       <div className="newProjects">
-        <h3 className="donationh3">Upcoming Projects</h3>
+        {/* <h3 className="donationh3">Upcoming Projects</h3> */}
+        <h2>Upcoming Projects</h2>
         <br />
         <p>
           Here's a few new projects that aim to make renewable energy more

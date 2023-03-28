@@ -163,7 +163,8 @@ export default function RenewableEnergy() {
     <section className="mainContent">
       {/*  */}
 
-      <h3>Renewable Energy</h3>
+      {/* <h3>Renewable Energy</h3> */}
+      <h2>Renewable Energy</h2>
       <br />
       <p>
         When energy comes from a source that is not depleted when used, it is renewable.

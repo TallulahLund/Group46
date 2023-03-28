@@ -52,7 +52,8 @@
 
 /*---------------Petition Page Styling---------------------*/
 
-.petitionList, .petitionForm{
+/* .petitionList,  */
+.petitionForm{
   text-align:justify;
   float:left;
   width:73%;

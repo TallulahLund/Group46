@@ -7,7 +7,8 @@ export default function AboutUs() {
 
     <section className="mainContent">
       <div>
-        <h3>Who Are We?</h3>
+        {/* <h3>Who Are We?</h3> */}
+        <h2>Who Are We?</h2>
         <br />
         <p>
           EnergyAware is a web application designed to promote Affordable and

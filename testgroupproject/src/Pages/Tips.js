@@ -2455,7 +2455,8 @@ export default function Tips(){
 
         <section className="mainContent">
             <section>
-                <h3>Energy Saving Tips</h3>
+                {/* <h3>Energy Saving Tips</h3> */}
+                <h2>Energy Saving Tips</h2>
                 <br />
                 <p>
                     We know not everyone can afford to switch to better renewable energy

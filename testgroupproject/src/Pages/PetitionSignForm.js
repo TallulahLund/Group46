@@ -147,7 +147,8 @@ return false;
   /*HTML displayed on the page*/
   return (
     <div className="petitionForm">
-      <h1>{petition.title}</h1>
+      {/* <h1>{petition.title}</h1> */}
+      <h2>{petition.title}</h2><br />
       {petition.content.map((paragraph, i) => (
         <p key={i}>{paragraph}</p>
       ))}
