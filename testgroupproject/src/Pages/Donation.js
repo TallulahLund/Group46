@@ -1,27 +1,48 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import "./Donation.css";
 import axios from 'axios';
 
+
+
 export default function Donation() {
-  const [donationSuccess, setDonationSuccess] = useState(false);
+  
   const jwt = localStorage.getItem("jwt");
   const token = jwt
   const headers = {
-    Authorization: `Bearer ${token}`
+    Authorization: `Bearer ${token}`,
   }
+  const  [Donation, setDonation] =useState({});
+  const [damount, setDamount] =useState("");
+  const [dname, setDname] =useState("");
+  const [demail, setDemail] =useState("");
 
-  const handleSubmit = async (event) => {
+  //const Donation= {
+ //   damount,
+ //   dname,
+ //   demail
+ // }
+  const onSubmit =async (event) => {
     event.preventDefault();
-    const form = event.target;
-    const formData = new FormData(form);
-    try {
-      await axios.post('http://localhost:8080/donations', formData, { headers });
-      setDonationSuccess(true);
-      form.reset();
-    } catch (error) {
-      console.error(error);
-    }
-  };
+
+    const Donation= {
+       damount,
+        dname,
+         demail
+       }
+
+  await axios 
+  .post("http://localhost:8080/donations", Donation)
+  .then((response) => {
+    console.log(response);
+    if (response.status === 201){
+      console.log(response);
+      setDonation("");
+      setDamount("");
+      setDname("");
+      setDemail("");
+    }alert("Thanks for your Donation!")
+  });
+  }
 
   return (
     <section className="mainContent">
@@ -45,43 +66,39 @@ export default function Donation() {
             This community-based project aimed at promoting the use of renewable
             energy in Uxbridge. The project aims to install solar panels on
             residential and commercial buildings, as well as develop a community
-            solar farm to provide clean energy to low-income households.
-          </p>
-          <p>
-            <a
-              href=""
-              onClick={() => window.open("https://www.hillingdon.gov.uk/", "_blank")}
-            >
-              Find out more.
-            </a>
-          </p>
-          <br />
-          <form id="donationForm" onSubmit={handleSubmit}>
+            solar farm to provide clean energy to low-income households.</p>
+            <p>
+            <a href=""/*"https://www.hillingdon.gov.uk/" target={_blank}*/ onClick={() => window.open("https://www.hillingdon.gov.uk/", "_blank")}>Find out more.</a>
+          </p><br/>
+          <form id="donationForm" onSubmit={onSubmit}>
             <label className="donationLabel" htmlFor="amount">
-              Donation amount:
-            </label>
-            <input
-              type="text"
-              id="damount"
-              name="amount"
-              pattern="[0-9]+"
-              title="Please enter a whole number"
-              required
-            />
+              Donation amount:</label>
+            <input type="text" 
+            id="damount" 
+            name="amount"
+            value={damount}
+            onChange={(e) => setDamount(e.target.value)} 
+            pattern="[0-9]+" 
+            title="Please enter a whole number" required />
             <br />
-            <label className="donationLabel" htmlFor="name">
-              Name:
-            </label>
-            <input type="text" id="dname" name="name" required />
-            <br />
-            <label className="donationLabel" htmlFor="email">
-              Email:
-            </label>
-            <input type="email" id="demail" name="email" required />
+            <label className="donationLabel" htmlFor="name">Name:</label>
+            <input type="text" 
+            id="dname" 
+            name="dname" 
+            value={dname}
+            onChange={(e) => setDname(e.target.value)}
+            br />
+            <label className="donationLabel" htmlFor="email">Email:</label>
+            <input type="email" 
+            id="demail" 
+            name="email" 
+            value={demail}
+            onChange={(e) => setDemail(e.target.value)}
+            required />
             <br />
             <button type="submit">Donate</button>
-            {donationSuccess && <p>Thanks for your donation you will be contacted via email shortly!</p>}
           </form>
+
         </div>
         <br />
         <br />
@@ -108,7 +125,6 @@ export default function Donation() {
             <input type="email" id="demail" name="email" required />
             <br />
             <button type="submit">Donate</button>
-            {donationSuccess && <p>Thanks for your donation you will be contacted via email shortly!</p>}
           </form>
         </div>
         <br />
@@ -118,4 +134,3 @@ export default function Donation() {
     </section>
   );
 }
-

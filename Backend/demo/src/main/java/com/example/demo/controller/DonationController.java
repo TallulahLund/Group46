@@ -28,7 +28,7 @@ public class DonationController {
    @Autowired
    DonationService2 donationService2;
 
-   @PostMapping("/donation")
+   @PostMapping("/donations")
    public Donation createDonation(@Valid @RequestBody DonationPostDTO donationDTO){
     return donationService2.save(donationDTO.toDonation());
    }
