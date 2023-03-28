@@ -47,7 +47,7 @@ if(firstname.indexOf(' ')>= 0 || lastname.indexOf(' ')>= 0){
 return nonvalidtext;
 }
 
-/*const checkInappropriateWords = (firstname, lastname) =>{
+const checkInappropriateWords = (firstname, lastname) =>{
 
 if(typeof firstname==='string' && typeof lastname ==='string'){
 firstname = firstname.toLocaleLowerCase();
@@ -67,7 +67,7 @@ for(var i = 0; badlang.length; i++){
 
 return false;
 
-}*/
+}
 
 
   const checkUserAge = () => {
