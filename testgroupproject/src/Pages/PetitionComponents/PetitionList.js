@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import "../Petitions.css";
 
 const PetitionList = ({ petitions }) => {
   var data;
@@ -41,7 +42,7 @@ const PetitionList = ({ petitions }) => {
         <Link
           className="petitionInfo"
           key={petition.name}
-          to={`/petitionpage/${petition.name}`}
+          to={`/petitions/${petition.name}`}
         >
           <h3>{petition.title}</h3>
           <p style={{ marginBottom: "3px" }}>{signsCount[z]} out of 1,000</p>
