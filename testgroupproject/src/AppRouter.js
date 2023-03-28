@@ -10,6 +10,7 @@ import Login from "./Pages/Login";
 import Registration from "./Pages/Registration";
 import RenewableEnergy from "./Pages/RenewableEnergy";
 import Petitions from "./Pages/Petitions";
+import PetitionSignForm from "./Pages/PetitionSignForm";
 import Tips from "./Pages/Tips";
 import AboutUs from "./Pages/AboutUs";
 import Donation from "./Pages/Donation";
@@ -25,6 +26,7 @@ export default function AppRouter() {
           <Route index element={<Home />} />
           <Route path={"/renewable_energy"} element={<RenewableEnergy />} />
           <Route path={"/petitions"} element={<Petitions />} />
+          <Route path={'/petitions/:petitionId'} element={<PetitionSignForm />}></Route>
           <Route path={"/tips"} element={<Tips />} />
           <Route path={"/quiz"} element={<Quiz />} />
           <Route path={"/donations"} element={<Donation />} />

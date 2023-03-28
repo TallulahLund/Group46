@@ -1,5 +1,5 @@
-import petitions from './PetitionComponents/Petition_content';
-import PetitionList from './PetitionComponents/PetitionList';
+import petitions from "./PetitionComponents/Petition_content";
+import PetitionList from "./PetitionComponents/PetitionList";
 
 export default function Petitions() {
   return (
@@ -13,7 +13,6 @@ export default function Petitions() {
       </p>
 
       <PetitionList petitions={petitions} />
-
     </div>
   );
 }
