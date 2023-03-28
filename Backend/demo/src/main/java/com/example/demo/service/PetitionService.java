@@ -40,9 +40,9 @@ public class PetitionService {
     	
         for(int i =0; i<petitions.size();i++) {
         	
-        	if(petitions.get(i).getPTitle()=="petition-1")
+        	if(petitions.get(i).getPTitle().compareTo("petition-1")==0)
         		signs[0] += 1;
-        	else if(petitions.get(i).getPTitle()=="petition-2")
+        	else if(petitions.get(i).getPTitle().compareTo("petition-2")==0)
         		signs[1] += 1;
         	else
         		signs[2] += 1;
