@@ -34,13 +34,13 @@ private static final long serialVersionUID = 1L;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	
-    @NotBlank
+    //@NotBlank
     double damount;
 
-    @NotBlank
+    //@NotBlank
     String demail;
 
-    @NotBlank
+   // @NotBlank
     String dname;
 
     public Donation() {
