@@ -11,6 +11,7 @@ const PetitionList = ({ petitions }) => {
   const arrayelement = () => {
     z = z + 1;
   };
+  
   useEffect(() => {
     getUserSigns();
   }, []);

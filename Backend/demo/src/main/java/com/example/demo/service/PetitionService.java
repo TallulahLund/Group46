@@ -29,6 +29,7 @@ public class PetitionService {
 		return (List<Petition>) petitionRepository.findAll();
 	}
 
+	
     public int [] getPetitionSigns(){
     	
     	List <Petition> petitions = getPetitions();
@@ -52,13 +53,14 @@ public class PetitionService {
         return signs;
      }
 	
+	
 	public void addPetition(Petition newPetition) {
 		
 		petitionRepository.save(newPetition);
 	}
 	
 	
-	public Optional<Petition> findByID(Long id) {
+	public Optional<Petition> findPetitionByID(Long id) {
 
 		return petitionRepository.findById(id);
 	}
@@ -73,14 +75,16 @@ public class PetitionService {
 	}
 		
 		
-	public Petition findByEmail(String email) {
+	public Petition findPetitionByEmail(String email) {
 		
-		return petitionRepository.findByEmail(email);
+		return petitionRepository.findPetitionByEmail(email);
 	}
 	
 	public Petition findByPtitle (String title) {
 		
-		return petitionRepository.findByPtitle(title);
+		return petitionRepository.findPetitionByPtitle(title);
 	}
+		
 }
+
 
