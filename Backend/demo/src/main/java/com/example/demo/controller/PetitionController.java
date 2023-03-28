@@ -29,7 +29,7 @@ public class PetitionController {
 	@Autowired
 	PetitionService petitionService;
 
-	
+
 	// Get All Users
 	@GetMapping("/petition")
 	public List<Petition> getPetitions() {
@@ -63,7 +63,7 @@ public class PetitionController {
     @GetMapping("/petition/{id}")
     public Optional<Petition> getPetitionById(@PathVariable(value = "id") long Id) {
     	
-        return petitionService.findByID(Id);
+        return petitionService.findPetitionByID(Id);
     }
     
     
@@ -81,7 +81,7 @@ public class PetitionController {
     @GetMapping("/petition/findByEmail")
     public Optional<Petition> getPetitionByEmail(@RequestParam String email) {
     	
-    	return Optional.ofNullable(petitionService.findByEmail(email));
+    	return Optional.ofNullable(petitionService.findPetitionByEmail(email));
     }
     
     
@@ -92,12 +92,11 @@ public class PetitionController {
     	return Optional.ofNullable(petitionService.findByPtitle(title));
     }
 	
-	@GetMapping("/getPetitionSigns")
+    @GetMapping("/getPetitionSigns")
     public int [] getPetitionSigns(){
     	
     	return petitionService.getPetitionSigns();
 
      }
-	
 	
 }

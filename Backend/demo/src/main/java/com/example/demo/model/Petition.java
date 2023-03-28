@@ -70,45 +70,45 @@ private static final long serialVersionUID = 1L;
 		
 	}
 	
-	public void setUserID(Long id) {
+	public void setPetitionID(Long id) {
 		
 		this.id = id;
 	}
 	
-	public Long getUserID() {
+	public Long getPetitionID() {
 		
 		return id;
 	}
 	
-	public void setUserFirstName(String Fname) {
+	public void setFirstName(String Fname) {
 		
 		this.Fname = Fname;
 	}
 	
-	public String getUserFirstName() {
+	public String getFirstName() {
 		
 		return Fname;
 	}
 	
 	
-  public void setUserLastName(String Lname) {
+  public void setLastName(String Lname) {
 		
 		this.Lname = Lname;
 	}
 	
   
-	public String getUserLastName() {
+	public String getLastName() {
 		
 		return Lname;
 	}
 	
 	
-	public void setUserEmail(String email) {
+	public void setEmail(String email) {
 		
 		this.email = email;
 	}
 	
-	public String getUserEmail () {
+	public String getEmail () {
 		
 		return email;
 	}
@@ -152,3 +152,4 @@ private static final long serialVersionUID = 1L;
 	}
 	
 }
+

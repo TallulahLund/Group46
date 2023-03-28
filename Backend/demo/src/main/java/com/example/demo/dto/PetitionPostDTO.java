@@ -92,6 +92,4 @@ public class PetitionPostDTO {
 		return MonthlyEmail.YES;
 		
 	}
-
-	
 }
