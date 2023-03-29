@@ -33,76 +33,26 @@ export default function App() {
         <NavLink to={'/about_us'} className={({isActive}) => (isActive ? "nav-link-active" : "nav-link")}>test</NavLink> */}
 
         {/* changed Link to NavLink */}
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "nav-link-active" : "nav-link"
-          }
-          to={"/"}
-        >
-          Home
-        </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "nav-link-active" : "nav-link"
-          }
-          to={"/renewable_energy"}
-        >
-          Renewable Energy
-        </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "nav-link-active" : "nav-link"
-          }
-          to={"/petitions"}
-        >
-          Petitions
-        </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "nav-link-active" : "nav-link"
-          }
-          to={"/tips"}
-        >
-          Saving Tips
-        </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "nav-link-active" : "nav-link"
-          }
-          to={"/quiz"}
-        >
-          Quiz
-        </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "nav-link-active" : "nav-link"
-          }
-          to={"/donations"}
-        >
-          Donate to Ideas
-        </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "nav-link-active" : "nav-link"
-          }
-          to={"/about_us"}
-        >
-          About Us
-        </NavLink>
+        <NavLink className={({ isActive }) => isActive ? "nav-link-active" : "nav-link"} to={"/"}>Home</NavLink>
+        <NavLink className={({ isActive }) => isActive ? "nav-link-active" : "nav-link"} to={"/renewable_energy"}>Renewable Energy</NavLink>
+        <NavLink className={({ isActive }) => isActive ? "nav-link-active" : "nav-link"} to={"/petitions"}>Petitions</NavLink>
+        <NavLink className={({ isActive }) => isActive ? "nav-link-active" : "nav-link"} to={"/tips"}>Saving Tips</NavLink>
+        <NavLink className={({ isActive }) => isActive ? "nav-link-active" : "nav-link"} to={"/quiz"}>Quiz</NavLink>
+        <NavLink className={({ isActive }) => isActive ? "nav-link-active" : "nav-link"} to={"/donations"}>Donate to Ideas</NavLink>
+        <NavLink className={({ isActive }) => isActive ? "nav-link-active" : "nav-link"} to={"/about_us"}>About Us</NavLink>
 
+        {/* not in navigation bar */}
         {/* <Link className="nav-link" to={'/register'}>Register</Link>
         <Link className="nav-link" to={'/login'}>Login</Link> */}
-        {/* <Link className="nav-link" to={'/help'}>Help</Link> */}
       </nav>
       <main className="App-main">
-        {/* <Sidebar/> */}
-        
+        {/* provides the logged in user for outlet pages */}
         {/* <Outlet context={[loggedInUser, setLoggedinUser]}/> */}
         <UserContext.Provider value={loggedInUser}>
-          <Outlet context={[loggedInUser, setLoggedinUser]}/>
+          <Outlet context={[loggedInUser, setLoggedinUser]}/>               
         </UserContext.Provider>
+
         <Sidebar />
-        {/* floating mainContent left fixed the problem */}
       </main>
       <Footer/>
     </div>

@@ -1,21 +1,3 @@
-// import React from "react";
-// import "./Registration.css";
-
-// export default function Registration() {
-//   return (
-//     <div>
-//       <p>This is Registration</p>
-//     </div>
-//   );
-// }
-
-
-
-
-
-
-
-
 import React, {useRef} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
@@ -29,12 +11,9 @@ export default function Registration(){
     const password=useRef();
     const repPassword=useRef();
     const dob=useRef();
-    // const buyer=useRef();
-    // const seller=useRef();
     const tos=useRef();
 
-    const validateForm = () => {
-        console.log("dob", dob.current.value);// works
+    const validateForm = () => {                            // validates the registration form
         let formValid = false;
 
         if (name.current.validity.valueMissing 
@@ -50,8 +29,6 @@ export default function Registration(){
             alert("Password is too short. Please select another password.");
         } else if(password.value !== repPassword.value) {
             alert("Passwords do not match. Please retry.");
-        // } else if (!buyer.current.checked && !seller.current.checked){
-        //     alert("Please check at least one checkbox to select being a seller or a buyer in the system.")
         } else if (!validateDob()) {
             alert("You must be 18 to create an account.")
         }else if (tos.current.validity.valueMissing){
@@ -62,7 +39,7 @@ export default function Registration(){
         return formValid;
     }
 
-    const validateDob = () => {// not exact check
+    const validateDob = () => {// not exact check           // validates date of birth
         let parts = dob.current.value.split('-');
         let now = new Date();
         let year = parseInt(parts[0], 10);
@@ -88,30 +65,19 @@ export default function Registration(){
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        if(validateForm()){
-            // let buyer_seller=[buyer.current.checked,seller.current.checked]
-            let buyer_seller=[false,true];
+        if(validateForm()){                                 // if form is valid post new user to backend
 
-
-            // axios.post('https://reqres.in/api/users',{
-            axios.post(/*'/user'*/'http://localhost:8080/user',{
+            axios.post('http://localhost:8080/user',{
                 name: name.current.value,
                 email: email.current.value,
                 password: password.current.value,
-                // buyer_seller: buyer_seller,
                 dob: dob.current.value
             }).then(response=>{
                 console.log(response);
-                // if (response.status === 403){
-                //     alert("Email already has an account");
-                //     console.log("in");
-                // }
                 if (response.status === 201){
                     alert("Registered successfully.")
-
-
                     //////////////
-                    nav("/login");
+                    nav("/login");                          // if successful redirect to login page
                 }
             }).then(()=>{
                 name.current.value="";
@@ -119,16 +85,11 @@ export default function Registration(){
                 password.current.value="";
                 repPassword.current.value="";
                 dob.current.value="";
-                // buyer.current.checked=false;
-                // seller.current.checked=false;
                 tos.current.checked=false;
             })
             .catch(error=>{
                 console.log(error);
-                // if (response.status === 403){
                     alert("Email already has an account");
-                //     console.log("in e");
-                // }
             })
         }
       }
@@ -149,19 +110,10 @@ export default function Registration(){
             <input type="password" ref={repPassword} name="repPassword" required/><br/><br/>
 
             <label className="labelText">Date of Birth:</label>
-            {/* <input type="day" id="birthday" name="birthday"/><input type="month" id="birthday" name="birthday"/><input type="year" id="birthday" name="birthday"/> */}
             <input type="date" id="birthday" ref={dob} name="birthday" max={new Date()} step="1" required/><br/><br/>
 
-            {/* <input type="checkbox" ref={buyer} name="buyer" value="buyer"/>
-            <label>I want to buy produce directly from allotment owners.</label><br/>
-
-            <input type="checkbox" ref={seller} name="seller" value="seller"/>
-            <label>I want to sell produce from my allotment.</label><br/><br/> */}
-
-            {/* <div className="cBox"> */}
-                <input type="checkbox" ref={tos} name="tos" value="tos" required/>
-                <label>I agree to the Terms of Use and Privacy Policy.</label>
-            {/* </div> */}
+            <input type="checkbox" ref={tos} name="tos" value="tos" required/>
+            <label>I agree to the Terms of Use and Privacy Policy.</label>
             <br/><br/>
 
             <div className="submitform">

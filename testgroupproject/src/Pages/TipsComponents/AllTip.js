@@ -7,140 +7,34 @@ import '../Tips.css';
 
 import Likes from './Likes';
 
-// export default function AllTip(loggedInUser)
-// export default 
 const AllTip = (props) => 
 {
     console.log("in AllTip");
-    const {loggedInUser, allTipData, order} = props;
+    const {loggedInUser, allTipData} = props;
     console.log("atd= ", allTipData);
-
-    // const [loggedInUser, setLoggedinUser] = useOutletContext();
-    // const [userdata, setUserdata] = useState("");
-
-    // const [allTipData, setAllTipData] = useState("");
-
-    // const getAllTipData = () => {
-    //     const jwt = sessionStorage.getItem('jwt');
-    //     console.log('userdata.id = ', userdata.id);
-    //     console.log('userdata = ', userdata);
-
-    //     axios({
-    //         method: 'get',
-    //         url: 'http://localhost:8080/tip',
-    //         headers: {"Authorization" : `Bearer ${jwt}`}})
-    //         .then((response) => {
-    //             console.log(response.data);
-    //             console.log("rd = ", response.data);
-    //             setAllTipData(response.data);
-
-    //             ////////////// date
-    //             console.log("date = ", response.date);
-    //             // backend - get createAt and updatedAt dates
-
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //         });
-    // };
-
-    // const displayAllTipData = () => {
-    //     return allTipData ? (
-    //     allTipData.map((allTipData, index) => {
-    //         return (
-    //             <div className=/*"userTipBoxN"*/"tipBox">
-    //                 <span className=/*"userTipInfoN"*/"box" key={allTipData.id}>
-    //                     <div className="firstLine">
-    //                         <span className="tipCategory">
-    //                         <p>{allTipData.tipCategory}</p>
-    //                         </span>
-
-    //                         {/* <span>{allTipData.indexOf(current)}</span> */}
-    //                         <span>={index}=</span>
-
-    //                         <span className="postInfo">
-    //                             <span className="tipAuthor">posted by: {/*smithy*/}{allTipData.author.name}</span>
-    //                             <span className="tipDateTime">
-    //                                 {/*{" "}{/*posted*/} - {/*06/01/2023 15:28*/}--/--/---- --:--
-    //                             </span>
-    //                         </span>
-    //                     </div>
-    //                     <div className="secondLine">
-    //                         {/* <span className="userTipString"> */}
-    //                         <textarea className="userTipStringAll" /*"ta*/readOnly>{allTipData.tipString}</textarea>
-    //                         {/* </span> */}
-    //                         {/* <span className="userLikes">
-    //                             <span className="userTipLikes">
-    //                                 <p>{/*207*}- Likes</p>
-    //                             </span>
-    //                             <span className="likeTip">
-    //                                 <button id="likeTipButton">Like</button>
-    //                             </span>
-    //                         </span> */}
-    //                         <span className="likes">
-    //                             <span className="tipLikes">
-    //                                 {/* <p>-{() =>getLikes(allTipData.id)}-{tipLikes} Likes</p> */}
-    //                                 {/* <p>{getLikes(allTipData.id)}= Likes</p> */}
-    //                                 {/* <p>Likes</p> */}
-    //                                 {() => getLikes(allTipData.id)}
-    //                                 <p>{result[index]}-testing</p>
-    //                                 {console.log("rindex=", result[index])}
-    //                             </span>
-    //                             <span className="likeTip">
-    //                                 <button id="likeTipButton" onClick={() => like(allTipData, index)}>Like</button>
-    //                             </span>
-    //                         </span>
-    //                         {/* <div className="modifyTip">  */}
-    //                         {/* </div> */}
-    //                     </div>
-    //                 </span>
-                
-    //                 {/* <br /><p> </p> */}
-
-    //             </div>
-
-    //             // <UserTip key={data.id} data={data} />
-
-    //             // now need to format what looks like
-
-    //         );
-    //     })
-    //     ) : (
-    //     <h3>No data yet</h3>
-    //     );
-    // }
 
     useEffect(() => {
         // getAllTipData();
         // getLikes(allTipData);
         getUserData();
     }, []);
-    // , [allTipData]);
+    // }, [allTipData]);
 
-    const [userdata, setUserdata] = useState("");
+    const [userdata, setUserdata] = useState("");                       // logged in user
 
-    const getUserData = () => {
-        console.log("gud liu=", loggedInUser);
+    const getUserData = () => {                                         // gets logged in user's data
         if(loggedInUser!=="" && userdata===""){
-            console.log("in if");
-
-            console.log("liu=", loggedInUser);      //loggedInUser is just email not user
 
             const jwt = sessionStorage.getItem('jwt');
             console.log(jwt);
-            axios({
+            axios({                                                     // gets user by email from backend
                 method: 'get',
                 url: 'http://localhost:8080/user/findByEmail',
-                // params: {email: loggedInUser.email},
                 params: {email: loggedInUser},
                 headers: {"Authorization" : `Bearer ${jwt}`}
             }).then((response) => {
                 if (response.status === 200){
-                    console.log(response.data);
-                    console.log('response.data = ', response.data);
-                    console.log(response.data.userType);
-                    setUserdata(response.data);
-                    console.log('userdata in then = ', userdata);
+                    setUserdata(response.data);                         // sets the logged in user
                     // getAllData();
                 }
             }).catch(err => {
@@ -149,311 +43,153 @@ const AllTip = (props) =>
             })
 
             ///////////////
-            console.log('userdata in check logged in = ', userdata);
-
-            // const jwt = sessionStorage.getItem('jwt');
-            console.log(jwt);
         }
-        else
-        {
-            console.log("else");
-            const jwt = sessionStorage.getItem('jwt');
-            console.log(jwt);
-            axios({
-                method: 'get',
-                url: 'http://localhost:8080/user/findByEmail',
-                // params: {email: loggedInUser.email},
-                params: {email: 'test@email.com'},
-                headers: {"Authorization" : `Bearer ${jwt}`}
-            }).then((response) => {
-                if (response.status === 200){
-                    console.log(response.data);
-                    console.log('response.data = ', response.data);
-                    console.log(response.data.userType);
-                    setUserdata(response.data);
-                    console.log('userdata in then = ', userdata);
-                    // getAllData();
-                }
-            }).catch(err => {
-                console.log(err.response);
-                setUserdata("Data failure");
-            })
-        }
+        // else//??????
+        // {
+        //     const jwt = sessionStorage.getItem('jwt');
+        //     console.log(jwt);
+        //     axios({
+        //         method: 'get',
+        //         url: 'http://localhost:8080/user/findByEmail',
+        //         // params: {email: loggedInUser.email},
+        //         params: {email: 'test@email.com'},
+        //         headers: {"Authorization" : `Bearer ${jwt}`}
+        //     }).then((response) => {
+        //         if (response.status === 200){
+        //             console.log(response.data);
+        //             console.log('response.data = ', response.data);
+        //             console.log(response.data.userType);
+        //             setUserdata(response.data);
+        //             console.log('userdata in then = ', userdata);
+        //             // getAllData();
+        //         }
+        //     }).catch(err => {
+        //         console.log(err.response);
+        //         setUserdata("Data failure");
+        //     })
+        // }
 
     }
 
     /////////
     // Like
-    // const like = (event) =>
     // function like(tip)
-    const like = (tip, index) =>
+    const like = (tip, index) =>                                            // creates user-tip like
     {
-        // event.preventDefault();
-        console.log("in like - ud = ", userdata);
-
-        if (userdata === "" || userdata === "Data failure")
+        if (userdata === "" || userdata === "Data failure")                 // user must be logged in to like  tip
         {
             alert("Login to Like Tips");
         }
         else
         {
+            const jwt = sessionStorage.getItem('jwt');
+            console.log(jwt);
 
+            if(isLiked === false)                                           // if tip is not liked by user
+            {
+                axios({                                                     // posts like to backend
+                    method: 'post',
+                    url: 'http://localhost:8080/like',
+                    data: {
+                        user: {
+                            id: userdata.id,
+                            name: userdata.name,
+                            email: userdata.email,
+                            password: userdata.password,
+                            dob: userdata.dob
+                        },
+                        tip: tip
+                    },
+                    headers: { "Authorization" : `Bearer ${jwt}`}
+                }).then(response=>{
+                    console.log(response);
+                    if (response.status === 201){
+                        alert("Tip like created.")
+                        /*
+                        figure out how to update like number when liked
+                        
+                        think done
+                        */
+                        getLikes(tip);                                      // gets tip likes number
 
-        const jwt = sessionStorage.getItem('jwt');
-        console.log(jwt);
-
-        // if (result[index].some(e => e.user.email !== loggedInUser))
-        if(isLiked === false)//(isLiked === "")
-        {
-        axios({
-            method: 'post',
-            url: 'http://localhost:8080/like',
-            data: {
-                user: {
-                    id: userdata.id,
-                    name: userdata.name,
-                    email: userdata.email,
-                    password: userdata.password,
-                    buyer_seller: userdata.buyer_seller,
-                },
-                tip: tip
-            },
-            headers: { "Authorization" : `Bearer ${jwt}`}
-        }).then(response=>{
-            console.log(response);
-            if (response.status === 201){
-                alert("Tip like created.")
-
-
-                /*
-                figure out how to update like number when liked
-                
-                think done
-                */
-                getLikes(tip);
-
-                ////////
-                // getAllData();
-                // getLikes(tip.id);
+                        ////////
+                        // getAllData();
+                    }
+                })
+                .catch(error=>{
+                    console.log(error);
+                })
+            } else
+            {
+                alert("already exists");
             }
-        // }).then(()=>{
-        //     tipCategory.current.value="";
-        //     tipString.current.value="";
-        //     // author.current.value=0;
-        })
-        .catch(error=>{
-            console.log(error);
-        })
-        } else
-        {
-            // console.log()
-            alert("already exists");
-        }
         }
     }
 
-    const [isLiked, setIsLiked] = useState(false);//useState("");
+    const [isLiked, setIsLiked] = useState(false);                              // boolean for when user has liked tip or not
 
-    const getIsLiked = (tip) => {
+    const getIsLiked = (tip) => {                                               // get if user has liked tip or not
         const jwt = sessionStorage.getItem('jwt');
         console.log(jwt);
-        console.log("alltip gil tip=, ", tip);
-        axios({
+        axios({                                                                 // gets all of a tip's likes
             method: 'get',
             url: 'http://localhost:8080/like/findByTipId',
             params: {tipId : tip.id},
             headers: { "Authorization" : `Bearer ${jwt}`}
         }).then(response=>{
-            console.log("res data= ", response.data);
-            console.log("count= ", response.data.length);
-            // noLikes = response.data.length;
-            // setTipLikes(response.data.length);
-
-            if (response.data.find(e => e.user.email === loggedInUser))
+            if (response.data.find(e => e.user.email === loggedInUser))         // checks if logged in user has liked tip
             {
                 setIsLiked("true");
             }
-
-            // setResult(result => [...result, response]);
-            // setRes(response.data);
-
-        // }).then(()=>{
-        //     tipCategory.current.value="";
-        //     tipString.current.value="";
-        //     // author.current.value=0;
         })
         .catch(error=>{
             console.log(error);
         })
-        // return "output";
     }
 
-    const[tipLikes, setTipLikes] = useState("");
-    // const [result, setResult] = useState([]);
-    // const [res, setRes] = useState("");
-    // const getLikes = (tip) =>
-    function getLikes(tip)
+    const[tipLikes, setTipLikes] = useState("");                                // tip's likes number
+    function getLikes(tip)                                                      // gets tip's like number
     {
-        console.log("in getLikes");
-        // setTipLikes(0);
-
         const jwt = sessionStorage.getItem('jwt');
         console.log(jwt);
 
-        var noLikes = 0;
-
-        console.log("alltip gL tip=, ", tip);
-        axios({
+        axios({                                                                 // gets all of a tip's likes
             method: 'get',
             url: 'http://localhost:8080/like/findByTipId',
             params: {tipId : tip.id},
-            // headers: { "Authorization" : `Bearer ${jwt}`}
+            // headers: { "Authorization" : `Bearer ${jwt}`}            // don't need to be logged in to get likes number
         }).then(response=>{
-            // console.log("tipId= ", tip, " nolikes= ", response.data.user.length);
-            // if (response.status === 201){
-            //     alert("Tip like created.")
-            //     ////////
-            //     getAllData();
-            // }
-
-            console.log("res data= ", response.data);
-            console.log("count= ", response.data.length);
-            noLikes = response.data.length;
-            setTipLikes(response.data.length);
-
-
-            // setResult(result => [...result, response]);
-            // setRes(response.data);
-
-            // return noLikes;
-
-        // }).then(()=>{
-        //     tipCategory.current.value="";
-        //     tipString.current.value="";
-        //     // author.current.value=0;
+            setTipLikes(response.data.length);                                  // set tip's likes number
         })
         .catch(error=>{
             console.log(error);
         })
-        // return noLikes;
-        // return response.data.length;
     }
 
 
     //////////
     // Unlike
-    const unlike = (tip, index) =>
+    const unlike = (tip, index) =>                                          // unlikes tip
     {
-        // getUserId();
-        // getLikeId(tip, uId);
-
-        // // getUserId(getLikeId(tip, uId, deleteLike(tip)));
-
-        console.log("ul lId= ", lId);
         deleteLike(tip);
-        // // getLikeId(tip, uId);
-        // // getUserId();
-        // // var dl = await deleteLike(tip);
-        // // getLikeId(tip, uId);
-        // // getUserId();
-
-
-        // // event.preventDefault();
-        // const jwt = sessionStorage.getItem('jwt');
-        // console.log(jwt);
-
-        // console.log("in unlike ", tip);
-
-        // // const userId = getUserId();
-        // console.log("uI= ", uId);
-        // // const likeId = getLikeId(tip, uId);//userId);
-        // console.log("lI= ", lId);
-
-        // if (lId !== "")
-        // {
-        //     deleteLike(tip);
-        // }
-
-        // do
-        // {
-        //     getUserId();
-        //     getLikeId(tip, uId);
-        // }
-        // while (lId === undefined)
-
-        // if (lId !== undefined)
-        // {
-        //     console.log("in if");
-        //     deleteLike(tip);
-        // }
-
-        // setTimeout(() => deleteLike(tip), 40000);
-
-    }
-
-    const [uId, setUserId] = useState();
-
-    const getUserId = () => {
-        const jwt = sessionStorage.getItem('jwt');
-        console.log(jwt);
-        axios({
-            method: 'get',
-            url: 'http://localhost:8080/user/findByEmail',
-            // params: {email: loggedInUser.email},
-            params: {email: loggedInUser},
-            headers: {"Authorization" : `Bearer ${jwt}`}
-        }).then((response) => {
-            if (response.status === 200){
-                console.log(response.data);
-                console.log('response.data = ', response.data);
-                console.log(response.data.userType);
-                // setUserdata(response.data);
-                console.log(response.data.id);
-                // return response.data.id;
-                setUserId(response.data.id);
-                // console.log('userdata in then = ', userdata);
-                // getAllData();
-            }
-        }).catch(err => {
-            console.log(err.response);
-            // setUserdata("Data failure");
-            // return 0;
-            setUserId(0);
-        })
     }
     
     const [lId, setLikeId] = useState(0);
 
-    const getLikeId = (tip, userId) => {
+    const getLikeId = (tip, userId) => {                                        // find likeId by userId and tipId from backend
         const jwt = sessionStorage.getItem('jwt');
         console.log(jwt);
-        console.log("userId= ", userId);
-        console.log("tipId= ", tip.id);
         axios({
             method: 'get',
             url: 'http://localhost:8080/like/findByTipIdAndUserId',
-            // params: {email: loggedInUser.email},
-            // params: {email: loggedInUser},
             params: {tipId: tip.id, userId: userId},
             headers: {"Authorization" : `Bearer ${jwt}`},
-            success: unlike(tip)
+            success: unlike(tip)                                                // if succesful will unlike the tip
         }).then((response) => {
             if (response.status === 200){
-                console.log(response.data);
-                console.log('response.data tu = ', response.data);
-                // return response.data.id;
                 setLikeId(response.data);       // not response.data.id as only id is returned not like
 
-                console.log("gLI lId=", lId);
                 // getAllData();
-
-                // deleteLike(tip);
-                // setTimeout(() => deleteLike(tip), 4000);
-                // deleteLike(tip, response.data.id);
-                // setTimeout(() => deleteLike(tip, response.data.id), 4000);
-
-                // var dl = await deleteLike(tip);
-                // deleteLike(tip);
             }
             if (response.success)
             {
@@ -463,9 +199,6 @@ const AllTip = (props) =>
             // deleteLike(tip);
         }).catch(err => {
             console.log(err.response);
-            // setUserdata("Data failure");
-            // return "";
-            // setLikeId("");
         })
     }
 
@@ -476,15 +209,12 @@ const AllTip = (props) =>
         getLikes(allTipData);
     }, [lId, isLiked]);
 
-    const deleteLike = (tip) => {//, likeId) => {
-        console.log("dL lId=", lId);
-        // console.log("dl likeId= ", likeId);
+    const deleteLike = (tip) => {                                                   // deletes user-tip like
         const jwt = sessionStorage.getItem('jwt');
 
-        // return new Promise(function(resolve, reject) {
-        axios({
+        axios({                                                                     // deletes like by likeId in backend
             method: 'delete',
-            url: 'http://localhost:8080/like/' + lId,//likeId,//lId,
+            url: 'http://localhost:8080/like/' + lId,
             headers: { "Authorization" : `Bearer ${jwt}`,
             "Access-Control-Allow-Origin": "http://localhost:8080"}
         }).then(response=>{
@@ -493,129 +223,60 @@ const AllTip = (props) =>
             {
                 alert("Tip like deleted.");
                 getLikes(tip);
-                setIsLiked(false);                                      // need to flip button back to like
-                // resolve(alert("success"));
+                setIsLiked(false);                                      // flips button back to like
             }
             // getLikes(tip);
 
         })
         .catch(error=>{
             console.log(error);
-            // reject(error);
         })
-    // });
-        // } else {
-        //     reject(error);
-        // })
     }
 
-    // return (
-    //     <div>
-    //         {/* {displayAllTipData()} */}
-    //         {/* {getUserData()} */}
-    //         <p>//{loggedInUser}//</p>
-    //         {/* <p>{res}</p> */}
-    //         <p>.{getIsLiked(allTipData)}.{isLiked}.</p>
-    //         <p>+{getLikes(allTipData)}, {tipLikes} - Likes</p>
-    //         <button id="likeTipButton" onClick={() => like(allTipData/*, index*/)}>Like</button>
-    //     </div>
-
-    // )
-
-    const setInfo = (tip) => {
-        // getUserId();
-        getLikeId(tip, userdata.id);//uId);
-
-        // unlike(tip);
-        // var c = confirm("Are you sure you want to unlike tip?");
-        // // if(confirm("Are you sure you want to unlike tip?") === true)
-        // if (c === true)
-        // {
-        //     unlike(tip);
-        // }
-
-        console.log("sI lId=", lId);
-
+    const setInfo = (tip) => {                  // if user unlikes tip will get the likeId
+        getLikeId(tip, userdata.id);
     }
-
-    console.log("atdae= ", allTipData.author.email, "liu = ", loggedInUser, "iL = ", isLiked);
 
     if (allTipData.author.email === loggedInUser)   // if the tip belongs to the user
     {
-        console.log("first if, ", allTipData);
         getLikes(allTipData);
-        console.log("first if af, ", allTipData);
-        return (<>
-            {/* <p>{tipLikes} Likes</p><br/> this*/}
-            {/* can put all like stuff in Likes instead */}
-            {/* <span className="spanLikes">
-                    <Likes tip={allTipData}/><br/><p> </p>
-                    <p> Likes</p><br/>
-                </span> */}
-                
-                <Likes tip={allTipData}/><br/>
-        </>)
+        return (                                                                // returns like number
+            <>
+                {/* <p>{tipLikes} Likes</p><br/> this*/}
+                {/* can put all like stuff in Likes instead */}
+                    
+                <Likes tip={allTipData}/><br/>                                  {/* returns like number */}
+            </>
+        )
     }
-    if (isLiked === false)//(isLiked === "")
+    if (isLiked === false)              // tip unliked = like button
     {
-        console.log("isliked = false, ", allTipData);
         getIsLiked(allTipData);
         getLikes(allTipData);
-        console.log("isliked = false still, ", allTipData);
-        return (
+        return (                                                                // returns like number and correct like/unlike button
             <div>
-                {/* <p>..{allTipData.id}..</p> */}
-            {/* {displayAllTipData()} */}
-                {/* {getUserData()} */}
-            {/* <p>//{loggedInUser}//</p> */}
-            {/* <p>{res}</p> */}
-                {/* <p>.{getIsLiked(allTipData)}.{isLiked}.</p> */}
-                {/* <p>+{getLikes(allTipData)}, {tipLikes} - Likes</p> */}
-
-                {/* <p>{getLikes(allTipData)}</p> */}
-
                 {/* <p>{tipLikes} Likes</p><br/> this */}
-
                 {/* can put all like stuff in Likes instead */}
-                {/* <span className="spanLikes">
-                    <Likes tip={allTipData}/><br/><p> </p>
-                    <p> Likes</p><br/>
-                </span> */}
-                <Likes tip={allTipData}/><br/>
 
-                <button id="likeTipButton" onClick={() => like(allTipData/*, index*/)}>Like</button>
+                <Likes tip={allTipData}/><br/>                                  {/* returns like number */}
+
+                <button id="likeTipButton" onClick={() => like(allTipData)}>Like</button>
             </div>
     
         )
     }
-    else
+    else                                // tip liked = unlike button
     {
-        console.log("else, ", allTipData);
         getIsLiked(allTipData);
         getLikes(allTipData);
-        console.log("else af, ", allTipData);
-        return (
+        return (                                                                // returns like number and correct like/unlike button
             <div>
-            {/* {displayAllTipData()} */}
-            {/* {getUserData()} */}
-                {/* <p>//{loggedInUser}//</p> */}
-            {/* <p>{res}</p> */}
-                {/* <p>.{() => getIsLiked(allTipData)}.{isLiked}.</p> */}
-                {/* <p>+{getLikes(allTipData)}, {tipLikes} - Likes</p> */}
-
-                {/* {() => getLikes(allTipData)} */}
-
                 {/* <p>{tipLikes} Likes</p><br/> this*/}
-
                 {/* can put all like stuff in Likes instead */}
-                {/* <span className="spanLikes">
-                    <Likes tip={allTipData}/><br/><p> </p>
-                    <p> Likes</p><br/>
-                </span> */}
-                <Likes tip={allTipData}/><br/>
+                
+                <Likes tip={allTipData}/><br/>                                  {/* returns like number */}
 
-                <button id="likeTipButton" onClick={() => setInfo(allTipData/*unlike(allTipData/*, index*/)}>Unlike</button>
-                {/* <button id="likeTipButton" onClick={() => unlike(allTipData/*unlike(allTipData/*, index*)}>Unlike2</button> */}
+                <button id="likeTipButton" onClick={() => setInfo(allTipData)}>Unlike</button>
             </div>
     
         )
@@ -625,7 +286,8 @@ const AllTip = (props) =>
 export default AllTip;
 
 
-/*
+/*  CheckList
+
     -   Like and Unlike buttons are meant to toggle 
         -> working now - I set isLiked to boolean
 
@@ -638,7 +300,8 @@ export default AllTip;
     -   can't like if it your tip 
         -> done - removed button if tip belongs to logged in user
 
-    -*   do likes filter
+    -   do likes filter
+        -> done
 
     -   remove filter button
         -> done

@@ -1,28 +1,10 @@
-// import React from "react";
-// import "./Login.css";
-
-// export default function Login() {
-//   return (
-//     <div>
-//       <p>This is Login</p>
-//     </div>
-//   );
-// }
-
-
-
-
-
-
-
 import React, {useRef} from "react";
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import axios from "axios";
 
-export default function Login(props){
+export default function Login(){
 
     const nav = useNavigate();
-
 
     const email=useRef();
     const password=useRef();
@@ -63,18 +45,12 @@ export default function Login(props){
                     alert("Logged in successfully.")
                     const jwtToken = response.headers.authorization.split(' ')[1]
                     if (jwtToken !== null) {
-                        sessionStorage.setItem("jwt", jwtToken);
-                        console.log(jwtToken);
-                        setLoggedinUser(email.current.value);
-                        // setLoggedinUser(response.data);
-                        console.log('loggedInUser = ', loggedInUser);
-                        console.log('response = ', response);
+                        sessionStorage.setItem("jwt", jwtToken);                        // stores the jwt token
+                        console.log(jwtToken);                                          
+                        setLoggedinUser(email.current.value);                           // sets to logged in user's email
 
                         ///////////
-                        // loggedInUser.setLoggedinUser(1) -> 1 is true?
-                        nav("/");
-
-
+                        nav("/");                                                       // redirects to home page
                     } else{
                         alert("Token failure!");
                         setLoggedinUser("");
@@ -97,17 +73,16 @@ export default function Login(props){
 
     return (
         <div className="registrationdiv">
-        <form className="registration"/*"form"*/ id="login" noValidate onSubmit={handleSubmit}>
-            <label className="labelText">Email:</label>
-            <input type="email" ref={email} name="email" required/><br/><br/>
+            <form className="registration" id="login" noValidate onSubmit={handleSubmit}>
+                <label className="labelText">Email:</label>
+                <input type="email" ref={email} name="email" required/><br/><br/>
 
-            <label className="labelText">Password:</label>
-            <input type="password" ref={password} name="password" required/><br/><br/>
-            <div className="submitform"><input type="submit" value="Submit" className="submit"/></div><br/>
+                <label className="labelText">Password:</label>
+                <input type="password" ref={password} name="password" required/><br/><br/>
+                <div className="submitform"><input type="submit" value="Submit" className="submit"/></div><br/>
 
-            <label className="labelText1">Don't have an account yet? Register <Link to={'/register'}>Here</Link></label>
-            {/* <a href="/register">Here</a></label> */}
-        </form>
+                <label className="labelText1">Don't have an account yet? Register <Link to={'/register'}>Here</Link></label>
+            </form>
         </div>
     )
 }

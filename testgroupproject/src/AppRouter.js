@@ -18,7 +18,7 @@ import Quiz from "./Pages/Quiz";
 
 export default function AppRouter() {
   return (
-    //Routes corresponding to Home, Registration, Login, Help.
+    //Routes corresponding to Home, Registration, Login, Renewable Energy, Petitions, Tips, Quiz, Donationa and About Us.
 
     <Router>
       <Routes>
