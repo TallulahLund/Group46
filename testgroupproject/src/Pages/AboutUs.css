@@ -29,5 +29,6 @@
 .pic
 {
     height: 170px;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
+    width: 100%;
 }

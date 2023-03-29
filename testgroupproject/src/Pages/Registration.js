@@ -28,34 +28,62 @@ export default function Registration(){
     const email=useRef();
     const password=useRef();
     const repPassword=useRef();
+    const dob=useRef();
     // const buyer=useRef();
     // const seller=useRef();
     const tos=useRef();
 
     const validateForm = () => {
+        console.log("dob", dob.current.value);// works
         let formValid = false;
 
         if (name.current.validity.valueMissing 
             || email.current.validity.valueMissing 
             || password.current.validity.valueMissing
-            || repPassword.current.validity.valueMissing){
+            || repPassword.current.validity.valueMissing
+            || dob.current.validity.valueMissing){
                 alert("Please fill in all text fields.");
         }
         else if (email.current.validity.typeMismatch){
             alert("Invalid e-mail address. Please enter your e-mail again.");
         }else if (password.current.validity.tooShort){
-            alert("Password is too short. Please select another password");
+            alert("Password is too short. Please select another password.");
         } else if(password.value !== repPassword.value) {
-            alert("Passwords do not match. Please retry");
+            alert("Passwords do not match. Please retry.");
         // } else if (!buyer.current.checked && !seller.current.checked){
         //     alert("Please check at least one checkbox to select being a seller or a buyer in the system.")
-        } else if (tos.current.validity.valueMissing){
+        } else if (!validateDob()) {
+            alert("You must be 18 to create an account.")
+        }else if (tos.current.validity.valueMissing){
             alert("Please agree to the Terms and Conditions, and Privacy Policy.")
         }else{
             formValid = true;
         }
         return formValid;
     }
+
+    const validateDob = () => {// not exact check
+        let parts = dob.current.value.split('-');
+        let now = new Date();
+        let year = parseInt(parts[0], 10);
+        let currentYear = now.getFullYear();
+        let month = ( parts[1][0] === '0') ? parseInt(parts[1][1], 10) : parseInt(parts[1], 10);
+        let day = ( parts[2][0] === '0') ? parseInt(parts[2][1], 10) : parseInt(parts[2], 10);
+    
+        if(year >= currentYear) {
+            return false;
+        }
+        if( (currentYear - year) < 18 ){
+            return false;
+        }
+        if( month < 1 || month > 12) {
+            return false;
+        }
+        if( day < 1 || day > 31 ) {
+            return false;
+        }
+        return true;
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -70,9 +98,14 @@ export default function Registration(){
                 name: name.current.value,
                 email: email.current.value,
                 password: password.current.value,
-                buyer_seller: buyer_seller,
+                // buyer_seller: buyer_seller,
+                dob: dob.current.value
             }).then(response=>{
                 console.log(response);
+                // if (response.status === 403){
+                //     alert("Email already has an account");
+                //     console.log("in");
+                // }
                 if (response.status === 201){
                     alert("Registered successfully.")
 
@@ -85,12 +118,17 @@ export default function Registration(){
                 email.current.value="";
                 password.current.value="";
                 repPassword.current.value="";
+                dob.current.value="";
                 // buyer.current.checked=false;
                 // seller.current.checked=false;
                 tos.current.checked=false;
             })
             .catch(error=>{
                 console.log(error);
+                // if (response.status === 403){
+                    alert("Email already has an account");
+                //     console.log("in e");
+                // }
             })
         }
       }
@@ -112,7 +150,7 @@ export default function Registration(){
 
             <label className="labelText">Date of Birth:</label>
             {/* <input type="day" id="birthday" name="birthday"/><input type="month" id="birthday" name="birthday"/><input type="year" id="birthday" name="birthday"/> */}
-            <input type="date" id="birthday" name="birthday" max={new Date()} step="1" required/><br/><br/>
+            <input type="date" id="birthday" ref={dob} name="birthday" max={new Date()} step="1" required/><br/><br/>
 
             {/* <input type="checkbox" ref={buyer} name="buyer" value="buyer"/>
             <label>I want to buy produce directly from allotment owners.</label><br/>

@@ -1,6 +1,8 @@
 import React from "react";
 import "./AboutUs.css";
 
+import infpic from "./AboutUsComponents/image-not-found.jpg";
+
 export default function AboutUs() {
   return (
     // <div><p>This is AboutUs</p></div>
@@ -31,7 +33,7 @@ export default function AboutUs() {
           <div><p className="pic"/>Tanish Ahuja</div>
           <div><p className="pic"/>Tiago Esteves</div>
           <div><p className="pic"/>Taiye Ige</div>
-          <div><p className="pic"/>Tallulah Lund</div>
+          <div><img className="pic" src={infpic} alt="image not found"/>Tallulah Lund</div>
           <div><p className="pic"/>Dillion Madhoo</div>
           <div><p className="pic"/>Jaspreet Singh</div>
         </div>
