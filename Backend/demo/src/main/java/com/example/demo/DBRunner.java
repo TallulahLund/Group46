@@ -116,14 +116,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class DBRunner implements CommandLineRunner{
+	
+	// User
 	@Autowired 
 	private UserRepository userRepository;
-	
-//	@Autowired
-//	private ProduceRepository produceRepository;
-//	
-//	@Autowired
-//	private ProduceSellerPriceRepository priceRepository;
 	
 	// Tip
 	@Autowired

@@ -325,23 +325,11 @@ import java.util.Set;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-//import javax.persistence.Column;
-//import javax.persistence.Entity;
-//import javax.persistence.EntityListeners;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-//import javax.persistence.Id;
-//import javax.persistence.ManyToMany;
-//import javax.persistence.Table;
-//import javax.persistence.Temporal;
-//import javax.persistence.TemporalType;
-//import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-//import com.example.demo.UserType;
 
 //Let's create a simple User class
 @Entity
@@ -364,16 +352,8 @@ public class User implements Serializable {
 	@NotBlank
 	String password;
 	
-//	UserType userType;
-	
 	LocalDate dob; 
 	
-	
-//	@NotBlank
-//	@OneToMany(cascade = CascadeType.ALL, mappedBy = "author")
-//	private List<Tip> tips;
-	
-//	cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE }
 	
 	@Column(nullable = false, updatable = false)
 	@Temporal(TemporalType.TIMESTAMP)
@@ -388,19 +368,14 @@ public class User implements Serializable {
 	
 	 public User() {
 			super();
-			// TODO Auto-generated constructor stub
 	}
-		
 	 
-	 public User(String name, String email, String password /*, UserType userType, List<Tip> tips*/, LocalDate dob) {
+	 public User(String name, String email, String password, LocalDate dob) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.password = password;
-//		this.userType = userType;
 		this.dob = dob;
-		//
-//		this.tips = tips;
 	}
 	
 	
@@ -440,15 +415,6 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-
-//	public UserType getUserType() {
-//		return userType;
-//	}
-//
-//
-//	public void setUserType(UserType userType) {
-//		this.userType = userType;
-//	}
 	
 	public LocalDate getDob() {
 		return dob;
@@ -457,16 +423,6 @@ public class User implements Serializable {
 	public void setDob(LocalDate dob) {
 		this.dob = dob;
 	}
-
-	//
-//	public List<Tip> getTips()
-//	{
-//		return tips;
-//	}
-//	public void setTips(List<Tip> tips)
-//	{
-//		this.tips = tips;
-//	}
 
 
 	@Override

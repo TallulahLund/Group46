@@ -103,14 +103,12 @@ public class UserService {
 	
 	public UserService() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	
 	public List<User> getUsers() {
 		return (List<User>) userRepository.findAll();
 	}
-
 	
 	public void addUser(User newUser) {
 		userRepository.save(newUser);
@@ -128,12 +126,5 @@ public class UserService {
 	
 	public User findByEmail(String email) {
 		return userRepository.findByEmail(email);
-	}
-
-	
-	//
-	public void createTip()
-	{
-		
 	}
 }

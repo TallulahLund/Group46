@@ -269,26 +269,27 @@ public class UserController {
         return userService.getUsers();
     }
     
+    
+    // Post a User
     @PostMapping("/user")
     public ResponseEntity<Optional<User>> addUser(@RequestBody UserPostDTO newUserDTO) {
     	
     	if (newUserDTO.getName()==null || 
     		newUserDTO.getEmail()==null ||
     		newUserDTO.getPassword()==null ||
-//    		newUserDTO.getUserType() == null ||
     		newUserDTO.getDob()==null) {
             return new ResponseEntity<>(Optional.ofNullable(null), HttpStatus.BAD_REQUEST);
         }
     	
-    	// Week 19 Lab
+    	// Security
     	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
     	
-    	User newUser = new User(newUserDTO.getName(), newUserDTO.getEmail(),
-    			encoder.encode(newUserDTO.getPassword()), /*newUserDTO.convertType(),*/ newUserDTO.getDob()/*,
-    			newUserDTO.getTips()*/);
+    	User newUser = new User(newUserDTO.getName(), 
+                                newUserDTO.getEmail(),
+    			                encoder.encode(newUserDTO.getPassword()), 
+                                newUserDTO.getDob());
     	userService.addUser(newUser);
     	return new ResponseEntity<>(Optional.ofNullable(newUser),HttpStatus.CREATED);
-
     }
 	 
     
@@ -299,12 +300,13 @@ public class UserController {
     }
     
     
-    //Delete a User by ID
+    //Delete User by ID
     @DeleteMapping("/user/{id}")
     public String deleteUser(@PathVariable(value = "id") long Id) {
         userService.deleteUser(Id);
         return "User Deleted"; 
     }
+
     
     //Get User by Email
     @GetMapping("/user/findByEmail")

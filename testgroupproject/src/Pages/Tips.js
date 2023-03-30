@@ -26,6 +26,7 @@ export default function Tips(){
     const [data, setData] = useState("");                               // logged in user's tips
 
     const catSort = useRef("");
+    const [cSort, setCSort] = useState("");
 
     const checkLoggedIn = () => {                                       // check if a user is logged in
         if(loggedInUser!=="" && userdata==="")
@@ -698,12 +699,12 @@ export default function Tips(){
             mode: 'cors'
         }).then(response=>{
             console.log(response);
-            if (response.status === 201){
+            if (response.status === 200){
                 alert("Tip deleted.")
             }
         }).then(()=>{
-            tipCategory.current.value="emptyD";
-            tipString.current.value="emptyD";
+            tipCategory.current.value="";
+            tipString.current.value="";
             author.current.value=100;
 
             getAllData();// not updating after
@@ -839,7 +840,7 @@ export default function Tips(){
                                 <div id="aTsameLine">
                                     <span>
                                         Category:
-                                        <select className="tipFilterCategory" ref={catSort} >
+                                        <select className="tipFilterCategory" ref={catSort} onChange={(e) => setCSort(e.target.value)}>
                                             <option value=""></option>
                                             <option id="homeOption" value="Home">Home</option>
                                             <option id="carOption" value="Car">Car</option>
