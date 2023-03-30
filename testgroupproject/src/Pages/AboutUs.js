@@ -2,6 +2,11 @@ import React from "react";
 import "./AboutUs.css";
 
 import infpic from "./AboutUsComponents/image-not-found.jpg";
+import tiagoPic from "./AboutUsComponents/Tiago.JPG";
+import taiyePic from "./AboutUsComponents/Taiye.JPG";
+import jaspreetPic from "./AboutUsComponents/Jaspreet.JPG";
+import tanishPic from "./AboutUsComponents/Tanish.JPG";
+import dillionPic from "./AboutUsComponents/Dillion.JPG";
 
 export default function AboutUs() {
   return (
@@ -30,12 +35,12 @@ export default function AboutUs() {
           <span>Tallulah Lund</span>
           <span>Dillion Madhoo</span>
           <span>Jaspreet Singh</span> */}
-          <div><p className="pic"/>Tanish Ahuja</div>
-          <div><p className="pic"/>Tiago Esteves</div>
-          <div><p className="pic"/>Taiye Ige</div>
-          <div><img className="pic" src={infpic} alt="image not found"/>Tallulah Lund</div>
-          <div><p className="pic"/>Dillion Madhoo</div>
-          <div><p className="pic"/>Jaspreet Singh</div>
+          <div><img className="pic" src={tanishPic} alt=""/>Tanish Ahuja</div>
+          <div><img className="pic" src={tiagoPic} alt=""/>Tiago Esteves</div>
+          <div><img className="pic" src={taiyePic} />Taiye Ige</div>
+          <div><img className="pic" src={infpic} alt=""/>Tallulah Lund</div>
+          <div><img className="pic" src={dillionPic} alt=""/>Dillion Madhoo</div>
+          <div><img className="pic" src={jaspreetPic} alt=""/>Jaspreet Singh</div>
         </div>
       </div>
     </section>
